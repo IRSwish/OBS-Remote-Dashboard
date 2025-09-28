@@ -28,12 +28,18 @@
   </div>
 
   <div style="display:flex; flex-direction:column; gap:12px; flex:1;">
-    <div class="panel" id="previewPanel">
-      <h3>Preview / Program</h3>
-      <div id="previewContainer">
-        <div class="preview-wrapper"><iframe id="preview1" src=""></iframe></div>
-        <div class="preview-wrapper"><iframe id="preview2" src=""></iframe></div>
-        <div class="preview-wrapper"><iframe id="preview3" src=""></iframe></div>
+    <div id="previewContainer" style="display:flex; gap:6px; width:100%; height:200px;">
+      <div class="preview-wrapper" style="flex:1; display:flex; flex-direction:column;">
+        <div class="preview-controls"></div>
+        <iframe id="preview1" src="" style="flex:1;"></iframe>
+      </div>
+      <div class="preview-wrapper" style="flex:1; display:flex; flex-direction:column;">
+        <div class="preview-controls"></div>
+        <iframe id="preview2" src="" style="flex:1;"></iframe>
+      </div>
+      <div class="preview-wrapper" style="flex:1; display:flex; flex-direction:column;">
+        <div class="preview-controls"></div>
+        <iframe id="preview3" src="" style="flex:1;"></iframe>
       </div>
     </div>
 
@@ -56,6 +62,7 @@
 <script type="module" src="js/main.js"></script>
 </body>
 </html>
+
 
 
 
