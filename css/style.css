@@ -43,9 +43,10 @@ body{background:linear-gradient(180deg,var(--bg),#07101a);color:#e6eef6;height:1
 #addSeparatorBtn {margin-top:8px; padding:6px; border:none; border-radius:6px; background:linear-gradient(90deg,var(--accent),var(--accent2)); color:#07101a; cursor:pointer; font-weight:bold;}
 
 /* Preview / Program */
-#previewPanel img, #programImg {width:100%; height:auto; border-radius:6px; background:#000; display:block;}
-#previewContainer {display: flex; flex: 1; gap: 6px; width: 100%; height: 100%;}
-#previewContainer iframe {flex: 1; width: 100%; border: none; margin: 0; border-radius: 0; background: #000;}
+#previewPanel{display:flex;flex-direction:column;gap:6px;flex:1;height:100%}
+#previewContainer{display:flex;flex:1;gap:6px;width:100%}
+#previewContainer iframe{flex:1;height:100%;border:0;margin:0;border-radius:0;display:block;background:#000}
+
 
 /* Mixer */
 #mixer {display:flex; gap:12px; align-items:flex-end; height:280px; overflow-x:auto; padding-bottom:12px;}
@@ -66,5 +67,6 @@ button.muteBtn {margin-top:4px;font-size:10px;padding:2px 6px;border-radius:4px;
 /* Mixer panel bottom align */
 #previewPanel { display:flex; flex:1;flex-direction: column; gap: 12px;}
 #mixerPanel {margin-top:auto;}
+
 
 
