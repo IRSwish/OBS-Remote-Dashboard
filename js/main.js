@@ -27,7 +27,7 @@ document.getElementById("loadChat").addEventListener("click", ()=>{
 document.addEventListener("obsMessage", e => {
     const msg = e.detail;
 
-    // Lors de l'auth OK
+    // Auth OK → lancer la requête GetStats toutes les secondes
     if(msg.op === 2){
         if(statsInterval) clearInterval(statsInterval);
         statsInterval = setInterval(()=>{
@@ -37,8 +37,14 @@ document.addEventListener("obsMessage", e => {
 
     // Réception des stats
     if(msg.op === 7 && msg.d.requestId === "stats"){
-        const stats = msg.d.responseData;
-        const cpu = stats.cpuUsage?.toFixed(1) ?? 0;
+        const stats = msg.d.responseData || msg.d; // <- fallback selon la version d'OBS
+        let cpu = 0;
+
+        // OBS 29+ : stats.cpuUsage dans d
+        if(stats.cpuUsage !== undefined) cpu = stats.cpuUsage.toFixed(1);
+
+        // OBS plus anciens : d.cpuUsage
+        else if(stats.d?.cpuUsage !== undefined) cpu = stats.d.cpuUsage.toFixed(1);
 
         const el = document.getElementById("cpuFps");
         if(el) el.textContent = `CPU ${cpu}%`;
