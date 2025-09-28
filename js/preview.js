@@ -1,59 +1,72 @@
 // js/preview.js
 
+// helper pour créer un bouton icône
+function makeIconBtn(iconName, title) {
+    const btn = document.createElement("button");
+    btn.className = "icon-btn";
+    btn.innerHTML = `<i data-lucide="${iconName}"></i>`;
+    btn.title = title;
+    return btn;
+}
+
 const previews = [
-  { wrapper: document.getElementById("preview1").parentElement, iframe: document.getElementById("preview1") },
-  { wrapper: document.getElementById("preview2").parentElement, iframe: document.getElementById("preview2") },
-  { wrapper: document.getElementById("preview3").parentElement, iframe: document.getElementById("preview3") }
+    { wrapper: document.getElementById("preview1").parentElement, iframe: document.getElementById("preview1") },
+    { wrapper: document.getElementById("preview2").parentElement, iframe: document.getElementById("preview2") },
+    { wrapper: document.getElementById("preview3").parentElement, iframe: document.getElementById("preview3") }
 ];
 
-previews.forEach((p, i) => {
-    const controls = p.wrapper.querySelector(".preview-controls");
+previews.forEach((p) => {
+    // Crée ou récupère la barre de contrôle
+    let controls = p.wrapper.querySelector(".preview-controls");
+    if(!controls) {
+        controls = document.createElement("div");
+        controls.className = "preview-controls";
+        p.wrapper.insertBefore(controls, p.iframe);
+    }
 
-    // Input pour l'ID uniquement
+    // Input pour l'ID VDO
     const input = document.createElement("input");
     input.type = "text";
     input.placeholder = "ID VDO";
 
-    // Bouton copy (clipboard)
-    const copyBtn = document.createElement("button");
-    copyBtn.innerHTML = "📋"; // Icône clipboard
-    copyBtn.title = "Copier le lien OBS";
+    // Bouton Copy
+    const copyBtn = makeIconBtn("copy", "Copier le lien OBS");
     copyBtn.addEventListener("click", () => {
-        if (!input.value.trim()) return;
+        if(!input.value.trim()) return;
         const url = `https://vdo.ninja/?view=${input.value}`;
         navigator.clipboard.writeText(url);
     });
 
-    // Bouton connect (push stream)
-    const connectBtn = document.createElement("button");
-    connectBtn.innerHTML = "🎥"; // Icône caméra
-    connectBtn.title = "Connecter la caméra";
+    // Bouton Connect
+    const connectBtn = makeIconBtn("cast", "Connecter la caméra (push)");
     connectBtn.addEventListener("click", () => {
-        if (!input.value.trim()) return;
+        if(!input.value.trim()) return;
         const url = `https://vdo.ninja/?push=${input.value}&quality=0&audiodevice=0&webcam`;
         window.open(url, "_blank");
     });
 
-    // Bouton refresh (reload iframe)
-    const refreshBtn = document.createElement("button");
-    refreshBtn.innerHTML = "🔄"; // Icône refresh
-    refreshBtn.title = "Rafraîchir la preview";
+    // Bouton Refresh
+    const refreshBtn = makeIconBtn("refresh-ccw", "Rafraîchir la preview");
     refreshBtn.addEventListener("click", () => {
-        if (!input.value.trim()) return;
+        if(!input.value.trim()) return;
         p.iframe.src = `https://vdo.ninja/?view=${input.value}&autoplay=1`;
     });
 
+    // Ajoute les éléments à la barre de contrôle
     controls.appendChild(input);
     controls.appendChild(copyBtn);
     controls.appendChild(connectBtn);
     controls.appendChild(refreshBtn);
 });
 
-// API publique
+// API publique pour changer le preview par ID
 export function setPreview(index, id) {
     if(previews[index]) {
         previews[index].iframe.src = `https://vdo.ninja/?view=${id}&autoplay=1`;
         const input = previews[index].wrapper.querySelector("input");
-        if(input) input.value = id; // ✅ On ne met que l’ID dans l’input
+        if(input) input.value = id; // on ne met que l'ID
     }
 }
+
+// Active les icônes Lucide si disponibles
+if(window.lucide) window.lucide.createIcons();
