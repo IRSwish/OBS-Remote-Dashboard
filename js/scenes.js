@@ -29,7 +29,7 @@ export function createScenes(scenes){
         scenes.forEach(s => addScene(s.sceneName));
     }
 
-    // Adjust display based on expanded/collapsed
+    // Adjust display for expanded/collapsed separators
     Array.from(sceneList.children).forEach(el => {
         if(el.classList.contains("separator")){
             let next = el.nextElementSibling;
@@ -83,16 +83,22 @@ export function addSeparator(name, expanded = true, children = []){
     const div = document.createElement("div");
     div.className = "separator";
     if(expanded) div.classList.add("expanded");
-    div.innerHTML = `<span class="title">${name}</span><button class="deleteBtn">×</button>`;
+
+    div.innerHTML = `
+        <span class="arrow">${expanded ? '▼' : '▶'}</span>
+        <span class="title">${name}</span>
+        <button class="deleteBtn">×</button>
+    `;
     sceneList.appendChild(div);
 
     // Add child scenes
     children.forEach(c => addScene(c));
 
-    // Toggle expand/collapse
-    div.addEventListener("click", e => {
-        if(e.target.classList.contains("deleteBtn")) return;
+    // Toggle expand/collapse on arrow click only
+    div.querySelector(".arrow").addEventListener("click", e => {
+        e.stopPropagation();
         div.classList.toggle("expanded");
+        div.querySelector(".arrow").textContent = div.classList.contains("expanded") ? '▼' : '▶';
         let next = div.nextElementSibling;
         while(next && !next.classList.contains("separator")){
             next.style.display = div.classList.contains("expanded") ? "block" : "none";
@@ -101,7 +107,7 @@ export function addSeparator(name, expanded = true, children = []){
         saveSceneOrder();
     });
 
-    // Rename separator
+    // Rename separator on title double click
     div.querySelector(".title").addEventListener("dblclick", e => {
         e.stopPropagation();
         const newName = prompt("Renommer le séparateur :", div.querySelector(".title").textContent);
@@ -109,14 +115,13 @@ export function addSeparator(name, expanded = true, children = []){
         saveSceneOrder();
     });
 
-    // Delete separator + its scenes
+    // Delete separator → children remain without category
     div.querySelector(".deleteBtn").addEventListener("click", e => {
         e.stopPropagation();
         let next = div.nextElementSibling;
         while(next && !next.classList.contains("separator")){
-            const tmp = next.nextElementSibling;
-            next.remove();
-            next = tmp;
+            next.style.display = "block"; // make children visible outside
+            next = next.nextElementSibling;
         }
         div.remove();
         saveSceneOrder();
@@ -150,17 +155,24 @@ function addSeparatorDragEvents(el){
     el.addEventListener("drop", e => {
         e.preventDefault();
         const data = JSON.parse(e.dataTransfer.getData("text/plain"));
+        if(data.type !== "separator") return;
+
         const toIndex = Array.from(sceneList.children).indexOf(el);
-        if(data.type !== "separator" || data.index === toIndex) return;
+        if(data.index === toIndex) return;
 
         const moving = [sceneList.children[data.index], ...data.childIndexes.map(i => sceneList.children[i])];
 
-        if(data.index < toIndex){
-            sceneList.insertBefore(moving[0], sceneList.children[toIndex].nextSibling);
-            for(let i = 1; i < moving.length; i++) sceneList.insertBefore(moving[i], moving[i-1].nextSibling);
+        // Remove from current position
+        moving.forEach(m => m.remove());
+
+        // Insert at target position
+        if(toIndex > data.index){
+            sceneList.insertBefore(moving[0], sceneList.children[toIndex + 1] || null);
         } else {
             sceneList.insertBefore(moving[0], sceneList.children[toIndex]);
-            for(let i = 1; i < moving.length; i++) sceneList.insertBefore(moving[i], moving[i-1].nextSibling);
+        }
+        for(let i=1; i<moving.length; i++){
+            sceneList.insertBefore(moving[i], moving[i-1].nextSibling);
         }
 
         saveSceneOrder();
@@ -186,6 +198,7 @@ function addSceneDragEvents(el){
         e.preventDefault();
         const data = JSON.parse(e.dataTransfer.getData("text/plain"));
         if(data.type !== "scene") return;
+
         const fromIndex = data.index;
         const toIndex = Array.from(sceneList.children).indexOf(el);
         if(fromIndex === toIndex) return;
@@ -208,7 +221,7 @@ export function saveSceneOrder(){
         const c = sceneList.children[i];
         if(c.classList.contains("separator")){
             const sep = { type: "separator", name: c.querySelector(".title").textContent, expanded: c.classList.contains("expanded"), children: [] };
-            let j = i+1;
+            let j = i + 1;
             while(j < sceneList.children.length && !sceneList.children[j].classList.contains("separator")){
                 sep.children.push(sceneList.children[j].textContent);
                 j++;
