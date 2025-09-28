@@ -31,7 +31,10 @@ document.addEventListener("obsMessage", e => {
     if(msg.op === 2){
         if(statsInterval) clearInterval(statsInterval);
         statsInterval = setInterval(()=>{
-            if(ws && ws.readyState === 1) sendRequest("GetStats","stats");
+            if(ws && ws.readyState === 1){
+                console.log("Sending GetStats request...");
+                sendRequest("GetStats","stats");
+            }
         }, 1000);
     }
 
@@ -39,7 +42,7 @@ document.addEventListener("obsMessage", e => {
     if(msg.op === 7 && msg.d.requestId === "stats"){
         console.log("GetStats response:", msg.d); // <-- LOG pour vérifier les données exactes
 
-        const stats = msg.d.responseData || msg.d; // <- fallback selon la version d'OBS
+        const stats = msg.d.responseData || msg.d; // fallback selon la version d'OBS
         let cpu = 0;
 
         // OBS 29+ : stats.cpuUsage dans d
