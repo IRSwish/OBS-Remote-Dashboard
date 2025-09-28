@@ -25,7 +25,6 @@ document.getElementById("loadChat").addEventListener("click", () => {
 // Stats CPU / RAM / FPS / Dropped / Stream
 // ---------------------
 onOBSConnected(() => {
-    // On lance GetStats toutes les secondes
     setInterval(() => {
         sendRequest("GetStats", "stats");
     }, 1000);
@@ -42,7 +41,7 @@ document.addEventListener("obsMessage", e => {
         cpu = cpu.toFixed(1);
 
         // RAM
-        const ramMB = stats.memoryUsage ? stats.memoryUsage / 1024 / 1024 : 0;
+        let ramMB = stats.memoryUsage ? stats.memoryUsage/1024/1024 : 0;
         const ram = ramMB.toFixed(1);
 
         // FPS
@@ -51,9 +50,9 @@ document.addEventListener("obsMessage", e => {
         // Dropped frames
         const dropped = stats.droppedFrames ?? 0;
         const totalFrames = stats.renderTotalFrames ?? 1;
-        const droppedPct = ((dropped / totalFrames) * 100).toFixed(1);
+        const droppedPct = ((dropped/totalFrames)*100).toFixed(1);
 
-        // Mise à jour topbar CPU/FPS
+        // Topbar CPU/FPS
         const elStats = document.getElementById("cpuFps");
         if(elStats) elStats.textContent = `CPU ${cpu}% • FPS ${fps} • RAM ${ram} MB • Dropped ${dropped} (${droppedPct}%)`;
 
