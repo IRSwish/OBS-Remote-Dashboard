@@ -1,44 +1,61 @@
-import './mixer.js'; 
-import { connectOBS, sendRequest, ws } from './obs.js';
+import './mixer.js';
+import { connectOBS, ws } from './obs.js';
 import { addSeparator } from './scenes.js';
 import { loadChat } from './chat.js';
 
 let streamStartTime = null;
 
+// ---------------------
 // Connexion OBS
+// ---------------------
 document.getElementById("connectBtn").addEventListener("click", () => {
     const ip = document.getElementById("obsIP").value.trim();
     const pass = document.getElementById("obsPass").value.trim();
+
     connectOBS(ip, pass);
 
-    // On attend que le WebSocket soit ouvert pour lancer l'intervalle GetStats
-    const statsInterval = setInterval(() => {
-        if(ws && ws.readyState === 1) {
-            sendRequest("GetStats", "stats");
+    // Attendre que le WS soit ouvert avant de lancer GetStats
+    const checkWs = setInterval(() => {
+        if(ws && ws.readyState === 1){
+            clearInterval(checkWs);
+            
+            // Intervalle GetStats toutes les secondes
+            setInterval(() => {
+                ws.send(JSON.stringify({
+                    op:6,
+                    d:{ requestType:"GetStats", requestId:"stats" }
+                }));
+            }, 1000);
         }
-    }, 1000);
+    }, 50);
 });
 
+// ---------------------
 // Ajouter séparateur
+// ---------------------
 document.getElementById("addSeparatorBtn").addEventListener("click", () => addSeparator("Nouveau séparateur"));
 
+// ---------------------
 // Chat
+// ---------------------
 document.getElementById("loadChat").addEventListener("click", () => {
     const ch = document.getElementById("chatChannel").value.trim();
     loadChat(ch);
 });
 
 // ---------------------
-// OBS stats
+// Gestion des messages OBS
 // ---------------------
 document.addEventListener("obsMessage", e => {
     const msg = e.detail;
 
-    if(msg.op === 7 && msg.d.requestId === "stats") {
+    // Réception des stats
+    if(msg.op === 7 && msg.d.requestId === "stats"){
         const stats = msg.d.responseData || msg.d;
 
         // CPU
-        const cpu = stats.cpuUsage?.toFixed(1) ?? 0;
+        let cpu = stats.cpuUsage ?? stats.d?.cpuUsage ?? 0;
+        cpu = cpu.toFixed(1);
 
         // RAM
         const ramMB = stats.memoryUsage ? stats.memoryUsage / 1024 / 1024 : 0;
@@ -52,11 +69,11 @@ document.addEventListener("obsMessage", e => {
         const totalFrames = stats.renderTotalFrames ?? 1;
         const droppedPct = ((dropped / totalFrames) * 100).toFixed(1);
 
-        // Mise à jour topbar CPU/FPS
+        // Topbar
         const elStats = document.getElementById("cpuFps");
         if(elStats) elStats.textContent = `CPU ${cpu}% • FPS ${fps} • RAM ${ram} MB • Dropped ${dropped} (${droppedPct}%)`;
 
-        // Durée du stream et statut
+        // Durée du stream
         const elStatus = document.getElementById("liveStatus");
         if(stats.streaming){
             if(!streamStartTime) streamStartTime = Date.now() - stats.streamingTime*1000;
