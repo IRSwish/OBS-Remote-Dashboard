@@ -2,6 +2,12 @@ import './mixer.js';
 import { connectOBS, sendRequest, onOBSConnected } from './obs.js';
 import { addSeparator, createScenes } from './scenes.js';
 import { loadChat } from './chat.js';
+import { setPreview } from './preview.js';
+
+// Exemple d'utilisation
+setPreview(0, "https://www.example.com");
+setPreview(1, "https://www.example.org");
+setPreview(2, "https://www.example.net");
 
 let streamStartTime = null;
 
@@ -77,5 +83,6 @@ document.addEventListener("obsMessage", e => {
 
     // PRG reste inchangé (géré par scenes.js)
 });
+
 
 
