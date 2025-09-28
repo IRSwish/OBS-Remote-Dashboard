@@ -4,7 +4,7 @@ import { saveSceneOrder as saveOrder } from './utils.js';
 const sceneList = document.getElementById("sceneList");
 
 // ---------------------
-// Écoute des messages OBS
+// OBS messages
 // ---------------------
 document.addEventListener("obsMessage", e => {
     const msg = e.detail;
@@ -14,7 +14,7 @@ document.addEventListener("obsMessage", e => {
 });
 
 // ---------------------
-// Création des scènes à partir de la liste OBS ou du localStorage
+// Create scenes from OBS or localStorage
 // ---------------------
 export function createScenes(scenes){
     sceneList.innerHTML = "";
@@ -29,7 +29,7 @@ export function createScenes(scenes){
         scenes.forEach(s => addScene(s.sceneName));
     }
 
-    // Ajuste l'affichage selon l'état des séparateurs
+    // Adjust display based on expanded/collapsed
     Array.from(sceneList.children).forEach(el => {
         if(el.classList.contains("separator")){
             let next = el.nextElementSibling;
@@ -42,7 +42,7 @@ export function createScenes(scenes){
 }
 
 // ---------------------
-// Création d'une scène simple
+// Add a single scene
 // ---------------------
 function addScene(name){
     const btn = document.createElement("button");
@@ -72,10 +72,12 @@ function addScene(name){
         btn.classList.add("program");
         document.getElementById("programScene").textContent = "PRG: " + name;
     });
+
+    addSceneDragEvents(btn);
 }
 
 // ---------------------
-// Création d'un séparateur
+// Add a separator
 // ---------------------
 export function addSeparator(name, expanded = true, children = []){
     const div = document.createElement("div");
@@ -84,7 +86,7 @@ export function addSeparator(name, expanded = true, children = []){
     div.innerHTML = `<span class="title">${name}</span><button class="deleteBtn">×</button>`;
     sceneList.appendChild(div);
 
-    // Ajouter les enfants éventuels
+    // Add child scenes
     children.forEach(c => addScene(c));
 
     // Toggle expand/collapse
@@ -99,7 +101,7 @@ export function addSeparator(name, expanded = true, children = []){
         saveSceneOrder();
     });
 
-    // Rename via double clic sur le titre
+    // Rename separator
     div.querySelector(".title").addEventListener("dblclick", e => {
         e.stopPropagation();
         const newName = prompt("Renommer le séparateur :", div.querySelector(".title").textContent);
@@ -107,10 +109,9 @@ export function addSeparator(name, expanded = true, children = []){
         saveSceneOrder();
     });
 
-    // Delete
+    // Delete separator + its scenes
     div.querySelector(".deleteBtn").addEventListener("click", e => {
         e.stopPropagation();
-        // Supprime également les enfants du séparateur
         let next = div.nextElementSibling;
         while(next && !next.classList.contains("separator")){
             const tmp = next.nextElementSibling;
@@ -121,14 +122,13 @@ export function addSeparator(name, expanded = true, children = []){
         saveSceneOrder();
     });
 
-    // Drag & Drop
-    addDragEvents(div);
+    addSeparatorDragEvents(div);
 }
 
 // ---------------------
-// Drag & Drop hiérarchique
+// Drag & Drop for separators with children
 // ---------------------
-function addDragEvents(el){
+function addSeparatorDragEvents(el){
     el.draggable = true;
 
     el.addEventListener("dragstart", e => {
@@ -139,6 +139,7 @@ function addDragEvents(el){
             next = next.nextElementSibling;
         }
         e.dataTransfer.setData("text/plain", JSON.stringify({
+            type: "separator",
             index: Array.from(sceneList.children).indexOf(el),
             childIndexes: children.map(c => Array.from(sceneList.children).indexOf(c))
         }));
@@ -149,21 +150,17 @@ function addDragEvents(el){
     el.addEventListener("drop", e => {
         e.preventDefault();
         const data = JSON.parse(e.dataTransfer.getData("text/plain"));
-        const fromIndex = data.index;
-        const childIndexes = data.childIndexes;
         const toIndex = Array.from(sceneList.children).indexOf(el);
+        if(data.type !== "separator" || data.index === toIndex) return;
 
-        if(fromIndex === toIndex) return;
+        const moving = [sceneList.children[data.index], ...data.childIndexes.map(i => sceneList.children[i])];
 
-        const moving = [sceneList.children[fromIndex], ...childIndexes.map(i => sceneList.children[i])];
-
-        // Si on déplace vers le bas et que la cible est un séparateur, on insère juste avant la cible
-        if(fromIndex < toIndex){
+        if(data.index < toIndex){
             sceneList.insertBefore(moving[0], sceneList.children[toIndex].nextSibling);
-            for(let i = 1; i < moving.length; i++) sceneList.insertBefore(moving[i], moving[i-1].nextSibling);
-        } else { // déplacement vers le haut
+            for(let i=1; i<moving.length; i++) sceneList.insertBefore(moving[i], moving[i-1].nextSibling);
+        } else {
             sceneList.insertBefore(moving[0], sceneList.children[toIndex]);
-            for(let i = 1; i < moving.length; i++) sceneList.insertBefore(moving[i], moving[i-1].nextSibling);
+            for(let i=1; i<moving.length; i++) sceneList.insertBefore(moving[i], moving[i-1].nextSibling);
         }
 
         saveSceneOrder();
@@ -171,7 +168,38 @@ function addDragEvents(el){
 }
 
 // ---------------------
-// Sauvegarde dans localStorage
+// Drag & Drop for individual scenes
+// ---------------------
+function addSceneDragEvents(el){
+    el.draggable = true;
+
+    el.addEventListener("dragstart", e => {
+        e.dataTransfer.setData("text/plain", JSON.stringify({
+            type: "scene",
+            index: Array.from(sceneList.children).indexOf(el)
+        }));
+    });
+
+    el.addEventListener("dragover", e => e.preventDefault());
+
+    el.addEventListener("drop", e => {
+        e.preventDefault();
+        const data = JSON.parse(e.dataTransfer.getData("text/plain"));
+        if(data.type !== "scene") return;
+        const fromIndex = data.index;
+        const toIndex = Array.from(sceneList.children).indexOf(el);
+        if(fromIndex === toIndex) return;
+
+        const moving = sceneList.children[fromIndex];
+        if(fromIndex < toIndex) sceneList.insertBefore(moving, sceneList.children[toIndex].nextSibling);
+        else sceneList.insertBefore(moving, sceneList.children[toIndex]);
+
+        saveSceneOrder();
+    });
+}
+
+// ---------------------
+// Save scene/separator order
 // ---------------------
 export function saveSceneOrder(){
     const arr = [];
