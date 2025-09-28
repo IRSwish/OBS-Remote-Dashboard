@@ -42,9 +42,10 @@ body {background:linear-gradient(180deg,var(--bg),#07101a); color:#e6eef6; heigh
 #addSeparatorBtn {margin-top:8px; padding:6px; border:none; border-radius:6px; background:linear-gradient(90deg,var(--accent),var(--accent2)); color:#07101a; cursor:pointer; font-weight:bold;}
 
 /* Preview / Program */
-#previewPanel {display:flex; flex-direction:column; gap:12px; flex:1; min-height:0;}
-#previewContainer {display:flex; flex:1; gap:6px; min-height:0;}
-#previewContainer iframe {flex:1; height:100%; border:0; margin:0; border-radius:0; display:block; background:#000;}
+#previewPanel{display:flex;flex-direction:column;gap:6px;flex:1;min-height:0}
+#previewContainer{display:flex;flex:1;gap:6px;min-height:0}
+.preview-wrapper{flex:1;position:relative;overflow:hidden}
+.preview-wrapper iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;margin:0;background:#000}
 
 /* Mixer */
 #mixer {display:flex; gap:12px; align-items:flex-end; height:280px; overflow-x:auto; padding-bottom:12px;}
@@ -64,3 +65,4 @@ button.muteBtn {margin-top:4px; font-size:10px; padding:2px 6px; border-radius:4
 
 /* Mixer panel bottom align */
 #mixerPanel {margin-top:auto;}
+
