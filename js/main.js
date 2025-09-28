@@ -1,15 +1,15 @@
 import './mixer.js';
 import { connectOBS, sendRequest, onOBSConnected } from './obs.js';
-import { addSeparator, createScenes } from './scenes.js';
+import { addSeparator } from './scenes.js';
 import { loadChat } from './chat.js';
 import { setPreview } from './preview.js';
 
-// Exemple statique de preview
+let streamStartTime = null;
+
+// Exemple de preview
 setPreview(0, "https://www.example.com");
 setPreview(1, "https://www.example.org");
 setPreview(2, "https://www.example.net");
-
-let streamStartTime = null;
 
 // Connexion OBS
 document.getElementById("connectBtn").addEventListener("click", () => {
@@ -62,7 +62,7 @@ document.addEventListener("obsMessage", e => {
 
         // Durée du stream
         const elStatus = document.getElementById("liveStatus");
-        if(stats.streaming){
+        if(stats.streaming) {
             if(!streamStartTime) streamStartTime = Date.now() - stats.streamingTime*1000;
             const elapsed = Date.now() - streamStartTime;
             const h = Math.floor(elapsed / 3600000).toString().padStart(2,'0');
@@ -74,4 +74,4 @@ document.addEventListener("obsMessage", e => {
             if(elStatus) elStatus.textContent = "CONNECTED";
         }
     }
-}); // <-- FIN document.addEventListener
+}); // <-- fin addEventListener
