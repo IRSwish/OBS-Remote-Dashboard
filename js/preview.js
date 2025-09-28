@@ -62,7 +62,7 @@ previews.forEach((p) => {
 // API publique pour changer le preview par ID
 export function setPreview(index, id) {
     if(previews[index]) {
-        previews[index].iframe.src = `https://vdo.ninja/?view=${id}&autoplay=1`;
+        previews[index].iframe.src = `https://vdo.ninja/?view=${id}&autoplay=1&muted=1`;
         const input = previews[index].wrapper.querySelector("input");
         if(input) input.value = id; // on ne met que l'ID
     }
