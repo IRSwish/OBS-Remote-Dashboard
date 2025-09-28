@@ -155,12 +155,13 @@ function addSeparatorDragEvents(el){
 
         const moving = [sceneList.children[data.index], ...data.childIndexes.map(i => sceneList.children[i])];
 
-        if(data.index < toIndex){
+        // Prevent children from merging into another separator
+        if(toIndex > data.index){
             sceneList.insertBefore(moving[0], sceneList.children[toIndex].nextSibling);
-            for(let i=1; i<moving.length; i++) sceneList.insertBefore(moving[i], moving[i-1].nextSibling);
+            for(let i = 1; i < moving.length; i++) sceneList.insertBefore(moving[i], moving[i-1].nextSibling);
         } else {
             sceneList.insertBefore(moving[0], sceneList.children[toIndex]);
-            for(let i=1; i<moving.length; i++) sceneList.insertBefore(moving[i], moving[i-1].nextSibling);
+            for(let i = 1; i < moving.length; i++) sceneList.insertBefore(moving[i], moving[i-1].nextSibling);
         }
 
         saveSceneOrder();
