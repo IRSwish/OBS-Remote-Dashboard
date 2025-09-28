@@ -1,10 +1,11 @@
 import { sendRequest, ws } from './obs.js';
-import { saveSceneOrder } from './utils.js';
+import { saveSceneOrder as saveOrder } from './utils.js';
 
 const sceneList = document.getElementById("sceneList");
-export const scenesState = {};
 
-// Écoute les messages OBS
+// ---------------------
+// Écoute des messages OBS
+// ---------------------
 document.addEventListener("obsMessage", e => {
     const msg = e.detail;
     if(msg.op === 7 && msg.d.requestId === "scenes" && msg.d.responseData?.scenes){
@@ -12,26 +13,23 @@ document.addEventListener("obsMessage", e => {
     }
 });
 
-// Création de la liste de scènes
-export function createScenes(obsScenes){
+// ---------------------
+// Création des scènes à partir de la liste OBS ou du localStorage
+// ---------------------
+export function createScenes(scenes){
     sceneList.innerHTML = "";
     const saved = JSON.parse(localStorage.getItem("sceneOrder") || "[]");
-    const savedNames = saved.map(item => item.name);
 
-    // D’abord recrée tous les éléments sauvegardés
     if(saved.length){
         saved.forEach(item => {
-            if(item.type === "separator") addSeparator(item.name, item.expanded);
-            else if(obsScenes.find(s => s.sceneName === item.name)) addScene(item.name);
+            if(item.type === "separator") addSeparator(item.name, item.expanded, item.children);
+            else addScene(item.name);
         });
+    } else {
+        scenes.forEach(s => addScene(s.sceneName));
     }
 
-    // Puis ajoute les scènes OBS non sauvegardées
-    obsScenes.forEach(s => {
-        if(!savedNames.includes(s.sceneName)) addScene(s.sceneName);
-    });
-
-    // Ajuste l’affichage selon l’état des séparateurs
+    // Ajuste l'affichage selon l'état des séparateurs
     Array.from(sceneList.children).forEach(el => {
         if(el.classList.contains("separator")){
             let next = el.nextElementSibling;
@@ -43,8 +41,10 @@ export function createScenes(obsScenes){
     });
 }
 
-// Ajout d’une scène
-export function addScene(name){
+// ---------------------
+// Création d'une scène simple
+// ---------------------
+function addScene(name){
     const btn = document.createElement("button");
     btn.className = "scene";
     btn.textContent = name;
@@ -56,7 +56,7 @@ export function addScene(name){
         clickTimeout = setTimeout(() => {
             clickTimeout = null;
             if(ws && ws.readyState === 1){
-                sendRequest("SetCurrentPreviewScene","prev_"+name,{sceneName:name});
+                sendRequest("SetCurrentPreviewScene", "prev_" + name, { sceneName: name });
             }
             document.querySelectorAll(".scene").forEach(s => s.classList.remove("preview"));
             btn.classList.add("preview");
@@ -66,28 +66,26 @@ export function addScene(name){
     btn.addEventListener("dblclick", () => {
         if(clickTimeout){ clearTimeout(clickTimeout); clickTimeout = null; }
         if(ws && ws.readyState === 1){
-            sendRequest("SetCurrentProgramScene","prog_"+name,{sceneName:name});
+            sendRequest("SetCurrentProgramScene", "prog_" + name, { sceneName: name });
         }
-        document.querySelectorAll(".scene").forEach(s => s.classList.remove("program","preview"));
+        document.querySelectorAll(".scene").forEach(s => s.classList.remove("program", "preview"));
         btn.classList.add("program");
         document.getElementById("programScene").textContent = "PRG: " + name;
     });
-
-    addDragEvents(btn);
 }
 
-// Ajout d’un séparateur avec input actif
-export function addSeparator(name = "Nouveau séparateur", expanded = true){
+// ---------------------
+// Création d'un séparateur
+// ---------------------
+export function addSeparator(name, expanded = true, children = []){
     const div = document.createElement("div");
     div.className = "separator";
     if(expanded) div.classList.add("expanded");
-    div.innerHTML = `<span class="title" contenteditable="true">${name}</span><button class="deleteBtn">×</button>`;
+    div.innerHTML = `<span class="title">${name}</span><button class="deleteBtn">×</button>`;
     sceneList.appendChild(div);
 
-    // Met le focus directement sur le nom
-    const title = div.querySelector(".title");
-    title.focus();
-    document.execCommand('selectAll', false, null);
+    // Ajouter les enfants éventuels
+    children.forEach(c => addScene(c));
 
     // Toggle expand/collapse
     div.addEventListener("click", e => {
@@ -101,42 +99,48 @@ export function addSeparator(name = "Nouveau séparateur", expanded = true){
         saveSceneOrder();
     });
 
-    // Rename automatique lors de la perte de focus
-    title.addEventListener("blur", () => saveSceneOrder());
-    title.addEventListener("keydown", e => {
-        if(e.key === "Enter"){ e.preventDefault(); title.blur(); }
+    // Rename via double clic sur le titre
+    div.querySelector(".title").addEventListener("dblclick", e => {
+        e.stopPropagation();
+        const newName = prompt("Renommer le séparateur :", div.querySelector(".title").textContent);
+        if(newName) div.querySelector(".title").textContent = newName;
+        saveSceneOrder();
     });
 
     // Delete
     div.querySelector(".deleteBtn").addEventListener("click", e => {
         e.stopPropagation();
+        // Supprime également les enfants du séparateur
+        let next = div.nextElementSibling;
+        while(next && !next.classList.contains("separator")){
+            const tmp = next.nextElementSibling;
+            next.remove();
+            next = tmp;
+        }
         div.remove();
         saveSceneOrder();
     });
 
+    // Drag & Drop
     addDragEvents(div);
 }
 
-// Drag & Drop
+// ---------------------
+// Drag & Drop hiérarchique
+// ---------------------
 function addDragEvents(el){
     el.draggable = true;
+
     el.addEventListener("dragstart", e => {
-        const children = Array.from(sceneList.children);
-        const index = children.indexOf(el);
-        let dragGroup = [el];
-
-        // Si c'est un séparateur, ajoute toutes les scènes qui suivent
-        if(el.classList.contains("separator")){
-            let next = el.nextElementSibling;
-            while(next && !next.classList.contains("separator")){
-                dragGroup.push(next);
-                next = next.nextElementSibling;
-            }
+        const children = [];
+        let next = el.nextElementSibling;
+        while(next && !next.classList.contains("separator")){
+            children.push(next);
+            next = next.nextElementSibling;
         }
-
-        // On stocke les indices et le groupe
         e.dataTransfer.setData("text/plain", JSON.stringify({
-            indices: dragGroup.map(n => children.indexOf(n))
+            index: Array.from(sceneList.children).indexOf(el),
+            childIndexes: children.map(c => Array.from(sceneList.children).indexOf(c))
         }));
     });
 
@@ -145,24 +149,48 @@ function addDragEvents(el){
     el.addEventListener("drop", e => {
         e.preventDefault();
         const data = JSON.parse(e.dataTransfer.getData("text/plain"));
-        const fromIndices = data.indices;
-        const children = Array.from(sceneList.children);
-        const toIndex = children.indexOf(el);
+        const fromIndex = data.index;
+        const childIndexes = data.childIndexes;
+        const toIndex = Array.from(sceneList.children).indexOf(el);
 
-        if(fromIndices.includes(toIndex)) return;
+        if(fromIndex === toIndex) return;
 
-        // Récupère tous les nodes à déplacer
-        const nodes = fromIndices.map(i => children[i]);
+        const moving = [sceneList.children[fromIndex], ...childIndexes.map(i => sceneList.children[i])];
 
-        // Insertion
-        if(fromIndices[0] < toIndex){
-            sceneList.insertBefore(nodes[0], children[toIndex].nextSibling);
-            for(let i=1;i<nodes.length;i++) sceneList.insertBefore(nodes[i], nodes[0].nextSibling);
-        } else {
-            sceneList.insertBefore(nodes[0], children[toIndex]);
-            for(let i=1;i<nodes.length;i++) sceneList.insertBefore(nodes[i], nodes[0].nextSibling);
+        // Si on déplace vers le bas et que la cible est un séparateur, on insère juste avant la cible
+        if(fromIndex < toIndex){
+            sceneList.insertBefore(moving[0], sceneList.children[toIndex].nextSibling);
+            for(let i = 1; i < moving.length; i++) sceneList.insertBefore(moving[i], moving[i-1].nextSibling);
+        } else { // déplacement vers le haut
+            sceneList.insertBefore(moving[0], sceneList.children[toIndex]);
+            for(let i = 1; i < moving.length; i++) sceneList.insertBefore(moving[i], moving[i-1].nextSibling);
         }
 
         saveSceneOrder();
     });
+}
+
+// ---------------------
+// Sauvegarde dans localStorage
+// ---------------------
+export function saveSceneOrder(){
+    const arr = [];
+    let i = 0;
+    while(i < sceneList.children.length){
+        const c = sceneList.children[i];
+        if(c.classList.contains("separator")){
+            const sep = { type: "separator", name: c.querySelector(".title").textContent, expanded: c.classList.contains("expanded"), children: [] };
+            let j = i+1;
+            while(j < sceneList.children.length && !sceneList.children[j].classList.contains("separator")){
+                sep.children.push(sceneList.children[j].textContent);
+                j++;
+            }
+            arr.push(sep);
+            i = j;
+        } else {
+            arr.push({ type: "scene", name: c.textContent });
+            i++;
+        }
+    }
+    localStorage.setItem("sceneOrder", JSON.stringify(arr));
 }
