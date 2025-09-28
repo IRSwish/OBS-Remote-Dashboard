@@ -37,6 +37,8 @@ document.addEventListener("obsMessage", e => {
 
     // Réception des stats
     if(msg.op === 7 && msg.d.requestId === "stats"){
+        console.log("GetStats response:", msg.d); // <-- LOG pour vérifier les données exactes
+
         const stats = msg.d.responseData || msg.d; // <- fallback selon la version d'OBS
         let cpu = 0;
 
