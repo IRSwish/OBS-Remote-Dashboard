@@ -19,22 +19,24 @@ document.addEventListener("obsMessage", e => {
 export function createScenes(scenes){
     sceneList.innerHTML = "";
     const saved = JSON.parse(localStorage.getItem("sceneOrder") || "[]");
-    const savedSceneNames = new Set();
+
+    const allSceneNames = scenes.map(s => s.sceneName);
 
     if(saved.length){
         saved.forEach(item => {
             if(item.type === "separator") addSeparator(item.name, item.expanded, item.children);
             else addScene(item.name);
-            if(item.type === "scene") savedSceneNames.add(item.name);
-            if(item.type === "separator") item.children.forEach(c => savedSceneNames.add(c));
         });
     } else {
         scenes.forEach(s => addScene(s.sceneName));
     }
 
-    // Afficher les scènes libres OBS qui ne sont pas dans le localStorage
-    scenes.forEach(s => {
-        if(!savedSceneNames.has(s.sceneName)) addScene(s.sceneName);
+    // Add any new scenes from OBS not in localStorage
+    const savedNames = Array.from(sceneList.children)
+                            .filter(c => c.classList.contains("scene"))
+                            .map(c => c.textContent);
+    allSceneNames.forEach(name => {
+        if(!savedNames.includes(name)) addScene(name);
     });
 
     // Adjust display based on expanded/collapsed
@@ -117,13 +119,13 @@ export function addSeparator(name, expanded = true, children = []){
         saveSceneOrder();
     });
 
-    // Delete separator but keep children
+    // Delete separator + its scenes
     div.querySelector(".deleteBtn").addEventListener("click", e => {
         e.stopPropagation();
         let next = div.nextElementSibling;
         while(next && !next.classList.contains("separator")){
             const tmp = next.nextElementSibling;
-            next.style.display = "block"; // Ensure they remain visible
+            next.remove();
             next = tmp;
         }
         div.remove();
@@ -134,7 +136,7 @@ export function addSeparator(name, expanded = true, children = []){
 }
 
 // ---------------------
-// Drag & Drop for separators
+// Drag & Drop for separators with children
 // ---------------------
 function addSeparatorDragEvents(el){
     el.draggable = true;
@@ -159,16 +161,23 @@ function addSeparatorDragEvents(el){
         e.preventDefault();
         const data = JSON.parse(e.dataTransfer.getData("text/plain"));
         const toIndex = Array.from(sceneList.children).indexOf(el);
-        if(data.type !== "separator" || data.index === toIndex) return;
 
-        const moving = [sceneList.children[data.index], ...data.childIndexes.map(i => sceneList.children[i])];
-
-        if(data.index < toIndex){
-            sceneList.insertBefore(moving[0], sceneList.children[toIndex].nextSibling);
-            for(let i=1; i<moving.length; i++) sceneList.insertBefore(moving[i], moving[i-1].nextSibling);
-        } else {
-            sceneList.insertBefore(moving[0], sceneList.children[toIndex]);
-            for(let i=1; i<moving.length; i++) sceneList.insertBefore(moving[i], moving[i-1].nextSibling);
+        if(data.type === "separator" && data.index !== toIndex){
+            // Move separator + children
+            const moving = [sceneList.children[data.index], ...data.childIndexes.map(i => sceneList.children[i])];
+            if(data.index < toIndex){
+                sceneList.insertBefore(moving[0], sceneList.children[toIndex].nextSibling);
+                for(let i=1; i<moving.length; i++) sceneList.insertBefore(moving[i], moving[i-1].nextSibling);
+            } else {
+                sceneList.insertBefore(moving[0], sceneList.children[toIndex]);
+                for(let i=1; i<moving.length; i++) sceneList.insertBefore(moving[i], moving[i-1].nextSibling);
+            }
+        } 
+        else if(data.type === "scene"){
+            // Move scene into separator (even if empty)
+            const moving = sceneList.children[data.index];
+            sceneList.insertBefore(moving, el.nextElementSibling); // just after separator
+            moving.style.display = el.classList.contains("expanded") ? "block" : "none";
         }
 
         saveSceneOrder();
