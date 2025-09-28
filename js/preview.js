@@ -51,3 +51,53 @@ export function adjustPreviews() {
 // appel initial et on resize
 window.addEventListener("resize", adjustPreviews);
 adjustPreviews();
+
+const previews = [
+  { iframe: document.getElementById("preview1"), container: document.getElementById("preview1Container") },
+  { iframe: document.getElementById("preview2"), container: document.getElementById("preview2Container") },
+  { iframe: document.getElementById("preview3"), container: document.getElementById("preview3Container") }
+];
+
+// Crée la UI pour chaque iframe
+previews.forEach((p, i) => {
+  // Wrapper au-dessus de l'iframe
+  const controls = document.createElement("div");
+  controls.style.display = "flex";
+  controls.style.gap = "4px";
+  controls.style.marginBottom = "4px";
+
+  // Input pour l'ID
+  const input = document.createElement("input");
+  input.placeholder = "Call ID";
+  input.style.flex = "1";
+  controls.appendChild(input);
+
+  // Copy button
+  const copyBtn = document.createElement("button");
+  copyBtn.textContent = "Copy";
+  copyBtn.addEventListener("click", () => {
+    const url = `https://vdo.ninja/?view=${input.value}`;
+    navigator.clipboard.writeText(url);
+  });
+  controls.appendChild(copyBtn);
+
+  // Connect button
+  const connectBtn = document.createElement("button");
+  connectBtn.textContent = "Connect";
+  connectBtn.addEventListener("click", () => {
+    const url = `https://vdo.ninja/?push=${input.value}&quality=0&audiodevice=0&webcam`;
+    window.open(url, "_blank");
+  });
+  controls.appendChild(connectBtn);
+
+  // Reload button
+  const reloadBtn = document.createElement("button");
+  reloadBtn.textContent = "Reload";
+  reloadBtn.addEventListener("click", () => {
+    p.iframe.src = `https://vdo.ninja/?view=${input.value}&autoplay=1`;
+  });
+  controls.appendChild(reloadBtn);
+
+  // Insère les contrôles avant l'iframe
+  p.iframe.parentElement.insertBefore(controls, p.iframe);
+});
