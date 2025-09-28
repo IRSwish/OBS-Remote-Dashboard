@@ -22,19 +22,16 @@ document.getElementById("loadChat").addEventListener("click", ()=>{
 });
 
 // ---------------------
-// OBS stats
-// ---------------------
+// --- OBS stats ---
 document.addEventListener("obsMessage", e => {
     const msg = e.detail;
 
-    // Lorsque connecté, on demande les stats toutes les secondes
-    if(msg.op === 2){ // Identifie l'auth ok
+    if(msg.op === 2){ // auth ok
         setInterval(()=>sendRequest("GetStats","stats"), 1000);
     }
 
     if(msg.op === 7 && msg.d.requestId === "stats"){
         const stats = msg.d.responseData;
-
         const cpu = stats.cpuUsage?.toFixed(1) ?? 0;
         const ramMB = stats.memoryUsage / 1024 / 1024; 
         const ram = ramMB.toFixed(1);
@@ -45,7 +42,6 @@ document.addEventListener("obsMessage", e => {
 
         document.getElementById("cpuFps").textContent = `CPU ${cpu}% • FPS ${fps} • RAM ${ram} MB • Dropped ${dropped} (${droppedPct}%)`;
 
-        // Durée du stream
         if(stats.streaming){
             if(!streamStartTime) streamStartTime = Date.now() - stats.streamingTime*1000;
             const elapsed = Date.now() - streamStartTime;
@@ -59,3 +55,4 @@ document.addEventListener("obsMessage", e => {
         }
     }
 });
+
