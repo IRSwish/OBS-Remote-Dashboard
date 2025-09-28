@@ -6,7 +6,7 @@ import { setPreview } from './preview.js';
 
 let streamStartTime = null;
 
-// Exemple de preview (par défaut : juste avec ID)
+// Exemple de preview par défaut (juste l’ID)
 setPreview(0, "69CJFPh");
 setPreview(1, "GuestITWR6EMLS22025");
 setPreview(2, "rvFr2XN");
@@ -27,32 +27,19 @@ document.getElementById("loadChat").addEventListener("click", () => {
   loadChat(ch);
 });
 
-// ---------------------
 // Stats OBS
-// ---------------------
 onOBSConnected(() => {
   setInterval(() => sendRequest("GetStats", "stats"), 1000);
 });
 
 document.addEventListener("obsMessage", e => {
   const msg = e.detail;
-
   if (msg.op === 7 && msg.d.requestId === "stats") {
     const stats = msg.d.responseData || msg.d;
 
-    // CPU
-    let cpu = stats.cpuUsage ?? 0;
-    cpu = cpu.toFixed(1);
-
-    // RAM
-    let ram = (stats.memoryUsage ?? 0) / 1024 / 1024;
-    ram = ram.toFixed(1);
-
-    // FPS
-    let fps = stats.fps ?? 0;
-    fps = fps.toFixed(1);
-
-    // Dropped frames
+    let cpu = (stats.cpuUsage ?? 0).toFixed(1);
+    let ram = ((stats.memoryUsage ?? 0)/1024/1024).toFixed(1);
+    let fps = (stats.fps ?? 0).toFixed(1);
     let dropped = stats.droppedFrames ?? 0;
     let totalFrames = stats.renderTotalFrames ?? 1;
     let droppedPct = ((dropped / totalFrames) * 100).toFixed(1);
@@ -60,14 +47,13 @@ document.addEventListener("obsMessage", e => {
     const elStats = document.getElementById("cpuFps");
     if (elStats) elStats.textContent = `CPU ${cpu}% • RAM ${ram} MB • FPS ${fps} • Dropped ${dropped} (${droppedPct}%)`;
 
-    // Durée du stream
     const elStatus = document.getElementById("liveStatus");
     if (stats.streaming) {
       if (!streamStartTime) streamStartTime = Date.now() - stats.streamingTime * 1000;
       const elapsed = Date.now() - streamStartTime;
-      const h = Math.floor(elapsed / 3600000).toString().padStart(2, '0');
-      const m = Math.floor((elapsed % 3600000) / 60000).toString().padStart(2, '0');
-      const s = Math.floor((elapsed % 60000) / 1000).toString().padStart(2, '0');
+      const h = Math.floor(elapsed / 3600000).toString().padStart(2,'0');
+      const m = Math.floor((elapsed % 3600000) / 60000).toString().padStart(2,'0');
+      const s = Math.floor((elapsed % 60000) / 1000).toString().padStart(2,'0');
       if (elStatus) elStatus.textContent = `LIVE: ${h}:${m}:${s}`;
     } else {
       streamStartTime = null;
@@ -75,4 +61,3 @@ document.addEventListener("obsMessage", e => {
     }
   }
 });
-
