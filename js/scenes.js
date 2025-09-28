@@ -150,24 +150,17 @@ function addSeparatorDragEvents(el){
     el.addEventListener("drop", e => {
         e.preventDefault();
         const data = JSON.parse(e.dataTransfer.getData("text/plain"));
-        if(data.type !== "separator") return;
-
         const toIndex = Array.from(sceneList.children).indexOf(el);
-        if(data.index === toIndex) return;
+        if(data.type !== "separator" || data.index === toIndex) return;
 
         const moving = [sceneList.children[data.index], ...data.childIndexes.map(i => sceneList.children[i])];
 
-        // Remove elements from original position
-        moving.forEach(m => m.remove());
-
-        // Insert at new position
         if(data.index < toIndex){
             sceneList.insertBefore(moving[0], sceneList.children[toIndex].nextSibling);
+            for(let i = 1; i < moving.length; i++) sceneList.insertBefore(moving[i], moving[i-1].nextSibling);
         } else {
             sceneList.insertBefore(moving[0], sceneList.children[toIndex]);
-        }
-        for(let i=1; i<moving.length; i++){
-            sceneList.insertBefore(moving[i], moving[i-1].nextSibling);
+            for(let i = 1; i < moving.length; i++) sceneList.insertBefore(moving[i], moving[i-1].nextSibling);
         }
 
         saveSceneOrder();
@@ -193,7 +186,6 @@ function addSceneDragEvents(el){
         e.preventDefault();
         const data = JSON.parse(e.dataTransfer.getData("text/plain"));
         if(data.type !== "scene") return;
-
         const fromIndex = data.index;
         const toIndex = Array.from(sceneList.children).indexOf(el);
         if(fromIndex === toIndex) return;
