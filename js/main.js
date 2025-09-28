@@ -56,7 +56,9 @@ document.addEventListener("obsMessage", e => {
 
         // Mise à jour topbar CPU/FPS
         const elStats = document.getElementById("cpuFps");
-        if(elStats) elStats.textContent = `CPU ${cpu}% • FPS ${fps} • RAM ${ram} MB • Dropped ${dropped} (${droppedPct}%)`;
+        if(elStats) {
+            elStats.textContent = `CPU ${cpu}% • RAM ${ram} MB • FPS ${fps} • Dropped ${dropped} (${droppedPct}%)`;
+        }
 
         // Durée du stream et statut
         const elStatus = document.getElementById("liveStatus");
@@ -75,3 +77,4 @@ document.addEventListener("obsMessage", e => {
 
     // PRG reste inchangé (géré par scenes.js)
 });
+
