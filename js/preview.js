@@ -1,103 +1,64 @@
-// Sélection des iframes de preview
+// js/preview.js
+
+// Sélection des wrappers et iframes
 const previews = [
-  document.getElementById("preview1"),
-  document.getElementById("preview2"),
-  document.getElementById("preview3")
+  { wrapper: document.getElementById("preview1").parentElement, iframe: document.getElementById("preview1") },
+  { wrapper: document.getElementById("preview2").parentElement, iframe: document.getElementById("preview2") },
+  { wrapper: document.getElementById("preview3").parentElement, iframe: document.getElementById("preview3") }
 ];
 
-/**
- * Met à jour l'iframe de preview.
- * @param {number} index - 0, 1 ou 2
- * @param {string} url - URL à afficher
- */
-export function setPreview(index, url) {
-  if (!previews[index]) return;
-
-  // Ajouter autoplay si URL VDO Ninja
-  const autoplayUrl = url.includes("?") ? `${url}&autoplay=1` : `${url}?autoplay=1`;
-  previews[index].src = autoplayUrl;
-
-  previews[index].style.width = "100%";
-  previews[index].style.height = "100%";
-}
-
-// ajuste automatiquement le scale pour chaque iframe
-function fitIframe(iframe) {
-  const wrapper = iframe.parentElement;
-  const wW = wrapper.clientWidth;
-  const wH = wrapper.clientHeight;
-
-  // largeur/hauteur de l'iframe vidéo (16/9 par défaut)
-  const vW = 16;
-  const vH = 9;
-
-  const scaleW = wW / vW;
-  const scaleH = wH / vH;
-  const scale = Math.max(scaleW, scaleH);
-
-  iframe.style.transform = `translate(-50%, -50%) scale(${scale})`;
-}
-
-// applique à toutes les previews
-export function adjustPreviews() {
-  const previews = [
-    document.getElementById("preview1"),
-    document.getElementById("preview2"),
-    document.getElementById("preview3")
-  ];
-  previews.forEach(fitIframe);
-}
-
-// appel initial et on resize
-window.addEventListener("resize", adjustPreviews);
-adjustPreviews();
-
-const previews = [
-  { iframe: document.getElementById("preview1"), container: document.getElementById("preview1Container") },
-  { iframe: document.getElementById("preview2"), container: document.getElementById("preview2Container") },
-  { iframe: document.getElementById("preview3"), container: document.getElementById("preview3Container") }
-];
-
-// Crée la UI pour chaque iframe
+// Crée les contrôles au-dessus de chaque iframe
 previews.forEach((p, i) => {
-  // Wrapper au-dessus de l'iframe
-  const controls = document.createElement("div");
-  controls.style.display = "flex";
-  controls.style.gap = "4px";
-  controls.style.marginBottom = "4px";
+    const controls = document.createElement("div");
+    controls.style.display = "flex";
+    controls.style.gap = "4px";
+    controls.style.marginBottom = "4px";
 
-  // Input pour l'ID
-  const input = document.createElement("input");
-  input.placeholder = "Call ID";
-  input.style.flex = "1";
-  controls.appendChild(input);
+    // Input pour l'ID
+    const input = document.createElement("input");
+    input.type = "text";
+    input.placeholder = "ID VDO";
+    input.style.flex = "1";
+    input.value = "";
 
-  // Copy button
-  const copyBtn = document.createElement("button");
-  copyBtn.textContent = "Copy";
-  copyBtn.addEventListener("click", () => {
-    const url = `https://vdo.ninja/?view=${input.value}`;
-    navigator.clipboard.writeText(url);
-  });
-  controls.appendChild(copyBtn);
+    // Bouton copy
+    const copyBtn = document.createElement("button");
+    copyBtn.textContent = "Copy";
+    copyBtn.addEventListener("click", () => {
+        const url = `https://vdo.ninja/?view=${input.value}`;
+        navigator.clipboard.writeText(url);
+    });
 
-  // Connect button
-  const connectBtn = document.createElement("button");
-  connectBtn.textContent = "Connect";
-  connectBtn.addEventListener("click", () => {
-    const url = `https://vdo.ninja/?push=${input.value}&quality=0&audiodevice=0&webcam`;
-    window.open(url, "_blank");
-  });
-  controls.appendChild(connectBtn);
+    // Bouton Connect
+    const connectBtn = document.createElement("button");
+    connectBtn.textContent = "Connect";
+    connectBtn.addEventListener("click", () => {
+        const url = `https://vdo.ninja/?push=${input.value}&quality=0&audiodevice=0&webcam`;
+        window.open(url, "_blank");
+    });
 
-  // Reload button
-  const reloadBtn = document.createElement("button");
-  reloadBtn.textContent = "Reload";
-  reloadBtn.addEventListener("click", () => {
-    p.iframe.src = `https://vdo.ninja/?view=${input.value}&autoplay=1`;
-  });
-  controls.appendChild(reloadBtn);
+    // Bouton Refresh
+    const refreshBtn = document.createElement("button");
+    refreshBtn.textContent = "Refresh";
+    refreshBtn.addEventListener("click", () => {
+        p.iframe.src = `https://vdo.ninja/?view=${input.value}&autoplay=1`;
+    });
 
-  // Insère les contrôles avant l'iframe
-  p.iframe.parentElement.insertBefore(controls, p.iframe);
+    // Ajout au div controls
+    controls.appendChild(input);
+    controls.appendChild(copyBtn);
+    controls.appendChild(connectBtn);
+    controls.appendChild(refreshBtn);
+
+    // Insère les controls avant l'iframe
+    p.wrapper.insertBefore(controls, p.iframe);
 });
+
+// Fonction simple pour mettre à jour l'iframe depuis le JS
+export function setPreview(index, id) {
+    if(previews[index]) {
+        previews[index].iframe.src = `https://vdo.ninja/?view=${id}&autoplay=1`;
+        const input = previews[index].wrapper.querySelector("input");
+        if(input) input.value = id;
+    }
+}
