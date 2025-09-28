@@ -38,8 +38,6 @@ body{background:linear-gradient(180deg,var(--bg),#07101a);color:#e6eef6;height:1
 .scene.program { background:#f52584; }
 
 .separator {padding:4px; margin:4px 0; background:#222; color:#f52584; font-weight:bold; display:flex; align-items:center; gap:6px; border:1px dashed #555; border-radius:4px; cursor:pointer; user-select:none;}
-.separator.expanded::before { content:"▼"; }
-.separator:not(.expanded)::before { content:"▶"; }
 .separator .deleteBtn {margin-left:auto; color:#fff; background:#f52584; border:none; border-radius:4px; cursor:pointer; padding:0 4px; font-weight:bold;}
 .separator .deleteBtn:hover { background:#ff5a8f; }
 #addSeparatorBtn {margin-top:8px; padding:6px; border:none; border-radius:6px; background:linear-gradient(90deg,var(--accent),var(--accent2)); color:#07101a; cursor:pointer; font-weight:bold;}
@@ -66,3 +64,4 @@ button.muteBtn {margin-top:4px;font-size:10px;padding:2px 6px;border-radius:4px;
 /* Mixer panel bottom align */
 #previewPanel { display:flex; flex:1;flex-direction: column; gap: 12px;}
 #mixerPanel {margin-top:auto;}
+
