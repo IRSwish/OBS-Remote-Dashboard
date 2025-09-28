@@ -1,5 +1,10 @@
 // obs.js
 export let ws;
+let connectedCallbacks = [];
+
+export function onOBSConnected(cb) {
+    connectedCallbacks.push(cb);
+}
 
 export function connectOBS(ip, pass) {
     if(ws) ws.close();
@@ -9,10 +14,14 @@ export function connectOBS(ip, pass) {
 
     ws.onmessage = e => {
         const msg = JSON.parse(e.data);
-        if(msg.op===2){
+        if(msg.op === 2){ // Auth OK
             document.getElementById("liveStatus").textContent = "CONNECTED";
             sendRequest("GetSceneList","scenes");
             sendRequest("GetInputList","inputs");
+
+            // appeler tous les callbacks enregistrés
+            connectedCallbacks.forEach(cb => cb());
+            connectedCallbacks = [];
         }
         document.dispatchEvent(new CustomEvent("obsMessage",{detail:msg}));
     };
