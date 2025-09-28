@@ -8,8 +8,8 @@ let streamStartTime = null;
 
 // Exemple de preview (par défaut : juste avec ID)
 setPreview(0, "69CJFPh");
-setPreview(1, "rvFr2XN");
-setPreview(2, "SwishEML");
+setPreview(1, "GuestITWR6EMLS22025");
+setPreview(2, "rvFr2XN");
 
 // Connexion OBS
 document.getElementById("connectBtn").addEventListener("click", () => {
@@ -75,3 +75,4 @@ document.addEventListener("obsMessage", e => {
     }
   }
 });
+
