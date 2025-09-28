@@ -6,23 +6,18 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<div id="topbar" style="display:flex;align-items:center;gap:20px;padding:5px;background:#1a1a1a;color:#fcf6ff;font-family:Arial,sans-serif;">
-    <!-- Statut de connexion OBS -->
-    <span id="liveStatus">OFFLINE</span>
-
-    <!-- Scène program -->
-    <span id="programScene">PRG: --</span>
-
-    <!-- CPU / RAM / FPS -->
-    <span id="cpu">CPU: --%</span>
-    <span id="ram">RAM: -- MB</span>
-    <span id="fps">-- FPS</span>
-
-    <!-- Dropped frames -->
-    <span id="dropped">Dropped: -- (--%)</span>
-
-    <!-- Durée du stream -->
-    <span id="duration">LIVE: --:--:--</span>
+<div class="topbar">
+  <div class="brand"><div class="logo">O</div>OBS Remote</div>
+  <div class="ws-config">
+    <input type="text" id="obsIP" placeholder="IP:Port" value="localhost:4455"/>
+    <input type="password" id="obsPass" placeholder="Password"/>
+    <button id="connectBtn">Connect</button>
+  </div>
+  <div class="status">
+    <div class="pill" id="liveStatus">OFFLINE</div>
+    <div class="pill" id="programScene">PRG: -</div>
+    <div class="pill" id="cpuFps">CPU 0% • FPS 0</div>
+  </div>
 </div>
 
 <div class="main">
@@ -58,4 +53,5 @@
 <script type="module" src="js/main.js"></script>
 </body>
 </html>
+
 
