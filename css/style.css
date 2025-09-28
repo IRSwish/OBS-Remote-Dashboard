@@ -46,6 +46,7 @@ body {background:linear-gradient(180deg,var(--bg),#07101a); color:#e6eef6; heigh
 #previewContainer{display:flex;flex:1;gap:6px;min-height:0}
 .preview-controls{display:flex;gap:6px;margin-bottom:6px;align-items:center}
 .preview-controls input{flex:1;padding:4px;border-radius:4px;border:1px solid #444;background:#111;color:#fff}
+.preview-controls .icon-btn i svg {stroke: #fff; width: 18px; height: 18px;}
 .icon-btn{display:flex;align-items:center;justify-content:center;width:28px;height:28px;border:none;border-radius:6px;cursor:pointer;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#07101a}
 .icon-btn:hover{opacity:0.8}
 .icon-btn i{width:16px;height:16px}
@@ -70,6 +71,7 @@ button.muteBtn {margin-top:4px; font-size:10px; padding:2px 6px; border-radius:4
 
 /* Mixer panel bottom align */
 #mixerPanel {margin-top:auto;}
+
 
 
 
