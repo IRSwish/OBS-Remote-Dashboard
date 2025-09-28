@@ -29,13 +29,7 @@ export function createScenes(scenes){
         scenes.forEach(s => addScene(s.sceneName));
     }
 
-    updateVisibility();
-}
-
-// ---------------------
-// Update visibility of scenes under separators
-// ---------------------
-function updateVisibility(){
+    // Adjust display based on expanded/collapsed
     Array.from(sceneList.children).forEach(el => {
         if(el.classList.contains("separator")){
             let next = el.nextElementSibling;
@@ -56,7 +50,6 @@ function addScene(name){
     btn.textContent = name;
     sceneList.appendChild(btn);
 
-    // Preview click
     let clickTimeout;
     btn.addEventListener("click", () => {
         if(clickTimeout) return;
@@ -70,7 +63,6 @@ function addScene(name){
         }, 250);
     });
 
-    // Program double click
     btn.addEventListener("dblclick", () => {
         if(clickTimeout){ clearTimeout(clickTimeout); clickTimeout = null; }
         if(ws && ws.readyState === 1){
@@ -91,19 +83,23 @@ export function addSeparator(name, expanded = true, children = []){
     const div = document.createElement("div");
     div.className = "separator";
     if(expanded) div.classList.add("expanded");
-    div.innerHTML = `<span class="arrow">${expanded ? '▼' : '▶'}</span><span class="title">${name}</span><button class="deleteBtn">×</button>`;
+    div.innerHTML = `<span class="arrow">${expanded ? "▼" : "▶"}</span><span class="title">${name}</span><button class="deleteBtn">×</button>`;
     sceneList.appendChild(div);
 
     // Add child scenes
     children.forEach(c => addScene(c));
 
-    // Toggle expand/collapse
+    // Toggle expand/collapse only on arrow
     const arrow = div.querySelector(".arrow");
     arrow.addEventListener("click", e => {
         e.stopPropagation();
         div.classList.toggle("expanded");
-        arrow.textContent = div.classList.contains("expanded") ? '▼' : '▶';
-        updateVisibility();
+        arrow.textContent = div.classList.contains("expanded") ? "▼" : "▶";
+        let next = div.nextElementSibling;
+        while(next && !next.classList.contains("separator")){
+            next.style.display = div.classList.contains("expanded") ? "block" : "none";
+            next = next.nextElementSibling;
+        }
         saveSceneOrder();
     });
 
@@ -115,16 +111,18 @@ export function addSeparator(name, expanded = true, children = []){
         saveSceneOrder();
     });
 
-    // Delete separator
+    // Delete separator + its children move out
     div.querySelector(".deleteBtn").addEventListener("click", e => {
         e.stopPropagation();
         let next = div.nextElementSibling;
+        const childrenToMove = [];
         while(next && !next.classList.contains("separator")){
-            const tmp = next.nextElementSibling;
-            sceneList.insertBefore(next, div.nextSibling); // children go back to list
-            next.style.display = "block";
-            next = tmp;
+            childrenToMove.push(next);
+            next = next.nextElementSibling;
         }
+        childrenToMove.forEach(c => {
+            sceneList.insertBefore(c, div.nextSibling);
+        });
         div.remove();
         saveSceneOrder();
     });
@@ -157,18 +155,34 @@ function addSeparatorDragEvents(el){
     el.addEventListener("drop", e => {
         e.preventDefault();
         const data = JSON.parse(e.dataTransfer.getData("text/plain"));
-        if(data.type !== "separator") return;
         const toIndex = Array.from(sceneList.children).indexOf(el);
-        if(data.index === toIndex) return;
 
-        const moving = [sceneList.children[data.index], ...data.childIndexes.map(i => sceneList.children[i])];
+        if(data.type === "separator"){
+            if(data.index === toIndex) return;
 
-        if(data.index < toIndex){
-            sceneList.insertBefore(moving[0], sceneList.children[toIndex].nextSibling);
-            for(let i=1; i<moving.length; i++) sceneList.insertBefore(moving[i], moving[i-1].nextSibling);
-        } else {
-            sceneList.insertBefore(moving[0], sceneList.children[toIndex]);
-            for(let i=1; i<moving.length; i++) sceneList.insertBefore(moving[i], moving[i-1].nextSibling);
+            const moving = [sceneList.children[data.index], ...data.childIndexes.map(i => sceneList.children[i])];
+            if(data.index < toIndex){
+                sceneList.insertBefore(moving[0], sceneList.children[toIndex].nextSibling);
+            } else {
+                sceneList.insertBefore(moving[0], sceneList.children[toIndex]);
+            }
+            for(let i=1; i<moving.length; i++){
+                sceneList.insertBefore(moving[i], moving[i-1].nextSibling);
+            }
+        } else if(data.type === "scene"){
+            const moving = sceneList.children[data.index];
+            // Déplie le séparateur automatiquement
+            if(!el.classList.contains("expanded")){
+                el.classList.add("expanded");
+                el.querySelector(".arrow").textContent = "▼";
+            }
+            let insertAfter = el;
+            let next = el.nextElementSibling;
+            while(next && !next.classList.contains("separator")){
+                insertAfter = next;
+                next = next.nextElementSibling;
+            }
+            sceneList.insertBefore(moving, insertAfter.nextSibling);
         }
 
         saveSceneOrder();
@@ -176,7 +190,7 @@ function addSeparatorDragEvents(el){
 }
 
 // ---------------------
-// Drag & Drop for individual scenes
+// Drag & Drop for scenes
 // ---------------------
 function addSceneDragEvents(el){
     el.draggable = true;
@@ -196,14 +210,26 @@ function addSceneDragEvents(el){
         if(data.type !== "scene") return;
 
         const fromIndex = data.index;
-        const toIndex = Array.from(sceneList.children).indexOf(el);
-        if(fromIndex === toIndex) return;
-
         const moving = sceneList.children[fromIndex];
+        const toIndex = Array.from(sceneList.children).indexOf(el);
 
-        // Insert before or after depending on position
-        if(fromIndex < toIndex) sceneList.insertBefore(moving, sceneList.children[toIndex].nextSibling);
-        else sceneList.insertBefore(moving, sceneList.children[toIndex]);
+        if(el.classList.contains("separator")){
+            const sep = el;
+            if(!sep.classList.contains("expanded")){
+                sep.classList.add("expanded");
+                sep.querySelector(".arrow").textContent = "▼";
+            }
+            let insertAfter = sep;
+            let next = sep.nextElementSibling;
+            while(next && !next.classList.contains("separator")){
+                insertAfter = next;
+                next = next.nextElementSibling;
+            }
+            sceneList.insertBefore(moving, insertAfter.nextSibling);
+        } else {
+            if(fromIndex < toIndex) sceneList.insertBefore(moving, sceneList.children[toIndex].nextSibling);
+            else sceneList.insertBefore(moving, sceneList.children[toIndex]);
+        }
 
         saveSceneOrder();
     });
