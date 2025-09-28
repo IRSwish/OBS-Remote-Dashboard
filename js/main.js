@@ -5,8 +5,8 @@ import { loadChat } from './chat.js';
 import { setPreview } from './preview.js';
 
 // Exemple statique de preview
-setPreview(0, "https://vdo.ninja/?view=69CJFPh");
-setPreview(1, "https://vdo.ninja/?view=rvFr2XN");
+setPreview(0, "https://www.example.com");
+setPreview(1, "https://www.example.org");
 setPreview(2, "https://www.example.net");
 
 let streamStartTime = null;
@@ -74,4 +74,4 @@ document.addEventListener("obsMessage", e => {
             if(elStatus) elStatus.textContent = "CONNECTED";
         }
     }
-}); // <-- fin document.addEventListener
+}); // <-- FIN document.addEventListener
