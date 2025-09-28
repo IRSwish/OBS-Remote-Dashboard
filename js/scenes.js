@@ -149,7 +149,7 @@ function addSeparatorDragEvents(el){
         e.dataTransfer.setData("text/plain", JSON.stringify({
             type: "separator",
             index: Array.from(sceneList.children).indexOf(el),
-            childIndexes: children.map(c => Array.from(sceneList.children).indexOf(c))
+            childrenCount: children.length
         }));
     });
 
@@ -161,8 +161,14 @@ function addSeparatorDragEvents(el){
         const toIndex = Array.from(sceneList.children).indexOf(el);
         if(data.type !== "separator" || data.index === toIndex) return;
 
-        const moving = [sceneList.children[data.index], ...data.childIndexes.map(i => sceneList.children[i])];
+        // Get the moving elements (separator + its children)
+        const moving = [];
+        moving.push(sceneList.children[data.index]);
+        for(let i = 1; i <= data.childrenCount; i++){
+            moving.push(sceneList.children[data.index + 1]);
+        }
 
+        // Remove and re-insert
         if(data.index < toIndex){
             sceneList.insertBefore(moving[0], sceneList.children[toIndex].nextSibling);
             for(let i=1; i<moving.length; i++) sceneList.insertBefore(moving[i], moving[i-1].nextSibling);
@@ -201,7 +207,7 @@ function addSceneDragEvents(el){
 
         const moving = sceneList.children[fromIndex];
 
-        // Check if dropping onto a separator
+        // Drop into a separator
         if(el.classList.contains("separator")){
             let insertAfter = el;
             while(insertAfter.nextElementSibling && !insertAfter.nextElementSibling.classList.contains("separator")){
@@ -209,7 +215,6 @@ function addSceneDragEvents(el){
             }
             sceneList.insertBefore(moving, insertAfter.nextElementSibling);
         } else {
-            // Drop between scenes
             if(fromIndex < toIndex) sceneList.insertBefore(moving, sceneList.children[toIndex].nextSibling);
             else sceneList.insertBefore(moving, sceneList.children[toIndex]);
         }
