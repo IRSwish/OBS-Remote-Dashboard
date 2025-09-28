@@ -20,8 +20,6 @@ export function createScenes(scenes){
     sceneList.innerHTML = "";
     const saved = JSON.parse(localStorage.getItem("sceneOrder") || "[]");
 
-    const allSceneNames = scenes.map(s => s.sceneName);
-
     if(saved.length){
         saved.forEach(item => {
             if(item.type === "separator") addSeparator(item.name, item.expanded, item.children);
@@ -31,15 +29,7 @@ export function createScenes(scenes){
         scenes.forEach(s => addScene(s.sceneName));
     }
 
-    // Add any new scenes from OBS not in localStorage
-    const savedNames = Array.from(sceneList.children)
-                            .filter(c => c.classList.contains("scene"))
-                            .map(c => c.textContent);
-    allSceneNames.forEach(name => {
-        if(!savedNames.includes(name)) addScene(name);
-    });
-
-    // Adjust display based on expanded/collapsed
+    // Show scenes according to separator expanded/collapsed state
     Array.from(sceneList.children).forEach(el => {
         if(el.classList.contains("separator")){
             let next = el.nextElementSibling;
@@ -136,7 +126,7 @@ export function addSeparator(name, expanded = true, children = []){
 }
 
 // ---------------------
-// Drag & Drop for separators with children
+// Drag & Drop for separators
 // ---------------------
 function addSeparatorDragEvents(el){
     el.draggable = true;
@@ -163,7 +153,6 @@ function addSeparatorDragEvents(el){
         const toIndex = Array.from(sceneList.children).indexOf(el);
 
         if(data.type === "separator" && data.index !== toIndex){
-            // Move separator + children
             const moving = [sceneList.children[data.index], ...data.childIndexes.map(i => sceneList.children[i])];
             if(data.index < toIndex){
                 sceneList.insertBefore(moving[0], sceneList.children[toIndex].nextSibling);
@@ -174,9 +163,14 @@ function addSeparatorDragEvents(el){
             }
         } 
         else if(data.type === "scene"){
-            // Move scene into separator (even if empty)
+            // Drop scene just after separator
             const moving = sceneList.children[data.index];
-            sceneList.insertBefore(moving, el.nextElementSibling); // just after separator
+            const next = el.nextElementSibling;
+            if(next && !next.classList.contains("separator")){
+                sceneList.insertBefore(moving, next); // insert before first child
+            } else {
+                sceneList.insertBefore(moving, el.nextSibling); // insert just after separator
+            }
             moving.style.display = el.classList.contains("expanded") ? "block" : "none";
         }
 
