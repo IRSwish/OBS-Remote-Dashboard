@@ -7,26 +7,16 @@
 </head>
 <body>
 <div class="topbar">
-  <div class="brand">
-    <div class="logo">O</div>
-    OBS Remote
-  </div>
-
+  <div class="brand"><div class="logo">O</div>OBS Remote</div>
   <div class="ws-config">
     <input type="text" id="obsIP" placeholder="IP:Port" value="localhost:4455"/>
     <input type="password" id="obsPass" placeholder="Password"/>
     <button id="connectBtn">Connect</button>
   </div>
-
   <div class="status">
     <div class="pill" id="liveStatus">OFFLINE</div>
     <div class="pill" id="programScene">PRG: -</div>
-    <div class="pill">
-      <span id="cpuStat">CPU: 0%</span> • 
-      <span id="fpsStat">FPS: 0</span> • 
-      <span id="ramStat">RAM: 0 MB</span> • 
-      <span id="droppedStat">Dropped: 0 (0%)</span>
-    </div>
+    <div class="pill" id="cpuFps">CPU 0%</div>
   </div>
 </div>
 
@@ -63,6 +53,7 @@
 <script type="module" src="js/main.js"></script>
 </body>
 </html>
+
 
 
 
