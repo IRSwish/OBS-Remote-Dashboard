@@ -19,15 +19,23 @@ document.addEventListener("obsMessage", e => {
 export function createScenes(scenes){
     sceneList.innerHTML = "";
     const saved = JSON.parse(localStorage.getItem("sceneOrder") || "[]");
+    const savedSceneNames = new Set();
 
     if(saved.length){
         saved.forEach(item => {
             if(item.type === "separator") addSeparator(item.name, item.expanded, item.children);
             else addScene(item.name);
+            if(item.type === "scene") savedSceneNames.add(item.name);
+            if(item.type === "separator") item.children.forEach(c => savedSceneNames.add(c));
         });
     } else {
         scenes.forEach(s => addScene(s.sceneName));
     }
+
+    // Afficher les scènes libres OBS qui ne sont pas dans le localStorage
+    scenes.forEach(s => {
+        if(!savedSceneNames.has(s.sceneName)) addScene(s.sceneName);
+    });
 
     // Adjust display based on expanded/collapsed
     Array.from(sceneList.children).forEach(el => {
@@ -109,13 +117,13 @@ export function addSeparator(name, expanded = true, children = []){
         saveSceneOrder();
     });
 
-    // Delete separator + its scenes
+    // Delete separator but keep children
     div.querySelector(".deleteBtn").addEventListener("click", e => {
         e.stopPropagation();
         let next = div.nextElementSibling;
         while(next && !next.classList.contains("separator")){
             const tmp = next.nextElementSibling;
-            next.remove();
+            next.style.display = "block"; // Ensure they remain visible
             next = tmp;
         }
         div.remove();
@@ -126,7 +134,7 @@ export function addSeparator(name, expanded = true, children = []){
 }
 
 // ---------------------
-// Drag & Drop for separators with children
+// Drag & Drop for separators
 // ---------------------
 function addSeparatorDragEvents(el){
     el.draggable = true;
@@ -155,13 +163,12 @@ function addSeparatorDragEvents(el){
 
         const moving = [sceneList.children[data.index], ...data.childIndexes.map(i => sceneList.children[i])];
 
-        // Prevent children from merging into another separator
-        if(toIndex > data.index){
+        if(data.index < toIndex){
             sceneList.insertBefore(moving[0], sceneList.children[toIndex].nextSibling);
-            for(let i = 1; i < moving.length; i++) sceneList.insertBefore(moving[i], moving[i-1].nextSibling);
+            for(let i=1; i<moving.length; i++) sceneList.insertBefore(moving[i], moving[i-1].nextSibling);
         } else {
             sceneList.insertBefore(moving[0], sceneList.children[toIndex]);
-            for(let i = 1; i < moving.length; i++) sceneList.insertBefore(moving[i], moving[i-1].nextSibling);
+            for(let i=1; i<moving.length; i++) sceneList.insertBefore(moving[i], moving[i-1].nextSibling);
         }
 
         saveSceneOrder();
