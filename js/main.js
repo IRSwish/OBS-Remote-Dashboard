@@ -6,10 +6,10 @@ import { setPreview } from './preview.js';
 
 let streamStartTime = null;
 
-// Exemple de preview
-setPreview(0, "https://vdo.ninja/?view=69CJFPh&autoplay=1");
-setPreview(1, "https://vdo.ninja/?view=rvFr2XN&autoplay=1");
-setPreview(2, "https://vdo.ninja/?view=SwishEML&autoplay=1");
+// Exemple de preview avec autoplay forcé
+setPreview(0, "https://vdo.ninja/?view=69CJFPh");
+setPreview(1, "https://vdo.ninja/?view=rvFr2XN");
+setPreview(2, "https://vdo.ninja/?view=SwishEML");
 
 // Connexion OBS
 document.getElementById("connectBtn").addEventListener("click", () => {
@@ -74,6 +74,4 @@ document.addEventListener("obsMessage", e => {
             if(elStatus) elStatus.textContent = "CONNECTED";
         }
     }
-}); // <-- fin addEventListener
-
-
+});
