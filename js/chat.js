@@ -1,23 +1,21 @@
-let chatEmbed = null;
-
 export function loadChat(channel) {
   if (!channel) return;
   const chatDiv = document.getElementById("chatFrame");
 
-  // reset le container
+  // Reset
   chatDiv.innerHTML = "";
 
-  // créer l’embed Twitch (seulement le chat)
-  chatEmbed = new Twitch.Embed("chatFrame", {
-    width: "100%",
-    height: "100%",
-    channel: channel,
-    layout: "chat",
-    theme: "dark"
-  });
+  // Création iframe chat-only
+  const iframe = document.createElement("iframe");
+  iframe.src = `https://www.twitch.tv/embed/${channel}/chat?parent=${location.hostname}`;
+  iframe.width = "100%";
+  iframe.height = "100%";
+  iframe.frameBorder = "0";
+
+  chatDiv.appendChild(iframe);
 }
 
-// initialisation auto avec la valeur par défaut de l’input
+// Initialisation auto avec la valeur par défaut
 window.addEventListener("DOMContentLoaded", () => {
   const input = document.getElementById("chatChannel");
   loadChat(input.value);
