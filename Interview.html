@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <title>Interview Console</title>
   <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="https://unpkg.com/lucide-static/font/lucide.css">
-<script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="https://unpkg.com/lucide-static/font/lucide.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
   <div class="main" style="grid-template-columns:1fr 360px;">
@@ -29,17 +29,15 @@
       </div>
     </div>
 
-     <div class="panel" id="chatPanel">
+    <div class="panel" id="chatPanel">
       <h3>Chat</h3>
       <div class="chat-header">
         <input type="text" id="chatChannel" placeholder="Twitch channel" value="Rainbow6FR"/>
         <button id="loadChat">Load Chat</button>
       </div>
+      <!-- C’est ici qu’on va injecter l’iframe -->
       <div id="chatFrame" class="chat-iframe"></div>
     </div>
-    
-    <!-- Charge le script Twitch -->
-    <script src="https://embed.twitch.tv/embed/v1.js"></script>
   </div>
 
   <script type="module" src="js/main.js"></script>
