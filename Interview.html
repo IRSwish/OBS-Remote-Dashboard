@@ -30,14 +30,16 @@
     </div>
 
      <div class="panel" id="chatPanel">
-    <h3>Chat</h3>
-    <div class="chat-header">
-      <input type="text" id="chatChannel" placeholder="Twitch channel" value="Rainbow6FR"/>
-      <button id="loadChat">Load Chat</button>
+      <h3>Chat</h3>
+      <div class="chat-header">
+        <input type="text" id="chatChannel" placeholder="Twitch channel" value="Rainbow6FR"/>
+        <button id="loadChat">Load Chat</button>
+      </div>
+      <div id="chatFrame" class="chat-iframe"></div>
     </div>
-    <div id="twitch-embed" class="chat-iframe"></div>
-  </div>
-  <script src="https://embed.twitch.tv/embed/v1.js"></script>
+    
+    <!-- Charge le script Twitch -->
+    <script src="https://embed.twitch.tv/embed/v1.js"></script>
   </div>
 
   <script type="module" src="js/main.js"></script>
