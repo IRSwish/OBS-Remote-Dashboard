@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>OBS Remote Console (Lite)</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="main" style="grid-template-columns:1fr 360px;">
+    <div style="display:flex; flex-direction:column; gap:12px; flex:1;">
+      <div class="panel" id="previewPanel">
+        <h3>Preview</h3>
+        <div id="previewContainer">
+          <div class="preview-wrapper">
+            <div class="preview-controls"></div>
+            <iframe id="preview1" src=""></iframe>
+          </div>
+          <div class="preview-wrapper">
+            <div class="preview-controls"></div>
+            <iframe id="preview2" src=""></iframe>
+          </div>
+          <div class="preview-wrapper">
+            <div class="preview-controls"></div>
+            <iframe id="preview3" src=""></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" id="chatPanel">
+      <h3>Chat</h3>
+      <div class="chat-header">
+        <input type="text" id="chatChannel" placeholder="Twitch channel" value="pseudo"/>
+        <button id="loadChat">Load Chat</button>
+      </div>
+      <iframe id="chatFrame" class="chat-iframe" src="https://www.twitch.tv/popout/pseudo/chat"></iframe>
+    </div>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
