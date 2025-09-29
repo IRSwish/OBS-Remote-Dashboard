@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>OBS Remote Console (Lite)</title>
+  <title>Interview Console</title>
   <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="https://unpkg.com/lucide-static/font/lucide.css">
 <script src="https://unpkg.com/lucide@latest"></script>
@@ -11,7 +11,7 @@
   <div class="main" style="grid-template-columns:1fr 360px;">
     <div style="display:flex; flex-direction:column; gap:12px; flex:1;">
       <div class="panel" id="previewPanel">
-        <h3>Preview</h3>
+        <h3>Cameras</h3>
         <div id="previewContainer">
           <div class="preview-wrapper">
             <div class="preview-controls"></div>
@@ -32,10 +32,10 @@
     <div class="panel" id="chatPanel">
       <h3>Chat</h3>
       <div class="chat-header">
-        <input type="text" id="chatChannel" placeholder="Twitch channel" value="pseudo"/>
+        <input type="text" id="chatChannel" placeholder="Twitch channel" value="Rainbow6FR"/>
         <button id="loadChat">Load Chat</button>
       </div>
-      <iframe id="chatFrame" class="chat-iframe" src="https://www.twitch.tv/popout/pseudo/chat"></iframe>
+      <iframe id="chatFrame" class="chat-iframe" src="https://www.twitch.tv/popout/Rainbow6FR/chat"></iframe>
     </div>
   </div>
 
