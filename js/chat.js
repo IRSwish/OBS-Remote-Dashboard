@@ -4,7 +4,7 @@ export function loadChat(channel) {
   chatDiv.innerHTML = "";
 
   const iframe = document.createElement("iframe");
-  iframe.src = `https://www.twitch.tv/embed/${channel}/chat?parent=${location.hostname}`;
+  iframe.src = `https://www.twitch.tv/embed/${channel}/chat?parent=irswish.github.io`;
   iframe.width = "100%";
   iframe.height = "100%";
   iframe.frameBorder = "0";
