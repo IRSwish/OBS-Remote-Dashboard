@@ -9,9 +9,9 @@ export function loadChat(channel) {
     width: "100%",
     height: "100%",
     channel: channel,
-    layout: "chat",      // chat seul
-    theme: "dark",       // dark mode forcé
-    parent: ["irswish.github.io"] // ton domaine exact GitHub Pages
+    layout: "chat",
+    theme: "dark",
+    parent: ["irswish.github.io"] // ton domaine exact
   });
 }
 
