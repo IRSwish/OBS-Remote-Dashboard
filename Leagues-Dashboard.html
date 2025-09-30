@@ -10,10 +10,18 @@
 body,html{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;background:linear-gradient(180deg,#0f1720,#07101a);color:#fff}
 .main{display:flex;height:100%;gap:12px;padding:12px}
 .sidebar{display:flex;flex-direction:column;width:200px;height:100%}
-.league-btn{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;border:none;background:#0b1220;border-radius:10px;margin:4px 0;cursor:pointer;overflow:hidden;transition:0.2s;color:#fff}
-.league-btn:hover{background:#1a2230}
+
+/* Animation boutons ligues */
+.league-btn{
+  flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  border:none;background:#0b1220;border-radius:10px;margin:4px 0;cursor:pointer;overflow:hidden;
+  transition:transform 0.2s, background 0.2s, box-shadow 0.2s;color:#fff;
+}
+.league-btn:hover{transform:scale(1.05);box-shadow:0 4px 15px rgba(0,200,255,0.3);background:#1a2230}
 .league-btn.active{background:linear-gradient(90deg,#00c9ff,#f52584);color:#07101a}
-.league-btn.active img{filter:brightness(0) invert(1)}
+.league-btn.active img{filter:brightness(0) invert(1);}
+.league-btn.active:hover{transform:none;box-shadow:none;background:linear-gradient(90deg,#00c9ff,#f52584)} /* pas de saut sur hover actif */
+
 .league-btn img{max-height:60%;max-width:80%;object-fit:contain}
 .league-btn span{margin-top:6px;font-size:14px;text-align:center}
 
@@ -56,12 +64,10 @@ fetch('links.json')
   .then(res=>res.json())
   .then(data=>{
     leagueData = data;
-    // sélection par défaut
     buttons[0].classList.add('active');
     updatePanels(buttons[0].dataset.league);
   });
 
-// clic sur boutons ligues
 buttons.forEach(btn=>{
   btn.addEventListener('click',()=>{
     buttons.forEach(b=>b.classList.remove('active'));
@@ -72,10 +78,8 @@ buttons.forEach(btn=>{
 
 function updatePanels(league){
   const container = document.getElementById('content');
-  container.innerHTML=''; // reset
+  container.innerHTML='';
   const categories = Object.keys(leagueData[league]||{});
-
-  // 2 colonnes si 2 catégories ou plus
   if(categories.length>=2){
     container.classList.add('two-cols');
   }else{
