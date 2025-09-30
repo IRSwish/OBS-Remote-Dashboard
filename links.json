@@ -1,17 +1,25 @@
 {
   "EUROPE-MENA": {
     "R6 Esports": [
-      {"text":"Site officiel","url":"https://r6esports.com","img":"css/img/R6esports.png"},
-      {"text":"News","url":"https://r6esports.com/news","img":"css/img/R6esports.png"}
     ],
     "Siege Talent Platform": [
-      {"text":"STP","url":"https://siegetalentplatform.com","img":"css/img/STP.png"}
+      {"text":"Stage 1 - Teams Stats","url":"https://talent-tools.vercel.app/competitions/473","img":"css/img/STP.png"},
+      {"text":"Stage 1 - Players Stats","url":"https://talent-tools.vercel.app/competitions/473?tab=players","img":"css/img/STP.png"},
+      {"text":"Stage 1 - Maps Stats","url":"https://talent-tools.vercel.app/competitions/473?tab=maps","img":"css/img/STP.png"},
+      {"text":"Stage 1 - Ops Stats","url":"https://talent-tools.vercel.app/competitions/473?tab=ops","img":"css/img/STP.png"},
+      {"text":"Stage 1 - Matches","url":"https://talent-tools.vercel.app/competitions/473?tab=matches","img":"css/img/STP.png"},
+      
+      {"text":"Stage 2 - Teams Stats","url":"https://talent-tools.vercel.app/competitions/481","img":"css/img/STP.png"},
+      {"text":"Stage 2 - Players Stats","url":"https://talent-tools.vercel.app/competitions/481?tab=players","img":"css/img/STP.png"},
+      {"text":"Stage 2 - Maps Stats","url":"https://talent-tools.vercel.app/competitions/481?tab=maps","img":"css/img/STP.png"},
+      {"text":"Stage 2 - Ops Stats","url":"https://talent-tools.vercel.app/competitions/481?tab=ops","img":"css/img/STP.png"},
+      {"text":"Stage 2 - Matches","url":"https://talent-tools.vercel.app/competitions/481?tab=matches","img":"css/img/STP.png"}
     ],
     "Liquipedia": [
-      {"text":"Wiki","url":"https://liquipedia.net/rainbow6","img":"css/img/Liquipedia.png"}
+      
     ],
     "SiegeGG": [
-      {"text":"Stats","url":"https://siege.gg","img":"css/img/SiegeGG.png"}
+      
     ]
   },
   "NORTH AMERICA": {
