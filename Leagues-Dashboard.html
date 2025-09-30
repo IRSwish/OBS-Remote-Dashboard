@@ -23,33 +23,39 @@
 
     /* Boutons carrés qui remplissent chaque cellule */
     .league-btn {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 8px;
-      border: none;
-      border-radius: 12px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      color: #fff;
-      font-weight: 600;
-      cursor: pointer;
-      transition: transform 0.2s ease, opacity 0.2s ease;
-      width: 100%;
-      height: 100%;
-      text-align: center;
-      font-size: 14px;
-    }
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: 13px;
+    padding: 10px; /* pour éviter que l’image touche les bords */
+  }
+  
+  .league-btn img {
+    flex: 1;                 /* prend toute la place dispo */
+    max-height: 70%;         /* pas plus de 70% du bouton */
+    width: auto;
+    object-fit: contain;
+  }
+  
+  .league-btn span {
+    flex: 0;                 /* le texte prend juste ce qu’il faut */
+  }
 
     .league-btn:hover {
       opacity: 0.9;
       transform: scale(1.03);
-    }
-
-    .league-btn img {
-      width: 40px;
-      height: 40px;
-      object-fit: contain;
     }
 
     /* Zone de droite */
