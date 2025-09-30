@@ -33,6 +33,32 @@
   },
   
   "NORTH AMERICA": {
+    "R6 Esports": [
+      {"text":"Stage 1 - Infos","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/475/overview","img":"css/img/R6esports.png"},
+      {"text":"Stage 1 - Groupes","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/475/14937","img":"css/img/R6esports.png"},
+      {"text":"Stage 1 - Playoffs","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/475/14938","img":"css/img/R6esports.png"},
+      {"text":"Stage 2 - Infos","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/482/overview","img":"css/img/R6esports.png"},
+      {"text":"Stage 2 - Groupes","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/482/14953","img":"css/img/R6esports.png"},
+      {"text":"Stage 2 - Playoffs","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/482/14954","img":"css/img/R6esports.png"}
+    ],
+    "Siege Talent Platform": [
+      {"text":"Stage 1 - Teams Stats","url":"https://talent-tools.vercel.app/competitions/475","img":"css/img/STP.png"},
+      {"text":"Stage 1 - Players Stats","url":"https://talent-tools.vercel.app/competitions/475?tab=players","img":"css/img/STP.png"},
+      {"text":"Stage 1 - Maps Stats","url":"https://talent-tools.vercel.app/competitions/475?tab=maps","img":"css/img/STP.png"},
+      {"text":"Stage 1 - Ops Stats","url":"https://talent-tools.vercel.app/competitions/475?tab=ops","img":"css/img/STP.png"},
+      {"text":"Stage 1 - Matches","url":"https://talent-tools.vercel.app/competitions/475?tab=matches","img":"css/img/STP.png"},
+      
+      {"text":"Stage 2 - Teams Stats","url":"https://talent-tools.vercel.app/competitions/482","img":"css/img/STP.png"},
+      {"text":"Stage 2 - Players Stats","url":"https://talent-tools.vercel.app/competitions/482?tab=players","img":"css/img/STP.png"},
+      {"text":"Stage 2 - Maps Stats","url":"https://talent-tools.vercel.app/competitions/482?tab=maps","img":"css/img/STP.png"},
+      {"text":"Stage 2 - Ops Stats","url":"https://talent-tools.vercel.app/competitions/482?tab=ops","img":"css/img/STP.png"},
+      {"text":"Stage 2 - Matches","url":"https://talent-tools.vercel.app/competitions/482?tab=matches","img":"css/img/STP.png"}
+    ],
+    "Liquipedia": [
+      {"text":"Stage 1","url":"https://liquipedia.net/rainbowsix/North_America_League/2025/Stage_1","img":"css/img/Liquipedia.png"},
+      {"text":"Stage 2","url":"https://liquipedia.net/rainbowsix/North_America_League/2025/Stage_2","img":"css/img/Liquipedia.png"},
+      {"text":"Finales Régionales","url":"https://liquipedia.net/rainbowsix/North_America_League/2025/Finals","img":"css/img/Liquipedia.png"}
+    ],
      "SiegeGG": [
       {"text":"Stage 1","url":"https://siege.gg/competitions/65-north-america-league-2025-stage-1","img":"https://gdm-universal-media.b-cdn.net/siege/Frame-48097714.png"},
       {"text":"Stage 2","url":"https://siege.gg/competitions/70-north-america-league-2025-stage-2","img":"https://gdm-universal-media.b-cdn.net/siege/Frame-48097714.png"}
@@ -40,6 +66,32 @@
   },
 
 "SOUTH AMERICA": {
+    "R6 Esports": [
+      {"text":"Stage 1 - Infos","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/474/overview","img":"css/img/R6esports.png"},
+      {"text":"Stage 1 - Groupes","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/474/14931","img":"css/img/R6esports.png"},
+      {"text":"Stage 1 - Playoffs","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/474/14936","img":"css/img/R6esports.png"},
+      {"text":"Stage 2 - Infos","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/483/overview","img":"css/img/R6esports.png"},
+      {"text":"Stage 2 - Groupes","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/483/14949","img":"css/img/R6esports.png"},
+      {"text":"Stage 2 - Playoffs","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/483/14950","img":"css/img/R6esports.png"}
+    ],
+    "Siege Talent Platform": [
+      {"text":"Stage 1 - Teams Stats","url":"https://talent-tools.vercel.app/competitions/474","img":"css/img/STP.png"},
+      {"text":"Stage 1 - Players Stats","url":"https://talent-tools.vercel.app/competitions/474?tab=players","img":"css/img/STP.png"},
+      {"text":"Stage 1 - Maps Stats","url":"https://talent-tools.vercel.app/competitions/474?tab=maps","img":"css/img/STP.png"},
+      {"text":"Stage 1 - Ops Stats","url":"https://talent-tools.vercel.app/competitions/474?tab=ops","img":"css/img/STP.png"},
+      {"text":"Stage 1 - Matches","url":"https://talent-tools.vercel.app/competitions/474?tab=matches","img":"css/img/STP.png"},
+      
+      {"text":"Stage 2 - Teams Stats","url":"https://talent-tools.vercel.app/competitions/483","img":"css/img/STP.png"},
+      {"text":"Stage 2 - Players Stats","url":"https://talent-tools.vercel.app/competitions/483?tab=players","img":"css/img/STP.png"},
+      {"text":"Stage 2 - Maps Stats","url":"https://talent-tools.vercel.app/competitions/483?tab=maps","img":"css/img/STP.png"},
+      {"text":"Stage 2 - Ops Stats","url":"https://talent-tools.vercel.app/competitions/483?tab=ops","img":"css/img/STP.png"},
+      {"text":"Stage 2 - Matches","url":"https://talent-tools.vercel.app/competitions/483?tab=matches","img":"css/img/STP.png"}
+    ],
+    "Liquipedia": [
+      {"text":"Stage 1","url":"https://liquipedia.net/rainbowsix/South_America_League/2025/Stage_1","img":"css/img/Liquipedia.png"},
+      {"text":"Stage 2","url":"https://liquipedia.net/rainbowsix/South_America_League/2025/Stage_2","img":"css/img/Liquipedia.png"},
+      {"text":"Finales Régionales","url":"https://liquipedia.net/rainbowsix/South_America_League/2025/Finals","img":"css/img/Liquipedia.png"}
+    ],
      "SiegeGG": [
       {"text":"Stage 1","url":"https://siege.gg/competitions/66-south-america-league-2025-stage-1","img":"https://gdm-universal-media.b-cdn.net/siege/Frame-48097714.png"},
       {"text":"Stage 2","url":"https://siege.gg/competitions/72-south-america-league-2025-stage-2","img":"https://gdm-universal-media.b-cdn.net/siege/Frame-48097714.png"}
@@ -47,6 +99,32 @@
   },
 
   "APL - APAC NORTH": {
+    "R6 Esports": [
+      {"text":"Stage 1 - Infos","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/472/overview","img":"css/img/R6esports.png"},
+      {"text":"Stage 1 - Groupes","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/472/14941","img":"css/img/R6esports.png"},
+      {"text":"Stage 1 - Playoffs","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/472/14942","img":"css/img/R6esports.png"},
+      {"text":"Stage 2 - Infos","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/478/overview","img":"css/img/R6esports.png"},
+      {"text":"Stage 2 - Groupes","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/478/14961","img":"css/img/R6esports.png"},
+      {"text":"Stage 2 - Playoffs","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/478/14962","img":"css/img/R6esports.png"}
+    ],
+    "Siege Talent Platform": [
+      {"text":"Stage 1 - Teams Stats","url":"https://talent-tools.vercel.app/competitions/472","img":"css/img/STP.png"},
+      {"text":"Stage 1 - Players Stats","url":"https://talent-tools.vercel.app/competitions/472?tab=players","img":"css/img/STP.png"},
+      {"text":"Stage 1 - Maps Stats","url":"https://talent-tools.vercel.app/competitions/472?tab=maps","img":"css/img/STP.png"},
+      {"text":"Stage 1 - Ops Stats","url":"https://talent-tools.vercel.app/competitions/472?tab=ops","img":"css/img/STP.png"},
+      {"text":"Stage 1 - Matches","url":"https://talent-tools.vercel.app/competitions/472?tab=matches","img":"css/img/STP.png"},
+      
+      {"text":"Stage 2 - Teams Stats","url":"https://talent-tools.vercel.app/competitions/478","img":"css/img/STP.png"},
+      {"text":"Stage 2 - Players Stats","url":"https://talent-tools.vercel.app/competitions/478?tab=players","img":"css/img/STP.png"},
+      {"text":"Stage 2 - Maps Stats","url":"https://talent-tools.vercel.app/competitions/478?tab=maps","img":"css/img/STP.png"},
+      {"text":"Stage 2 - Ops Stats","url":"https://talent-tools.vercel.app/competitions/478?tab=ops","img":"css/img/STP.png"},
+      {"text":"Stage 2 - Matches","url":"https://talent-tools.vercel.app/competitions/478?tab=matches","img":"css/img/STP.png"}
+    ],
+    "Liquipedia": [
+      {"text":"Stage 1","url":"https://liquipedia.net/rainbowsix/Asia_Pacific_League/2025/Stage_1/APAC_North","img":"css/img/Liquipedia.png"},
+      {"text":"Stage 2","url":"https://liquipedia.net/rainbowsix/Asia_Pacific_League/2025/Stage_2/APAC_North","img":"css/img/Liquipedia.png"},
+      {"text":"Finales Régionales","url":"https://liquipedia.net/rainbowsix/Asia_Pacific_League/2025","img":"css/img/Liquipedia.png"}
+    ],
      "SiegeGG": [
       {"text":"Stage 1","url":"https://siege.gg/competitions/68-apac-league-north-2025-stage-1","img":"https://gdm-universal-media.b-cdn.net/siege/Frame-48097714.png"},
       {"text":"Stage 2","url":"https://siege.gg/competitions/71-apac-league-north-2025-stage-2","img":"https://gdm-universal-media.b-cdn.net/siege/Frame-48097714.png"}
