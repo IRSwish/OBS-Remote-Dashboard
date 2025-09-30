@@ -1,1 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Liens Utiles</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .main-links {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: var(--gap);
+      padding: var(--gap);
+      height: 100vh;
+    }
+    .league-menu {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .league-btn {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      border: none;
+      border-radius: 8px;
+      background: linear-gradient(90deg,var(--accent),var(--accent2));
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+    .league-btn:hover {
+      opacity: 0.9;
+      transform: translateX(4px);
+    }
+    .league-btn img {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+    }
+    .league-content {
+      background: var(--panel);
+      border-radius: var(--card-radius);
+      padding: 16px;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="main-links">
+    <div class="league-menu">
+      <button class="league-btn" data-league="eu">
+        <img src="style/img/EML.png" alt="EML">
+        EUROPE-MENA
+      </button>
+      <button class="league-btn" data-league="na">
+        <img src="style/img/NAL.png" alt="NAL">
+        NORTH AMERICA
+      </button>
+      <button class="league-btn" data-league="sa">
+        <img src="style/img/SAL.png" alt="SAL">
+        SOUTH AMERICA
+      </button>
+      <button class="league-btn" data-league="apl-asia">
+        <img src="style/img/APL.png" alt="APL">
+        APL – ASIA
+      </button>
+      <button class="league-btn" data-league="apl-apn">
+        <img src="style/img/APL.png" alt="APL">
+        APL – APAC NORTH
+      </button>
+      <button class="league-btn" data-league="apl-oce">
+        <img src="style/img/APL.png" alt="APL">
+        APL – OCEANIA
+      </button>
+    </div>
+    <div class="league-content" id="leagueContent">
+      <h2>Choisis une ligue à gauche 👈</h2>
+      <p>Le contenu changera ici en fonction du bouton sélectionné.</p>
+    </div>
+  </div>
 
+  <script>
+    const content = document.getElementById("leagueContent");
+    document.querySelectorAll(".league-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const league = btn.dataset.league;
+        content.innerHTML = `<h2>${btn.textContent.trim()}</h2><p>Contenu spécifique à la ligue <b>${league}</b>.</p>`;
+      });
+    });
+  </script>
+</body>
+</html>
