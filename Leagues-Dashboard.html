@@ -12,38 +12,57 @@
       padding: var(--gap);
       height: 100vh;
     }
+
+    /* Colonne gauche transformée en grille */
     .league-menu {
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-rows: repeat(6, 1fr); /* 6 ligues */
       gap: 10px;
+      height: 100%;
     }
+
+    /* Boutons carrés qui remplissent chaque cellule */
     .league-btn {
       display: flex;
+      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      gap: 12px;
-      padding: 10px 14px;
+      gap: 8px;
       border: none;
-      border-radius: 8px;
-      background: linear-gradient(90deg,var(--accent),var(--accent2));
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
       color: #fff;
       font-weight: 600;
       cursor: pointer;
       transition: transform 0.2s ease, opacity 0.2s ease;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      font-size: 14px;
     }
+
     .league-btn:hover {
       opacity: 0.9;
-      transform: translateX(4px);
+      transform: scale(1.03);
     }
+
     .league-btn img {
-      width: 28px;
-      height: 28px;
+      width: 40px;
+      height: 40px;
       object-fit: contain;
     }
+
+    /* Zone de droite */
     .league-content {
       background: var(--panel);
       border-radius: var(--card-radius);
       padding: 16px;
       color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
     }
   </style>
 </head>
@@ -51,30 +70,31 @@
   <div class="main-links">
     <div class="league-menu">
       <button class="league-btn" data-league="eu">
-        <img src="style/img/EML.png" alt="EML">
+        <img src="css/img/EML.png" alt="EML">
         EUROPE-MENA
       </button>
       <button class="league-btn" data-league="na">
-        <img src="style/img/NAL.png" alt="NAL">
+        <img src="css/img/NAL.png" alt="NAL">
         NORTH AMERICA
       </button>
       <button class="league-btn" data-league="sa">
-        <img src="style/img/SAL.png" alt="SAL">
+        <img src="css/img/SAL.png" alt="SAL">
         SOUTH AMERICA
       </button>
       <button class="league-btn" data-league="apl-asia">
-        <img src="style/img/APL.png" alt="APL">
+        <img src="css/img/APL.png" alt="APL">
         APL – ASIA
       </button>
       <button class="league-btn" data-league="apl-apn">
-        <img src="style/img/APL.png" alt="APL">
+        <img src="css/img/APL.png" alt="APL">
         APL – APAC NORTH
       </button>
       <button class="league-btn" data-league="apl-oce">
-        <img src="style/img/APL.png" alt="APL">
+        <img src="css/img/APL.png" alt="APL">
         APL – OCEANIA
       </button>
     </div>
+
     <div class="league-content" id="leagueContent">
       <h2>Choisis une ligue à gauche 👈</h2>
       <p>Le contenu changera ici en fonction du bouton sélectionné.</p>
@@ -86,7 +106,8 @@
     document.querySelectorAll(".league-btn").forEach(btn => {
       btn.addEventListener("click", () => {
         const league = btn.dataset.league;
-        content.innerHTML = `<h2>${btn.textContent.trim()}</h2><p>Contenu spécifique à la ligue <b>${league}</b>.</p>`;
+        content.innerHTML = `<h2>${btn.textContent.trim()}</h2>
+          <p>Contenu spécifique à la ligue <b>${league}</b>.</p>`;
       });
     });
   </script>
