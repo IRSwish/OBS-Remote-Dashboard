@@ -1,126 +1,73 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Dashboard Leagues</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="https://unpkg.com/lucide-static/font/lucide.css">
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <style>
-    body, html {
-      height: 100%;
-      margin: 0;
-      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-      background: linear-gradient(180deg,#0f1720,#07101a);
-      color: #fff;
-    }
-
-    .main {
-      display: flex;
-      height: 100%;
-      gap: 12px;
-      padding: 12px;
-    }
-
-    /* Sidebar avec boutons de ligues */
-    .sidebar {
-      display: flex;
-      flex-direction: column;
-      width: 200px;
-      height: 100%;
-    }
-
-    .league-btn {
-      flex: 1; /* chaque bouton prend la même hauteur */
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      border: none;
-      background: #0b1220;
-      border-radius: 10px;
-      margin: 4px 0;
-      cursor: pointer;
-      overflow: hidden;
-      transition: background 0.2s;
-    }
-
-    .league-btn:hover {
-      background: #1a2230;
-    }
-
-    .league-btn img {
-      max-height: 60%;
-      max-width: 80%;
-      object-fit: contain;
-    }
-
-    .league-btn span {
-      margin-top: 6px;
-      font-size: 14px;
-      text-align: center;
-    }
-
-    /* Contenu à droite (placeholder) */
-    .content {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .panel {
-      background: #0b1220;
-      border-radius: 10px;
-      padding: 12px;
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
-      color: #fff;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>League Dashboard</title>
+<style>
+:root{
+  --bg:#0f1720; --panel:#0b1220; --muted:#9aa4b2;
+  --accent:#00c9ff; --accent2:#f52584; --card-radius:10px;
+  --gap:12px; font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:linear-gradient(180deg,var(--bg),#07101a);color:#e6eef6;height:100vh;display:flex;flex-direction:column}
+.main{flex:1;display:grid;grid-template-columns:120px 1fr 1fr;gap:var(--gap);padding:var(--gap)}
+.panel{background:var(--panel);border-radius:var(--card-radius);padding:12px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.league-column{display:flex;flex-direction:column;gap:6px;height:100%}
+.league-btn{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;border:none;border-radius:8px;background:#222;color:#fff;cursor:pointer;transition:0.3s;overflow:hidden}
+.league-btn img{max-height:70%;width:auto;margin-bottom:4px;transition:0.3s}
+.league-btn span{font-size:12px;text-align:center}
+.league-btn.active{background:linear-gradient(90deg,var(--accent),var(--accent2));color:#07101a}
+.league-btn.active img{filter:brightness(0) invert(1)}
+</style>
 </head>
 <body>
-  <div class="main">
-    <!-- Sidebar gauche -->
-    <div class="sidebar">
-      <button class="league-btn">
-        <img src="css/img/EML.png" alt="Europe-MENA">
-        <span>EUROPE-MENA</span>
-      </button>
-      <button class="league-btn">
-        <img src="css/img/NAL.png" alt="North America">
-        <span>NORTH AMERICA</span>
-      </button>
-      <button class="league-btn">
-        <img src="css/img/SAL.png" alt="South America">
-        <span>SOUTH AMERICA</span>
-      </button>
-      <button class="league-btn">
-        <img src="css/img/APL.png" alt="Asia">
-        <span>APL - ASIA</span>
-      </button>
-      <button class="league-btn">
-        <img src="css/img/APL.png" alt="Apac North">
-        <span>APL - APAC NORTH</span>
-      </button>
-      <button class="league-btn">
-        <img src="css/img/APL.png" alt="Oceania">
-        <span>APL - OCEANIA</span>
-      </button>
-      <button class="league-btn">
-        <img src="css/img/EML.png" alt="Extra">
-        <span>EXTRA</span>
-      </button>
-    </div>
-
-    <!-- Contenu droit -->
-    <div class="content">
-      <div class="panel">Contenu colonne 1</div>
-      <div class="panel">Contenu colonne 2</div>
-    </div>
+<div class="main">
+  <div class="league-column">
+    <button class="league-btn" data-league="EUROPE-MENA"><img src="css/img/EML.png"><span>EUROPE-MENA</span></button>
+    <button class="league-btn" data-league="NORTH AMERICA"><img src="css/img/NAL.png"><span>NORTH AMERICA</span></button>
+    <button class="league-btn" data-league="SOUTH AMERICA"><img src="css/img/SAL.png"><span>SOUTH AMERICA</span></button>
+    <button class="league-btn" data-league="APL-ASIA"><img src="css/img/APL.png"><span>APL - ASIA</span></button>
+    <button class="league-btn" data-league="APL-APAC NORTH"><img src="css/img/APL.png"><span>APL - APAC NORTH</span></button>
+    <button class="league-btn" data-league="APL-OCEANIA"><img src="css/img/APL.png"><span>APL - OCEANIA</span></button>
+    <button class="league-btn" data-league="EXAMPLE"><img src="css/img/EML.png"><span>EXTRA</span></button>
   </div>
+
+  <div class="panel" id="logoPanel">
+    <img id="leagueLogo" src="css/img/EML.png" style="max-height:80%;width:auto">
+  </div>
+
+  <div class="panel" id="infoPanel">
+    <h2 id="leagueName">EUROPE-MENA</h2>
+    <p id="leagueInfo">Informations sur la ligue EUROPE-MENA</p>
+  </div>
+</div>
+
+<script>
+const leagueData = {
+  "EUROPE-MENA": {logo:"css/img/EML.png",info:"Informations sur la ligue EUROPE-MENA"},
+  "NORTH AMERICA": {logo:"css/img/NAL.png",info:"Informations sur la ligue NORTH AMERICA"},
+  "SOUTH AMERICA": {logo:"css/img/SAL.png",info:"Informations sur la ligue SOUTH AMERICA"},
+  "APL-ASIA": {logo:"css/img/APL.png",info:"APL - ASIA league details"},
+  "APL-APAC NORTH": {logo:"css/img/APL.png",info:"APL - APAC NORTH league details"},
+  "APL-OCEANIA": {logo:"css/img/APL.png",info:"APL - OCEANIA league details"},
+  "EXAMPLE": {logo:"css/img/EML.png",info:"Extra league info"}
+};
+
+const buttons = document.querySelectorAll('.league-btn');
+buttons.forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    buttons.forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const key = btn.dataset.league;
+    document.getElementById('leagueLogo').src=leagueData[key].logo;
+    document.getElementById('leagueName').textContent=key;
+    document.getElementById('leagueInfo').textContent=leagueData[key].info;
+  });
+});
+
+// sélection par défaut
+buttons[0].classList.add('active');
+</script>
 </body>
 </html>
