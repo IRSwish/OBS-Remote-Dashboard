@@ -3,75 +3,123 @@
 <head>
 <meta charset="UTF-8">
 <title>Dashboard Leagues</title>
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="https://unpkg.com/lucide-static/font/lucide.css">
-<script src="https://unpkg.com/lucide@latest"></script>
 <style>
 body, html {height:100%;margin:0;font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;background:linear-gradient(180deg,#0f1720,#07101a);color:#fff;}
 .main {display:flex;height:100%;gap:12px;padding:12px;}
 .sidebar {display:flex;flex-direction:column;width:200px;height:100%;}
-
-.league-btn {
-  flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;border:none;background:#0b1220;border-radius:10px;margin:4px 0;cursor:pointer;overflow:hidden;
-  transition: background 0.2s, transform 0.2s, box-shadow 0.2s, color 0.2s;
-}
+.league-btn {flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;border:none;background:#0b1220;border-radius:10px;margin:4px 0;cursor:pointer;overflow:hidden;transition:0.2s;}
 .league-btn:not(.active):hover {background:#1a2230;transform:scale(1.03);box-shadow:0 4px 10px rgba(0,200,255,0.3);}
-.league-btn.active {
-  background:linear-gradient(90deg,#00c9ff,#f52584);color:#07101a;animation:pulse 0.6s ease-out;
-}
+.league-btn.active {background:linear-gradient(90deg,#00c9ff,#f52584);color:#07101a;}
 .league-btn.active img {filter:brightness(0) invert(1);}
 .league-btn img {max-height:60%;max-width:80%;object-fit:contain;transition: transform 0.2s;}
 .league-btn span {margin-top:6px;font-size:14px;text-align:center;transition: color 0.2s, transform 0.2s;}
-@keyframes pulse {0%{transform:scale(1);}50%{transform:scale(1.05);}100%{transform:scale(1);}}
 
 .content {flex:1;display:flex;flex-direction:column;gap:12px;}
-.panel {background:#0b1220;border-radius:10px;padding:12px;flex:1;display:flex;align-items:center;justify-content:center;font-size:24px;color:#fff;}
+.panel {background:#0b1220;border-radius:10px;padding:12px;flex:1;display:flex;flex-direction:row;gap:12px;}
+.category {flex:1;display:flex;flex-direction:column;gap:6px;}
+.category h4 {margin:0 0 6px 0;font-size:16px;color:#00c9ff;border-bottom:1px solid #444;padding-bottom:2px;}
+.category a {color:#fff;text-decoration:none;font-size:14px;}
+.category a:hover {color:#f52584;text-decoration:underline;}
 </style>
 </head>
 <body>
 <div class="main">
   <div class="sidebar">
-    <button class="league-btn" data-league="EUROPE-MENA"><img src="css/img/EML.png" alt="Europe-MENA"><span>EUROPE-MENA</span></button>
-    <button class="league-btn" data-league="NORTH AMERICA"><img src="css/img/NAL.png" alt="North America"><span>NORTH AMERICA</span></button>
-    <button class="league-btn" data-league="SOUTH AMERICA"><img src="css/img/SAL.png" alt="South America"><span>SOUTH AMERICA</span></button>
-    <button class="league-btn" data-league="APL-ASIA"><img src="css/img/APL.png" alt="Asia"><span>APL - ASIA</span></button>
-    <button class="league-btn" data-league="APL-APAC NORTH"><img src="css/img/APL.png" alt="Apac North"><span>APL - APAC NORTH</span></button>
-    <button class="league-btn" data-league="APL-OCEANIA"><img src="css/img/APL.png" alt="Oceania"><span>APL - OCEANIA</span></button>
-    <button class="league-btn" data-league="EXTRA"><img src="css/img/EML.png" alt="Extra"><span>EXTRA</span></button>
+    <button class="league-btn" data-league="EUROPE-MENA"><img src="css/img/EML.png"><span>EUROPE-MENA</span></button>
+    <button class="league-btn" data-league="NORTH AMERICA"><img src="css/img/NAL.png"><span>NORTH AMERICA</span></button>
+    <button class="league-btn" data-league="SOUTH AMERICA"><img src="css/img/SAL.png"><span>SOUTH AMERICA</span></button>
+    <button class="league-btn" data-league="APL-ASIA"><img src="css/img/APL.png"><span>APL - ASIA</span></button>
+    <button class="league-btn" data-league="APL-APAC NORTH"><img src="css/img/APL.png"><span>APL - APAC NORTH</span></button>
+    <button class="league-btn" data-league="APL-OCEANIA"><img src="css/img/APL.png"><span>APL - OCEANIA</span></button>
+    <button class="league-btn" data-league="EXTRA"><img src="css/img/EML.png"><span>EXTRA</span></button>
   </div>
 
   <div class="content">
-    <div class="panel" id="panel1">Contenu colonne 1</div>
-    <div class="panel" id="panel2">Contenu colonne 2</div>
+    <div class="panel" id="panelLinks">
+      <!-- 4 catégories apparaîtront ici -->
+    </div>
   </div>
 </div>
 
 <script>
-const data = {
-  "EUROPE-MENA":["Logo et infos EUROPE-MENA","Détails supplémentaires EUROPE-MENA"],
-  "NORTH AMERICA":["Logo et infos NORTH AMERICA","Détails supplémentaires NORTH AMERICA"],
-  "SOUTH AMERICA":["Logo et infos SOUTH AMERICA","Détails supplémentaires SOUTH AMERICA"],
-  "APL-ASIA":["Logo et infos APL-ASIA","Détails supplémentaires APL-ASIA"],
-  "APL-APAC NORTH":["Logo et infos APL-APAC NORTH","Détails supplémentaires APL-APAC NORTH"],
-  "APL-OCEANIA":["Logo et infos APL-OCEANIA","Détails supplémentaires APL-OCEANIA"],
-  "EXTRA":["Logo et infos EXTRA","Détails supplémentaires EXTRA"]
+// Chaque ligue a 4 catégories, chacune avec plusieurs liens
+const linksData = {
+  "EUROPE-MENA":{
+    "R6 Esports":["https://www.r6esports.com/europe-mena","https://r6events.com/eml"],
+    "Siege Talent Platform":["https://www.r6stp.com/eml"],
+    "Liquipedia":["https://liquipedia.net/rainbow6/Europe-MENA"],
+    "SiegeGG":["https://siege.gg/leagues/europe-mena"]
+  },
+  "NORTH AMERICA":{
+    "R6 Esports":["https://www.r6esports.com/north-america"],
+    "Siege Talent Platform":["https://www.r6stp.com/nal"],
+    "Liquipedia":["https://liquipedia.net/rainbow6/North_America"],
+    "SiegeGG":["https://siege.gg/leagues/north-america"]
+  },
+  "SOUTH AMERICA":{
+    "R6 Esports":["https://www.r6esports.com/south-america"],
+    "Siege Talent Platform":["https://www.r6stp.com/sal"],
+    "Liquipedia":["https://liquipedia.net/rainbow6/South_America"],
+    "SiegeGG":["https://siege.gg/leagues/south-america"]
+  },
+  "APL-ASIA":{
+    "R6 Esports":["https://www.r6esports.com/apl-asia"],
+    "Siege Talent Platform":["https://www.r6stp.com/apl-asia"],
+    "Liquipedia":["https://liquipedia.net/rainbow6/APL-Asia"],
+    "SiegeGG":["https://siege.gg/leagues/apl-asia"]
+  },
+  "APL-APAC NORTH":{
+    "R6 Esports":["https://www.r6esports.com/apac-north"],
+    "Siege Talent Platform":["https://www.r6stp.com/apac-north"],
+    "Liquipedia":["https://liquipedia.net/rainbow6/APAC-North"],
+    "SiegeGG":["https://siege.gg/leagues/apac-north"]
+  },
+  "APL-OCEANIA":{
+    "R6 Esports":["https://www.r6esports.com/oceania"],
+    "Siege Talent Platform":["https://www.r6stp.com/oceania"],
+    "Liquipedia":["https://liquipedia.net/rainbow6/Oceania"],
+    "SiegeGG":["https://siege.gg/leagues/oceania"]
+  },
+  "EXTRA":{
+    "R6 Esports":["https://www.r6esports.com/extra"],
+    "Siege Talent Platform":["https://www.r6stp.com/extra"],
+    "Liquipedia":["https://liquipedia.net/rainbow6/Extra"],
+    "SiegeGG":["https://siege.gg/leagues/extra"]
+  }
 };
 
 const buttons = document.querySelectorAll('.league-btn');
+const panel = document.getElementById('panelLinks');
+
 buttons.forEach(btn => {
   btn.addEventListener('click', () => {
-    buttons.forEach(b => b.classList.remove('active'));
+    buttons.forEach(b=>b.classList.remove('active'));
     btn.classList.add('active');
+
     const key = btn.dataset.league;
-    document.getElementById('panel1').textContent = data[key][0];
-    document.getElementById('panel2').textContent = data[key][1];
+    panel.innerHTML = "";
+
+    const categories = linksData[key];
+    for(const cat in categories){
+      const div = document.createElement('div');
+      div.className = "category";
+      const h4 = document.createElement('h4');
+      h4.textContent = cat;
+      div.appendChild(h4);
+      categories[cat].forEach(link=>{
+        const a = document.createElement('a');
+        a.href = link;
+        a.target = "_blank";
+        a.textContent = link.replace(/^https?:\/\/(www\.)?/,"");
+        div.appendChild(a);
+      });
+      panel.appendChild(div);
+    }
   });
 });
 
 // Sélection par défaut
-buttons[0].classList.add('active');
-document.getElementById('panel1').textContent = data[buttons[0].dataset.league][0];
-document.getElementById('panel2').textContent = data[buttons[0].dataset.league][1];
+buttons[0].click();
 </script>
 </body>
 </html>
