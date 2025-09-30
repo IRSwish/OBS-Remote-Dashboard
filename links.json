@@ -31,10 +31,53 @@
       {"text":"Stage 2","url":"https://siege.gg/competitions/73-europe-mena-league-2025-stage-2","img":"https://gdm-universal-media.b-cdn.net/siege/Frame-48097714.png"}
     ]
   },
+  
   "NORTH AMERICA": {
-    "R6 Esports": [{"text":"NA site","url":"#","img":"css/img/R6esports.png"}],
-    "Siege Talent Platform": [{"text":"STP NA","url":"#","img":"css/img/STP.png"}],
-    "Liquipedia": [{"text":"Wiki NA","url":"#","img":"css/img/Liquipedia.png"}],
-    "SiegeGG": [{"text":"Stats NA","url":"#","img":"https://gdm-universal-media.b-cdn.net/siege/Frame-48097714.png"}]
+     "SiegeGG": [
+      {"text":"Stage 1","url":"https://siege.gg/competitions/65-north-america-league-2025-stage-1","img":"https://gdm-universal-media.b-cdn.net/siege/Frame-48097714.png"},
+      {"text":"Stage 2","url":"https://siege.gg/competitions/70-north-america-league-2025-stage-2","img":"https://gdm-universal-media.b-cdn.net/siege/Frame-48097714.png"}
+    ]
+  },
+
+"SOUTH AMERICA": {
+     "SiegeGG": [
+      {"text":"Stage 1","url":"https://siege.gg/competitions/66-south-america-league-2025-stage-1","img":"https://gdm-universal-media.b-cdn.net/siege/Frame-48097714.png"},
+      {"text":"Stage 2","url":"https://siege.gg/competitions/72-south-america-league-2025-stage-2","img":"https://gdm-universal-media.b-cdn.net/siege/Frame-48097714.png"}
+    ]
+  },
+
+  "APL - APAC NORTH": {
+     "SiegeGG": [
+      {"text":"Stage 1","url":"https://siege.gg/competitions/68-apac-league-north-2025-stage-1","img":"https://gdm-universal-media.b-cdn.net/siege/Frame-48097714.png"},
+      {"text":"Stage 2","url":"https://siege.gg/competitions/71-apac-league-north-2025-stage-2","img":"https://gdm-universal-media.b-cdn.net/siege/Frame-48097714.png"}
+    ]
+  },
+  
+  "MUNICH MAJOR": {
+    "R6 Esports": [
+      {"text":"Infos","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/476/overview","img":"css/img/R6esports.png"},
+      {"text":"Swiss","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/476/14955","img":"css/img/R6esports.png"},
+      {"text":"Finales","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/476/14956","img":"css/img/R6esports.png"}
+    ],
+    "Liquipedia": [
+      {"text":"Informations","url":"https://liquipedia.net/rainbowsix/BLAST_Major/2025","img":"css/img/Liquipedia.png"}
+    ]
+  }
+
+  "SIX INVITATIONAL 2026": {
+    "R6 Esports": [
+      {"text":"Infos","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/476/overview","img":"css/img/R6esports.png"},
+      {"text":"Swiss","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/476/14955","img":"css/img/R6esports.png"},
+      {"text":"Finales","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/476/14956","img":"css/img/R6esports.png"}
+    ],
+    "Liquipedia": [
+      {"text":"LCQ - EML","url":"https://liquipedia.net/rainbowsix/Six_Invitational/2026/Europe_and_MENA","img":"css/img/Liquipedia.png"},
+      {"text":"LCQ - NAL","url":"https://liquipedia.net/rainbowsix/Six_Invitational/2026/North_America","img":"css/img/Liquipedia.png"},
+      {"text":"LCQ - SAL","url":"https://liquipedia.net/rainbowsix/Six_Invitational/2026/South_America","img":"css/img/Liquipedia.png"},
+      {"text":"LCQ - APAC","url":"https://liquipedia.net/rainbowsix/Six_Invitational/2026/APAC","img":"css/img/Liquipedia.png"},      
+      {"text":"Informations","url":"https://liquipedia.net/rainbowsix/Six_Invitational/2026","img":"css/img/Liquipedia.png"},
+      {"text":"Group Stage","url":"https://liquipedia.net/rainbowsix/Six_Invitational/2026/Group_Stage","img":"css/img/Liquipedia.png"},
+      {"text":"Classement Points Six Invitational","url":"https://liquipedia.net/rainbowsix/Six_Invitational/2026/Global_Standings","img":"css/img/Liquipedia.png"}
+    ]
   }
 }
