@@ -18,8 +18,8 @@ body,html{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,'Segoe 
 .league-btn span{margin-top:6px;font-size:14px;text-align:center}
 .content{flex:1;display:flex;flex-wrap:wrap;gap:12px}
 .content.two-cols .panel{flex:1 1 calc(50% - 6px)}
-.panel{background:#0b1220;border-radius:10px;padding:12px;display:flex;flex-direction:column;align-items:center;gap:8px;overflow:auto;opacity:0;transform:translateY(20px);transition:opacity 0.4s ease, transform 0.4s ease}
-.panel.show{opacity:1;transform:translateY(0)}
+.panel{background:#0b1220;border-radius:10px;padding:12px;display:flex;flex-direction:column;align-items:center;gap:8px;overflow:auto;opacity:0;transform:translateY(20px) scale(0.95);transition:opacity 0.5s ease, transform 0.5s ease}
+.panel.show{opacity:1;transform:translateY(0) scale(1)}
 .category-title{font-size:18px;font-weight:bold;margin-bottom:6px;display:flex;align-items:center;gap:6px;justify-content:center}
 .link-btn{display:flex;align-items:center;gap:6px;background:#1a2230;padding:6px 12px;border-radius:8px;color:#fff;text-decoration:none;transition:0.2s;width:100%}
 .link-btn img{width:24px;height:24px;object-fit:contain}
@@ -77,7 +77,7 @@ function updatePanels(league){
     container.classList.remove('two-cols');
   }
 
-  categories.forEach(cat=>{
+  categories.forEach((cat,i)=>{
     const panel=document.createElement('div');
     panel.className='panel';
 
@@ -97,8 +97,8 @@ function updatePanels(league){
 
     container.appendChild(panel);
 
-    // déclenche animation
-    requestAnimationFrame(()=>panel.classList.add('show'));
+    // animation fluide avec delay en cascade
+    setTimeout(()=>panel.classList.add('show'), i*100);
   });
 }
 </script>
