@@ -2,101 +2,124 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Leagues Hub</title>
+  <title>Dashboard Leagues</title>
+  <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://unpkg.com/lucide-static/font/lucide.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
   <style>
-    :root {
-      --bg:#0f1720;
-      --panel:#0b1220;
-      --muted:#9aa4b2;
-      --accent:#00c9ff;
-      --accent2:#f52584;
-      --glass:rgba(255,255,255,0.05);
-      --card-radius:10px;
-      --gap:12px;
-      font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;
+    body, html {
+      height: 100%;
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background: linear-gradient(180deg,#0f1720,#07101a);
+      color: #fff;
     }
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{background:linear-gradient(180deg,var(--bg),#07101a);color:#e6eef6;height:100vh;display:flex;flex-direction:column}
-    .main{flex:1;display:grid;grid-template-columns:200px 1fr;gap:var(--gap);padding:var(--gap)}
-    .panel{background:var(--panel);border-radius:var(--card-radius);padding:12px;display:flex;flex-direction:column;min-height:0}
-    /* Colonne de gauche */
-    .league-list {
+
+    .main {
+      display: flex;
+      height: 100%;
+      gap: 12px;
+      padding: 12px;
+    }
+
+    /* Sidebar avec boutons de ligues */
+    .sidebar {
       display: flex;
       flex-direction: column;
-      gap: var(--gap);
+      width: 200px;
       height: 100%;
     }
+
     .league-btn {
+      flex: 1; /* chaque bouton prend la même hauteur */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      background: #0b1220;
+      border-radius: 10px;
+      margin: 4px 0;
+      cursor: pointer;
+      overflow: hidden;
+      transition: background 0.2s;
+    }
+
+    .league-btn:hover {
+      background: #1a2230;
+    }
+
+    .league-btn img {
+      max-height: 60%;
+      max-width: 80%;
+      object-fit: contain;
+    }
+
+    .league-btn span {
+      margin-top: 6px;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    /* Contenu à droite (placeholder) */
+    .content {
       flex: 1;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      gap: 12px;
+    }
+
+    .panel {
+      background: #0b1220;
+      border-radius: 10px;
+      padding: 12px;
+      flex: 1;
+      display: flex;
       align-items: center;
-      gap: 8px;
-      border: none;
-      border-radius: 12px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      justify-content: center;
+      font-size: 24px;
       color: #fff;
-      font-weight: 600;
-      cursor: pointer;
-      transition: transform 0.2s ease, opacity 0.2s ease;
-      width: 100%;
-      height: 100%;
-      text-align: center;
-      font-size: 13px;
-      padding: 10px;
-    }
-   .league-btn img {
-    max-height: 60%;
-    max-width: 80%;
-    object-fit: contain;
-  }
-    .league-btn span {
-      flex: 0;
-    }
-    .league-btn:hover {opacity:0.9; transform:scale(1.02);}
-    /* Colonne de droite */
-    .content-area {
-      background: var(--glass);
-      border-radius: var(--card-radius);
-      padding: 16px;
     }
   </style>
 </head>
 <body>
   <div class="main">
-    <!-- Colonne gauche -->
-    <div class="league-list">
-      <button class="league-btn" data-league="eu">
-        <img src="css/img/EML.png" alt="EML">
+    <!-- Sidebar gauche -->
+    <div class="sidebar">
+      <button class="league-btn">
+        <img src="css/img/EML.png" alt="Europe-MENA">
         <span>EUROPE-MENA</span>
       </button>
-      <button class="league-btn" data-league="na">
-        <img src="css/img/NAL.png" alt="NAL">
+      <button class="league-btn">
+        <img src="css/img/NAL.png" alt="North America">
         <span>NORTH AMERICA</span>
       </button>
-      <button class="league-btn" data-league="sa">
-        <img src="css/img/SAL.png" alt="SAL">
+      <button class="league-btn">
+        <img src="css/img/SAL.png" alt="South America">
         <span>SOUTH AMERICA</span>
       </button>
-      <button class="league-btn" data-league="apl-asia">
-        <img src="css/img/APL.png" alt="APL">
+      <button class="league-btn">
+        <img src="css/img/APL.png" alt="Asia">
         <span>APL - ASIA</span>
       </button>
-      <button class="league-btn" data-league="apl-north">
-        <img src="css/img/APL.png" alt="APL">
+      <button class="league-btn">
+        <img src="css/img/APL.png" alt="Apac North">
         <span>APL - APAC NORTH</span>
       </button>
-      <button class="league-btn" data-league="apl-oce">
-        <img src="css/img/APL.png" alt="APL">
+      <button class="league-btn">
+        <img src="css/img/APL.png" alt="Oceania">
         <span>APL - OCEANIA</span>
       </button>
+      <button class="league-btn">
+        <img src="css/img/EML.png" alt="Extra">
+        <span>EXTRA</span>
+      </button>
     </div>
-    <!-- Colonne droite -->
-    <div class="content-area" id="contentArea">
-      <h2>Bienvenue</h2>
-      <p>Sélectionne une ligue dans la colonne de gauche.</p>
+
+    <!-- Contenu droit -->
+    <div class="content">
+      <div class="panel">Contenu colonne 1</div>
+      <div class="panel">Contenu colonne 2</div>
     </div>
   </div>
 </body>
