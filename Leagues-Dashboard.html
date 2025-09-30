@@ -16,7 +16,10 @@ body,html{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,'Segoe 
 .league-btn.active img{filter:brightness(0) invert(1)}
 .league-btn img{max-height:60%;max-width:80%;object-fit:contain}
 .league-btn span{margin-top:6px;font-size:14px;text-align:center}
-.content{flex:1;display:flex;flex-direction:column;gap:12px;overflow:auto}
+
+.content{flex:1;display:grid;gap:12px;grid-template-columns:1fr;overflow:auto;padding:0}
+.content.two-cols{grid-template-columns:1fr 1fr}
+
 .panel{background:#0b1220;border-radius:10px;padding:12px;display:flex;flex-direction:column;align-items:center;gap:8px;overflow:auto}
 .category-title{font-size:18px;font-weight:bold;margin-bottom:6px;display:flex;align-items:center;gap:6px;justify-content:center}
 .link-btn{display:flex;align-items:center;gap:6px;background:#1a2230;padding:6px 12px;border-radius:8px;color:#fff;text-decoration:none;transition:0.2s;width:100%}
@@ -35,11 +38,13 @@ body,html{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,'Segoe 
     <button class="league-btn" data-league="APL-APAC NORTH"><img src="css/img/APL.png"><span>APL - APAC NORTH</span></button>
     <button class="league-btn" data-league="APL-OCEANIA"><img src="css/img/APL.png"><span>APL - OCEANIA</span></button>
     <button class="league-btn" data-league="MUNICH MAJOR"><img src="css/img/MUNICH MAJOR.png"><span>MUNICH MAJOR</span></button>
-    <button class="league-btn" data-league="SIX INVITATIONAL 2026"><img src="css/img/SI2026.png"><span>SIX INVITATIONAL 2026</span></button>
+    <button class="league-btn" data-league="SIX INVITATIONAL 2026"><img src="css/img/SI 2026.png"><span>SIX INVITATIONAL 2026</span></button>
   </div>
 
-  <!-- Content dynamique -->
-  <div class="content" id="content"></div>
+  <!-- Content -->
+  <div class="content" id="content">
+    <!-- Panels seront générés dynamiquement -->
+  </div>
 </div>
 
 <script>
@@ -48,8 +53,8 @@ let leagueData = {};
 
 // fetch JSON
 fetch('links.json')
-  .then(res => res.json())
-  .then(data => {
+  .then(res=>res.json())
+  .then(data=>{
     leagueData = data;
     // sélection par défaut
     buttons[0].classList.add('active');
@@ -67,19 +72,26 @@ buttons.forEach(btn=>{
 
 function updatePanels(league){
   const container = document.getElementById('content');
-  container.innerHTML = ''; // reset
-  const categories = Object.keys(leagueData[league] || {});
+  container.innerHTML=''; // reset
+  const categories = Object.keys(leagueData[league]||{});
+
+  // 2 colonnes si 2 catégories ou plus
+  if(categories.length>=2){
+    container.classList.add('two-cols');
+  }else{
+    container.classList.remove('two-cols');
+  }
 
   categories.forEach(cat=>{
-    const panel = document.createElement('div');
+    const panel=document.createElement('div');
     panel.className='panel';
 
-    const title = document.createElement('div');
+    const title=document.createElement('div');
     title.className='category-title';
     title.textContent=cat;
     panel.appendChild(title);
 
-    (leagueData[league][cat] || []).forEach(link=>{
+    (leagueData[league][cat]||[]).forEach(link=>{
       const a=document.createElement('a');
       a.href=link.url;
       a.target='_blank';
