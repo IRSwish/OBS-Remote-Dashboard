@@ -10,13 +10,20 @@
 body, html {height:100%;margin:0;font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;background:linear-gradient(180deg,#0f1720,#07101a);color:#fff;}
 .main {display:flex;height:100%;gap:12px;padding:12px;}
 .sidebar {display:flex;flex-direction:column;width:200px;height:100%;}
-.league-btn {flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;border:none;background:#0b1220;border-radius:10px;margin:4px 0;cursor:pointer;overflow:hidden;transition:background 0.2s, transform 0.2s, box-shadow 0.2s;}
-.league-btn:hover {background:#1a2230;transform:scale(1.03);box-shadow:0 4px 10px rgba(0,200,255,0.3);}
-.league-btn.active {background:linear-gradient(90deg,#00c9ff,#f52584);color:#07101a;animation:pulse 0.6s ease-out;}
+
+.league-btn {
+  flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;border:none;background:#0b1220;border-radius:10px;margin:4px 0;cursor:pointer;overflow:hidden;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s, color 0.2s;
+}
+.league-btn:not(.active):hover {background:#1a2230;transform:scale(1.03);box-shadow:0 4px 10px rgba(0,200,255,0.3);}
+.league-btn.active {
+  background:linear-gradient(90deg,#00c9ff,#f52584);color:#07101a;animation:pulse 0.6s ease-out;
+}
 .league-btn.active img {filter:brightness(0) invert(1);}
 .league-btn img {max-height:60%;max-width:80%;object-fit:contain;transition: transform 0.2s;}
-.league-btn span {margin-top:6px;font-size:14px;text-align:center;transition: transform 0.2s;}
+.league-btn span {margin-top:6px;font-size:14px;text-align:center;transition: color 0.2s, transform 0.2s;}
 @keyframes pulse {0%{transform:scale(1);}50%{transform:scale(1.05);}100%{transform:scale(1);}}
+
 .content {flex:1;display:flex;flex-direction:column;gap:12px;}
 .panel {background:#0b1220;border-radius:10px;padding:12px;flex:1;display:flex;align-items:center;justify-content:center;font-size:24px;color:#fff;}
 </style>
