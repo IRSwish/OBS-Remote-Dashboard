@@ -11,7 +11,6 @@
 @font-face {
   font-family: 'GT-America-Regular';
   src: url('css/GT-America-Compressed-Regular-Trial.otf') format('opentype');
-  font-weight: bold;
   font-style: normal;
 }
 
@@ -40,7 +39,7 @@ body,html{
   overflow:hidden;
   transition:0.2s;
   color:#fff;
-  font-family:'GT-America-Bold',sans-serif;
+  font-family:'GT-America-Regular',sans-serif;
 }
 .league-btn:hover{
   background:#1a2230;
@@ -72,7 +71,7 @@ body,html{
   opacity:0;
   transform:translateY(20px) scale(0.95);
   transition:opacity 0.5s ease, transform 0.5s ease;
-  font-family:'GT-America-Bold',sans-serif;
+  font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial; /* font par défaut ici */
 }
 .panel.show{
   opacity:1;
@@ -81,13 +80,12 @@ body,html{
 
 .category-title{
   font-size:18px;
-  font-weight:bold;
   margin-bottom:6px;
   display:flex;
   align-items:center;
   gap:6px;
   justify-content:center;
-  font-family:'GT-America-Bold',sans-serif;
+  font-family:'GT-America-Regular',sans-serif; /* GT-America pour les titres */
 }
 
 .link-btn{
@@ -100,7 +98,8 @@ body,html{
   color:#fff;
   text-decoration:none;
   transition:0.2s;
-  width:100%
+  width:100%;
+  font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial; /* font par défaut */
 }
 .link-btn img{width:24px;height:24px;object-fit:contain}
 .link-btn:hover{background:#284cb8}
