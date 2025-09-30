@@ -1,0 +1,23 @@
+{
+  "EUROPE-MENA": {
+    "R6 Esports": [
+      {"text":"Site officiel","url":"https://r6esports.com","img":"css/img/R6esports.png"},
+      {"text":"News","url":"https://r6esports.com/news","img":"css/img/R6esports.png"}
+    ],
+    "Siege Talent Platform": [
+      {"text":"STP","url":"https://siegetalentplatform.com","img":"css/img/STP.png"}
+    ],
+    "Liquipedia": [
+      {"text":"Wiki","url":"https://liquipedia.net/rainbow6","img":"css/img/Liquipedia.png"}
+    ],
+    "SiegeGG": [
+      {"text":"Stats","url":"https://siege.gg","img":"css/img/SiegeGG.png"}
+    ]
+  },
+  "NORTH AMERICA": {
+    "R6 Esports": [{"text":"NA site","url":"#","img":"css/img/R6esports.png"}],
+    "Siege Talent Platform": [{"text":"STP NA","url":"#","img":"css/img/STP.png"}],
+    "Liquipedia": [{"text":"Wiki NA","url":"#","img":"css/img/Liquipedia.png"}],
+    "SiegeGG": [{"text":"Stats NA","url":"#","img":"css/img/SiegeGG.png"}]
+  }
+}
