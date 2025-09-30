@@ -98,6 +98,35 @@
     ]
   },
 
+    "APL - ASIA": {
+    "R6 Esports": [
+      {"text":"Stage 1 - Infos","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/471/overview","img":"css/img/R6esports.png"},
+      {"text":"Stage 1 - Groupes","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/471/14940","img":"css/img/R6esports.png"},
+      {"text":"Stage 1 - Playoffs","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/471/14943","img":"css/img/R6esports.png"},
+      {"text":"Stage 2 - Infos","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/479/overview","img":"css/img/R6esports.png"},
+      {"text":"Stage 2 - Groupes","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/479/14959","img":"css/img/R6esports.png"},
+      {"text":"Stage 2 - Playoffs","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/479/14960","img":"css/img/R6esports.png"}
+    ],
+    "Siege Talent Platform": [
+      {"text":"Stage 1 - Teams Stats","url":"https://talent-tools.vercel.app/competitions/471","img":"css/img/STP.png"},
+      {"text":"Stage 1 - Players Stats","url":"https://talent-tools.vercel.app/competitions/471?tab=players","img":"css/img/STP.png"},
+      {"text":"Stage 1 - Maps Stats","url":"https://talent-tools.vercel.app/competitions/471?tab=maps","img":"css/img/STP.png"},
+      {"text":"Stage 1 - Ops Stats","url":"https://talent-tools.vercel.app/competitions/471?tab=ops","img":"css/img/STP.png"},
+      {"text":"Stage 1 - Matches","url":"https://talent-tools.vercel.app/competitions/471?tab=matches","img":"css/img/STP.png"},
+      
+      {"text":"Stage 2 - Teams Stats","url":"https://talent-tools.vercel.app/competitions/479","img":"css/img/STP.png"},
+      {"text":"Stage 2 - Players Stats","url":"https://talent-tools.vercel.app/competitions/479?tab=players","img":"css/img/STP.png"},
+      {"text":"Stage 2 - Maps Stats","url":"https://talent-tools.vercel.app/competitions/479?tab=maps","img":"css/img/STP.png"},
+      {"text":"Stage 2 - Ops Stats","url":"https://talent-tools.vercel.app/competitions/479?tab=ops","img":"css/img/STP.png"},
+      {"text":"Stage 2 - Matches","url":"https://talent-tools.vercel.app/competitions/479?tab=matches","img":"css/img/STP.png"}
+    ],
+    "Liquipedia": [
+      {"text":"Stage 1","url":"https://liquipedia.net/rainbowsix/Asia_Pacific_League/2025/Stage_1/Asia","img":"css/img/Liquipedia.png"},
+      {"text":"Stage 2","url":"https://liquipedia.net/rainbowsix/Asia_Pacific_League/2025/Stage_2/Asia","img":"css/img/Liquipedia.png"},
+      {"text":"Finales Régionales","url":"https://liquipedia.net/rainbowsix/Asia_Pacific_League/2025","img":"css/img/Liquipedia.png"}
+    ]
+  },
+
   "APL - APAC NORTH": {
     "R6 Esports": [
       {"text":"Stage 1 - Infos","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/472/overview","img":"css/img/R6esports.png"},
@@ -128,6 +157,35 @@
      "SiegeGG": [
       {"text":"Stage 1","url":"https://siege.gg/competitions/68-apac-league-north-2025-stage-1","img":"https://gdm-universal-media.b-cdn.net/siege/Frame-48097714.png"},
       {"text":"Stage 2","url":"https://siege.gg/competitions/71-apac-league-north-2025-stage-2","img":"https://gdm-universal-media.b-cdn.net/siege/Frame-48097714.png"}
+    ]
+  },
+
+      "APL - OCEANIA": {
+    "R6 Esports": [
+      {"text":"Stage 1 - Infos","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/470/overview","img":"css/img/R6esports.png"},
+      {"text":"Stage 1 - Groupes","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/470/14939","img":"css/img/R6esports.png"},
+      {"text":"Stage 1 - Playoffs","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/470/14944","img":"css/img/R6esports.png"},
+      {"text":"Stage 2 - Infos","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/480/overview","img":"css/img/R6esports.png"},
+      {"text":"Stage 2 - Groupes","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/480/14963","img":"css/img/R6esports.png"},
+      {"text":"Stage 2 - Playoffs","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/480/14958","img":"css/img/R6esports.png"}
+    ],
+    "Siege Talent Platform": [
+      {"text":"Stage 1 - Teams Stats","url":"https://talent-tools.vercel.app/competitions/470","img":"css/img/STP.png"},
+      {"text":"Stage 1 - Players Stats","url":"https://talent-tools.vercel.app/competitions/470?tab=players","img":"css/img/STP.png"},
+      {"text":"Stage 1 - Maps Stats","url":"https://talent-tools.vercel.app/competitions/470?tab=maps","img":"css/img/STP.png"},
+      {"text":"Stage 1 - Ops Stats","url":"https://talent-tools.vercel.app/competitions/470?tab=ops","img":"css/img/STP.png"},
+      {"text":"Stage 1 - Matches","url":"https://talent-tools.vercel.app/competitions/470?tab=matches","img":"css/img/STP.png"},
+      
+      {"text":"Stage 2 - Teams Stats","url":"https://talent-tools.vercel.app/competitions/480","img":"css/img/STP.png"},
+      {"text":"Stage 2 - Players Stats","url":"https://talent-tools.vercel.app/competitions/480?tab=players","img":"css/img/STP.png"},
+      {"text":"Stage 2 - Maps Stats","url":"https://talent-tools.vercel.app/competitions/480?tab=maps","img":"css/img/STP.png"},
+      {"text":"Stage 2 - Ops Stats","url":"https://talent-tools.vercel.app/competitions/480?tab=ops","img":"css/img/STP.png"},
+      {"text":"Stage 2 - Matches","url":"https://talent-tools.vercel.app/competitions/480?tab=matches","img":"css/img/STP.png"}
+    ],
+    "Liquipedia": [
+      {"text":"Stage 1","url":"https://liquipedia.net/rainbowsix/Asia_Pacific_League/2025/Stage_1/Oceania","img":"css/img/Liquipedia.png"},
+      {"text":"Stage 2","url":"https://liquipedia.net/rainbowsix/Asia_Pacific_League/2025/Stage_2/Oceania","img":"css/img/Liquipedia.png"},
+      {"text":"Finales Régionales","url":"https://liquipedia.net/rainbowsix/Asia_Pacific_League/2025","img":"css/img/Liquipedia.png"}
     ]
   },
   
