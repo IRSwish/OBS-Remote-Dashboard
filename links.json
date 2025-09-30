@@ -1,12 +1,12 @@
 {
   "EUROPE-MENA": {
     "R6 Esports": [
-      {"text":"Stage 1 - Infos","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/473/overview","img":"css/img/R6Esports.png"},
-      {"text":"Stage 1 - Groupes","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/473/14932","img":"css/img/R6Esports.png"},
-      {"text":"Stage 1 - Playoffs","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/473/14935","img":"css/img/R6Esports.png"},
-      {"text":"Stage 2 - Infos","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/481/overview","img":"css/img/R6Esports.png"},
-      {"text":"Stage 2 - Groupes","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/481/14951","img":"css/img/R6Esports.png"},
-      {"text":"Stage 2 - Playoffs","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/481/14952","img":"css/img/R6Esports.png"}
+      {"text":"Stage 1 - Infos","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/473/overview","img":"css/img/R6esports.png"},
+      {"text":"Stage 1 - Groupes","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/473/14932","img":"css/img/R6esports.png"},
+      {"text":"Stage 1 - Playoffs","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/473/14935","img":"css/img/R6esports.png"},
+      {"text":"Stage 2 - Infos","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/481/overview","img":"css/img/R6esports.png"},
+      {"text":"Stage 2 - Groupes","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/481/14951","img":"css/img/R6esports.png"},
+      {"text":"Stage 2 - Playoffs","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/481/14952","img":"css/img/R6esports.png"}
     ],
     "Siege Talent Platform": [
       {"text":"Stage 1 - Teams Stats","url":"https://talent-tools.vercel.app/competitions/473","img":"css/img/STP.png"},
@@ -22,10 +22,11 @@
       {"text":"Stage 2 - Matches","url":"https://talent-tools.vercel.app/competitions/481?tab=matches","img":"css/img/STP.png"}
     ],
     "Liquipedia": [
-      
+      {"text":"Stage 1","url":"https://liquipedia.net/rainbowsix/Europe_MENA_League/2025/Stage_1","img":"css/img/Liquipedia.png"},
+      {"text":"Stage 2","url":"https://liquipedia.net/rainbowsix/Europe_MENA_League/2025/Stage_2","img":"css/img/Liquipedia.png"},
+      {"text":"Finales Régionales","url":"https://liquipedia.net/rainbowsix/Europe_MENA_League/2025/Finals","img":"css/img/Liquipedia.png"}
     ],
     "SiegeGG": [
-      
     ]
   },
   "NORTH AMERICA": {
