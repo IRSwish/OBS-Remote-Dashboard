@@ -8,7 +8,7 @@
       {"text":"Stage 2 - Groupes","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/481/14951","img":"css/img/R6esports.png"},
       {"text":"Stage 2 - Playoffs","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/481/14952","img":"css/img/R6esports.png"}
     ],
-    "Siege Talent Platform": [
+    "STP League": [
       {"text":"Stage 1 - Teams Stats","url":"https://talent-tools.vercel.app/competitions/473","img":"css/img/STP.png"},
       {"text":"Stage 1 - Players Stats","url":"https://talent-tools.vercel.app/competitions/473?tab=players","img":"css/img/STP.png"},
       {"text":"Stage 1 - Maps Stats","url":"https://talent-tools.vercel.app/competitions/473?tab=maps","img":"css/img/STP.png"},
@@ -20,6 +20,18 @@
       {"text":"Stage 2 - Maps Stats","url":"https://talent-tools.vercel.app/competitions/481?tab=maps","img":"css/img/STP.png"},
       {"text":"Stage 2 - Ops Stats","url":"https://talent-tools.vercel.app/competitions/481?tab=ops","img":"css/img/STP.png"},
       {"text":"Stage 2 - Matches","url":"https://talent-tools.vercel.app/competitions/481?tab=matches","img":"css/img/STP.png"}
+    ],
+    "STP Teams": [
+      {"img":"css/logos/FNATIC.png"},
+      {"img":"css/logos/G2 ESPORTS.png"},
+      {"img":"css/logos/GEN.G.png"},
+      {"img":"css/logos/MACKO ESPORTS.png"},
+      {"img":"css/logos/TEAM BDS.png"},
+      {"img":"css/logos/TEAM FALCONS.png"},
+      {"img":"css/logos/TEAM SECRET.png"},
+      {"img":"css/logos/VIRTUS.PRO.png"},
+      {"img":"css/logos/WOLVES ESPORTS.png"},
+      {"img":"css/logos/WYLDE.png"},
     ],
     "Liquipedia": [
       {"text":"Stage 1","url":"https://liquipedia.net/rainbowsix/Europe_MENA_League/2025/Stage_1","img":"css/img/Liquipedia.png"},
