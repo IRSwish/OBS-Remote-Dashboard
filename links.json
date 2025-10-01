@@ -22,16 +22,16 @@
       {"text":"Stage 2 - Matches","url":"https://talent-tools.vercel.app/competitions/481?tab=matches","img":"css/img/STP.png"}
     ],
     "STP Teams": [
-      {"img":"css/logos/FNATIC.png"},
-      {"img":"css/logos/G2 ESPORTS.png"},
-      {"img":"css/logos/GEN.G.png"},
-      {"img":"css/logos/MACKO ESPORTS.png"},
-      {"img":"css/logos/TEAM BDS.png"},
-      {"img":"css/logos/TEAM FALCONS.png"},
-      {"img":"css/logos/TEAM SECRET.png"},
-      {"img":"css/logos/VIRTUS.PRO.png"},
-      {"img":"css/logos/WOLVES ESPORTS.png"},
-      {"img":"css/logos/WYLDE.png"}
+      {"text":"","img":"css/logos/FNATIC.png"},
+      {"text":"","img":"css/logos/G2 ESPORTS.png"},
+      {"text":"","img":"css/logos/GEN.G.png"},
+      {"text":"","img":"css/logos/MACKO ESPORTS.png"},
+      {"text":"","img":"css/logos/TEAM BDS.png"},
+      {"text":"","img":"css/logos/TEAM FALCONS.png"},
+      {"text":"","img":"css/logos/TEAM SECRET.png"},
+      {"text":"","img":"css/logos/VIRTUS.PRO.png"},
+      {"text":"","img":"css/logos/WOLVES ESPORTS.png"},
+      {"text":"","img":"css/logos/WYLDE.png"}
     ],
     "Liquipedia": [
       {"text":"Stage 1","url":"https://liquipedia.net/rainbowsix/Europe_MENA_League/2025/Stage_1","img":"css/img/Liquipedia.png"},
