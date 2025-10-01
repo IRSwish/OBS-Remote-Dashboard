@@ -21,7 +21,7 @@
       {"text":"Stage 2 - Ops Stats","url":"https://talent-tools.vercel.app/competitions/481?tab=ops","img":"css/img/STP.png"},
       {"text":"Stage 2 - Matches","url":"https://talent-tools.vercel.app/competitions/481?tab=matches","img":"css/img/STP.png"}
     ],
-    "STP Teams": [
+    "Teams": [
       {"text":"","img":"css/logos/FNATIC.png"},
       {"text":"","img":"css/logos/G2 ESPORTS.png"},
       {"text":"","img":"css/logos/GEN.G.png"},
