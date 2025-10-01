@@ -22,7 +22,15 @@
       {"text":"Stage 2 - Matches","url":"https://talent-tools.vercel.app/competitions/481?tab=matches","img":"css/img/STP.png"}
     ],
     "Teams": [
-      {"text":"","img":"css/logos/FNATIC.png"},
+       {
+        "text": "FNATIC",
+        "img": "css/logos/FNATIC.png",
+        "links": [
+          { "text": "FNATIC", "url": "", "img": "" },
+          { "text": "Siege Talent Plaform", "url": "https://liquipedia.net/rainbowsix/FNATIC", "img": "css/icons/liquipedia.png" },
+          { "text": "Liquipedia", "url": "https://fnatic.com", "img": "css/icons/website.png" }
+        ]
+      },
       {"text":"","img":"css/logos/G2 ESPORTS.png"},
       {"text":"","img":"css/logos/GEN.G.png"},
       {"text":"","img":"css/logos/MACKO ESPORTS.png"},
