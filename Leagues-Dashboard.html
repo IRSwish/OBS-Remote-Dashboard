@@ -106,6 +106,8 @@ body,html{
   text-decoration:none;
   transition:0.2s;
   font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;
+  width: 100%; /* prend toute la largeur du panel */
+  box-sizing: border-box;
 }
 .link-btn img{width:24px;height:24px;object-fit:contain}
 .link-btn:hover{background:#284cb8}
@@ -115,13 +117,15 @@ body,html{
   width: 80px;
   height: 80px;
   border: none;
-  background: #1a2230;
-  border-radius: 8px;
+  background: #0b1220;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: 0.2s;
+  transition:0.2s;
+  color:#fff;
+  font-family:'GT-America-Regular',sans-serif;
 }
 .team-btn img {
   max-width: 70%;
@@ -129,9 +133,15 @@ body,html{
   object-fit: contain;
 }
 .team-btn:hover {
-  background: #284cb8;
+  background:#1a2230;
   transform: scale(1.05);
+  box-shadow:0 4px 14px rgba(0,0,0,0.3);
 }
+.team-btn.active {
+  background:linear-gradient(90deg,#00c9ff,#f52584);
+  color:#07101a;
+}
+.team-btn.active img {filter:brightness(0) invert(1);}
 
 .teams-grid {
   display: flex;
@@ -177,7 +187,6 @@ fetch('links.json')
   .then(res => res.json())
   .then(data => {
     leagueData = data;
-    // sélection par défaut
     buttons[0].classList.add('active');
     updatePanels(buttons[0].dataset.league);
   });
@@ -196,7 +205,7 @@ function updatePanels(league){
   container.innerHTML='';
   const categories = Object.keys(leagueData[league]||{});
 
-  // gestion du layout (2 colonnes si >=2, 3 si >=4)
+  // gestion layout
   container.classList.remove("two-cols","three-cols");
   if(categories.length>=4){
     container.classList.add("three-cols");
@@ -227,6 +236,9 @@ function updatePanels(league){
         teamsContainer.appendChild(btn);
 
         btn.addEventListener("click", () => {
+          teamsContainer.querySelectorAll(".team-btn").forEach(b=>b.classList.remove("active"));
+          btn.classList.add("active");
+
           linksContainer.innerHTML = "";
           (team.links||[]).forEach(link=>{
             const a=document.createElement("a");
