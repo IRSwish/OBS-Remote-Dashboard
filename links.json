@@ -26,9 +26,9 @@
         "text": "FNATIC",
         "img": "css/logos/FNATIC.png",
         "links": [
-          { "text": "FNATIC", "url": "", "img": "" },
-          { "text": "Siege Talent Plaform", "url": "https://liquipedia.net/rainbowsix/FNATIC", "img": "css/icons/liquipedia.png" },
-          { "text": "Liquipedia", "url": "https://fnatic.com", "img": "css/icons/website.png" }
+          { "text": "FNATIC"},
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/146", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/Fnatic", "img": "css/img/Liquipedia.png" }
         ]
       },
       {"text":"","img":"css/logos/G2 ESPORTS.png"},
