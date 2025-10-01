@@ -61,10 +61,15 @@ body,html{
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  align-items: flex-start;    /* aligner les panneaux en haut */
-  align-content: flex-start;  /* éviter le grand espace vertical */
+  align-items: flex-start;
+  align-content: flex-start;
 }
-.content.two-cols .panel{flex:1 1 calc(50% - 6px)}
+.content.two-cols .panel {
+  flex: 1 1 calc(50% - 6px);
+}
+.content.three-cols .panel {
+  flex: 1 1 calc(33.333% - 8px);
+}
 
 .panel{
   background:#0b1220;
@@ -109,6 +114,31 @@ body,html{
 }
 .link-btn img{width:24px;height:24px;object-fit:contain}
 .link-btn:hover{background:#284cb8}
+
+/* Boutons carrés pour STP Teams */
+.team-btn {
+  width: 80px;
+  height: 80px;
+  border: none;
+  background: #1a2230;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.2s;
+  margin: 6px;
+  padding: 0;
+}
+.team-btn img {
+  max-width: 70%;
+  max-height: 70%;
+  object-fit: contain;
+}
+.team-btn:hover {
+  background: linear-gradient(135deg, #00c9ff, #f52584);
+  transform: scale(1.05);
+}
 </style>
 </head>
 <body>
@@ -156,13 +186,15 @@ function updatePanels(league){
   const container = document.getElementById('content');
   container.innerHTML='';
   const categories = Object.keys(leagueData[league]||{});
-  if(categories.length>=2){
+
+  // reset layout classes
+  container.classList.remove('two-cols', 'three-cols');
+  if (categories.length > 4) {
+    container.classList.add('three-cols');
+  } else if (categories.length >= 2) {
     container.classList.add('two-cols');
-  }else{
-    container.classList.remove('two-cols');
   }
 
-  const viewportHeight = window.innerHeight - 24; // padding du body
   categories.forEach((cat,i)=>{
     const panel=document.createElement('div');
     panel.className='panel';
@@ -172,21 +204,38 @@ function updatePanels(league){
     title.textContent=cat;
     panel.appendChild(title);
 
-    (leagueData[league][cat]||[]).forEach(link=>{
-      const a=document.createElement('a');
-      a.href=link.url;
-      a.target='_blank';
-      a.className='link-btn';
-      a.innerHTML=`<img src="${link.img}" alt="${link.text}"><span>${link.text}</span>`;
-      panel.appendChild(a);
-    });
+    // Catégorie spéciale STP Teams
+    if (cat === "STP Teams") {
+      const teamsContainer = document.createElement('div');
+      teamsContainer.style.display = "flex";
+      teamsContainer.style.flexWrap = "wrap";
+      teamsContainer.style.justifyContent = "center";
+      teamsContainer.style.gap = "8px";
+
+      (leagueData[league][cat]||[]).forEach(team=>{
+        const btn=document.createElement('a');
+        btn.href = team.url || "#";
+        btn.target="_blank";
+        btn.className='team-btn';
+        btn.innerHTML=`<img src="${team.img}" alt="${team.text}">`;
+        teamsContainer.appendChild(btn);
+      });
+
+      panel.appendChild(teamsContainer);
+
+    } else {
+      // Catégories normales
+      (leagueData[league][cat]||[]).forEach(link=>{
+        const a=document.createElement('a');
+        a.href=link.url;
+        a.target='_blank';
+        a.className='link-btn';
+        a.innerHTML=`<img src="${link.img}" alt="${link.text}"><span>${link.text}</span>`;
+        panel.appendChild(a);
+      });
+    }
 
     container.appendChild(panel);
-
-    // calcule max-height pour éviter gros vide
-    const panelRect = panel.getBoundingClientRect();
-    const maxHeight = Math.min(panel.scrollHeight, viewportHeight - 24);
-    panel.style.maxHeight = maxHeight + 'px';
 
     // animation fluide avec delay en cascade
     setTimeout(()=>panel.classList.add('show'), i*100);
