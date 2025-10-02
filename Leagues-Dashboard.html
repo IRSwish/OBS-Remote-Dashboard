@@ -7,7 +7,6 @@
 <link rel="stylesheet" href="https://unpkg.com/lucide-static/font/lucide.css">
 <script src="https://unpkg.com/lucide@latest"></script>
 <style>
-/* Import de la font GT America */
 @font-face {
   font-family: 'GT-America-Regular';
   src: url('css/GT-America-Compressed-Regular-Trial.otf') format('opentype');
@@ -106,13 +105,12 @@ body,html{
   text-decoration:none;
   transition:0.2s;
   font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;
-  width: 100%; /* prend toute la largeur du panel */
+  width: 100%;
   box-sizing: border-box;
 }
 .link-btn img{width:24px;height:24px;object-fit:contain}
 .link-btn:hover{background:#284cb8}
 
-/* Boutons équipes */
 .team-btn {
   width: 80px;
   height: 80px;
@@ -144,7 +142,6 @@ body,html{
 
 .teams-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
   gap: 12px;
   justify-items: center;
 }
@@ -161,7 +158,6 @@ body,html{
 </head>
 <body>
 <div class="main">
-  <!-- Sidebar -->
   <div class="sidebar">
     <button class="league-btn" data-league="EUROPE-MENA"><img src="css/img/EML.png"><span>EUROPE-MENA</span></button>
     <button class="league-btn" data-league="NORTH AMERICA"><img src="css/img/NAL.png"><span>NORTH AMERICA</span></button>
@@ -173,7 +169,6 @@ body,html{
     <button class="league-btn" data-league="SIX INVITATIONAL 2026"><img src="css/img/SI2026.png"><span>SIX INVITATIONAL 2026</span></button>
   </div>
 
-  <!-- Content -->
   <div class="content" id="content"></div>
 </div>
 
@@ -181,7 +176,6 @@ body,html{
 const buttons = document.querySelectorAll('.league-btn');
 let leagueData = {};
 
-// fetch JSON
 fetch('links.json')
   .then(res => res.json())
   .then(data => {
@@ -190,7 +184,6 @@ fetch('links.json')
     updatePanels(buttons[0].dataset.league);
   });
 
-// clic sur boutons ligues
 buttons.forEach(btn=>{
   btn.addEventListener('click',()=>{
     buttons.forEach(b=>b.classList.remove('active'));
@@ -204,7 +197,6 @@ function updatePanels(league){
   container.innerHTML='';
   const categories = Object.keys(leagueData[league]||{});
 
-  // gestion layout
   container.classList.remove("two-cols","three-cols");
   if(categories.length>=4){
     container.classList.add("three-cols");
@@ -228,7 +220,17 @@ function updatePanels(league){
       const linksContainer = document.createElement('div');
       linksContainer.className = "team-links-container";
 
-      (leagueData[league][cat]||[]).forEach(team=>{
+      const teams = leagueData[league][cat] || [];
+
+      // calcul des colonnes équilibrées
+      const rows = Math.round(Math.sqrt(teams.length));
+      let cols = Math.ceil(teams.length / rows);
+      // si la dernière ligne serait trop courte, on réduit d'une colonne
+      if (teams.length % cols < cols - 1) cols--;
+
+      teamsContainer.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+
+      teams.forEach(team=>{
         const btn=document.createElement('button');
         btn.className='team-btn';
         btn.innerHTML=`<img src="${team.img}" alt="${team.text}" title="${team.text}">`;
