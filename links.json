@@ -30,15 +30,78 @@
           { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/Fnatic", "img": "css/img/Liquipedia.png" }
         ]
       },
-      {"text":"","img":"css/logos/G2 ESPORTS.png"},
-      {"text":"","img":"css/logos/GEN.G.png"},
-      {"text":"","img":"css/logos/MACKO ESPORTS.png"},
-      {"text":"","img":"css/logos/TEAM BDS.png"},
-      {"text":"","img":"css/logos/TEAM FALCONS.png"},
-      {"text":"","img":"css/logos/TEAM SECRET.png"},
-      {"text":"","img":"css/logos/VIRTUS.PRO.png"},
-      {"text":"","img":"css/logos/WOLVES ESPORTS.png"},
-      {"text":"","img":"css/logos/WYLDE.png"}
+       {
+        "text": "G2 ESPORTS",
+        "img": "css/logos/G2 ESPORTS.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/29", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/G2_Esports", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+       {
+        "text": "GEN.G",
+        "img": "css/logos/GEN.G.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/381", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/Gen.G_Esports", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+             {
+        "text": "MACKO ESPORTS",
+        "img": "css/logos/MACKO ESPORTS.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/375", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/MACKO_Esports", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+             {
+        "text": "TEAM BDS",
+        "img": "css/logos/TEAM BDS.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/28", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/Team_BDS", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+             {
+        "text": "TEAM FALCONS",
+        "img": "css/logos/TEAM FALCONS.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/265", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/Team_Falcons", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+             {
+        "text": "TEAM SECRET",
+        "img": "css/logos/TEAM SECRET.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/37", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/Team_Secret", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+      {
+        "text": "VIRTUS.PRO",
+        "img": "css/logos/VIRTUS.PRO.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/234", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/Virtus.pro", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+             {
+        "text": "WOLVES ESPORTS",
+        "img": "css/logos/WOLVES ESPORTS.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/164", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/Wolves_Esports", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+             {
+        "text": "WYLDE",
+        "img": "css/logos/WYLDE.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/235", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/WYLDE", "img": "css/img/Liquipedia.png" }
+        ]
+      }
     ],
     "Liquipedia": [
       {"text":"Stage 1","url":"https://liquipedia.net/rainbowsix/Europe_MENA_League/2025/Stage_1","img":"css/img/Liquipedia.png"},
