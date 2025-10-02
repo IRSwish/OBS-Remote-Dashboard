@@ -252,6 +252,88 @@
       {"text":"Stage 2 - Ops Stats","url":"https://talent-tools.vercel.app/competitions/483?tab=ops","img":"css/img/STP.png"},
       {"text":"Stage 2 - Matches","url":"https://talent-tools.vercel.app/competitions/483?tab=matches","img":"css/img/STP.png"}
     ],
+    "Teams": [
+       {
+        "text": "9Z TEAM",
+        "img": "css/logos/9Z TEAM.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/20", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/9z_Team", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+       {
+        "text": "BLACK DRAGONS",
+        "img": "css/logos/BLACK DRAGONS.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/1", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/Black_Dragons", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+       {
+        "text": "ENX",
+        "img": "css/logos/ENX.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/382", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/ENX", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+       {
+        "text": "FAZE CLAN",
+        "img": "css/logos/FAZE CLAN.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/5", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/FaZe_Clan", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+       {
+        "text": "FURIA",
+        "img": "css/logos/FURIA.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/9", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/FURIA", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+       {
+        "text": "LOS",
+        "img": "css/logos/LOS.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/228", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/LOS", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+       {
+        "text": "LOUD",
+        "img": "css/logos/LOUD.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/379", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/LOUD", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+       {
+        "text": "NINJAS IN PYJAMAS",
+        "img": "css/logos/NINJAS IN PYJAMAS.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/2", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/Ninjas_in_Pyjamas", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+       {
+        "text": "TEAM LIQUID",
+        "img": "css/logos/TEAM LIQUID.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/3", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/Team_Liquid", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+       {
+        "text": "W7M ESPORTS",
+        "img": "css/logos/W7M ESPORTS.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/7", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/W7m_esports", "img": "css/img/Liquipedia.png" }
+        ]
+      }
+    ],  
     "Liquipedia": [
       {"text":"Stage 1","url":"https://liquipedia.net/rainbowsix/South_America_League/2025/Stage_1","img":"css/img/Liquipedia.png"},
       {"text":"Stage 2","url":"https://liquipedia.net/rainbowsix/South_America_League/2025/Stage_2","img":"css/img/Liquipedia.png"},
