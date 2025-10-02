@@ -367,6 +367,72 @@
       {"text":"Stage 2 - Ops Stats","url":"https://talent-tools.vercel.app/competitions/479?tab=ops","img":"css/img/STP.png"},
       {"text":"Stage 2 - Matches","url":"https://talent-tools.vercel.app/competitions/479?tab=matches","img":"css/img/STP.png"}
     ],
+    "Teams": [
+       {
+        "text": "ARRIVALSEVEN",
+        "img": "css/logos/ARRIVALSEVEN.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/386", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/ArrivalSeven", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+       {
+        "text": "DAYSTAR",
+        "img": "css/logos/DAYSTAR.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/331", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/Daystar", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+       {
+        "text": "ELEVATE",
+        "img": "css/logos/ELEVATE.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/140", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/Elevate", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+         {
+        "text": "FURY",
+        "img": "css/logos/FURY.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/156", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/FURY", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+      {
+        "text": "LATENT DRAGON ESPORTS",
+        "img": "css/logos/LATENT DRAGON ESPORTS.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/385", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/Latent_Dragon_Esports", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+      {
+        "text": "SHARK LFO",
+        "img": "css/logos/SHARK LFO.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/384", "img": "css/img/STP.png" }
+        ]
+      },
+      {
+        "text": "SOUL'S HEART ESPORT",
+        "img": "css/logos/SOUL'S HEART ESPORT.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/383", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/Souls_Heart_Esport", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+      {
+        "text": "WEIBO GAMING",
+        "img": "css/logos/WEIBO GAMING.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/380", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/Weibo_Gaming", "img": "css/img/Liquipedia.png" }
+        ]
+      }
+    ],
+      
     "Liquipedia": [
       {"text":"Stage 1","url":"https://liquipedia.net/rainbowsix/Asia_Pacific_League/2025/Stage_1/Asia","img":"css/img/Liquipedia.png"},
       {"text":"Stage 2","url":"https://liquipedia.net/rainbowsix/Asia_Pacific_League/2025/Stage_2/Asia","img":"css/img/Liquipedia.png"},
@@ -395,6 +461,72 @@
       {"text":"Stage 2 - Maps Stats","url":"https://talent-tools.vercel.app/competitions/478?tab=maps","img":"css/img/STP.png"},
       {"text":"Stage 2 - Ops Stats","url":"https://talent-tools.vercel.app/competitions/478?tab=ops","img":"css/img/STP.png"},
       {"text":"Stage 2 - Matches","url":"https://talent-tools.vercel.app/competitions/478?tab=matches","img":"css/img/STP.png"}
+    ],
+    "Teams": [
+       {
+        "text": "BNK FEARX",
+        "img": "css/logos/BNK FEARX.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/134", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/FEARX", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+       {
+        "text": "CAG OSAKA",
+        "img": "css/logos/CAG OSAKA.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/61", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/CAG_Osaka", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+       {
+        "text": "DPLUS KIA",
+        "img": "css/logos/DPLUS KIA.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/116", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/Dplus", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+         {
+        "text": "ENTER FORCE.36",
+        "img": "css/logos/ENTER FORCE.36.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/320", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/ENTER_FORCE.36", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+      {
+        "text": "KINOTROPE GAMING",
+        "img": "css/logos/KINOTROPE GAMING.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/319", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/KINOTROPE_gaming", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+      {
+        "text": "MIR GAMING",
+        "img": "css/logos/MIR GAMING.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/318", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/Mir_Gaming", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+      {
+        "text": "PSG TALON",
+        "img": "css/logos/PSG TALON.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/137", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/PSG_Talon", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+      {
+        "text": "SCARZ",
+        "img": "css/logos/SCARZ.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/273", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/SCARZ", "img": "css/img/Liquipedia.png" }
+        ]
+      }
     ],
     "Liquipedia": [
       {"text":"Stage 1","url":"https://liquipedia.net/rainbowsix/Asia_Pacific_League/2025/Stage_1/APAC_North","img":"css/img/Liquipedia.png"},
@@ -425,6 +557,64 @@
       {"text":"Stage 2 - Ops Stats","url":"https://talent-tools.vercel.app/competitions/480?tab=ops","img":"css/img/STP.png"},
       {"text":"Stage 2 - Matches","url":"https://talent-tools.vercel.app/competitions/480?tab=matches","img":"css/img/STP.png"}
     ],
+    "Teams": [
+       {
+        "text": "CHIEFS ESPORTS CLUB",
+        "img": "css/logos/CHIEFS ESPORTS CLUB.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/135", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/Chiefs_Esports_Club", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+       {
+        "text": "DREAM WARRIORS",
+        "img": "css/logos/DREAM WARRIORS.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/388", "img": "css/img/STP.png" }
+        ]
+      },
+         {
+        "text": "ENTERPRISE ESPORTS",
+        "img": "css/logos/ENTERPRISE ESPORTS.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/389", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/ENTERPRISE_Esports", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+      {
+        "text": "LUDAVICA",
+        "img": "css/logos/LUDAVICA.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/387", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/Ludavica", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+      {
+        "text": "MAN LFO",
+        "img": "css/logos/MAN LFO.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/327", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/Man_eSports_LFO", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+      {
+        "text": "OUTLAST",
+        "img": "css/logos/OUTLAST.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/359", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/Outlast", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+      {
+        "text": "TRUE SYNERGY GAMING",
+        "img": "css/logos/TRUE SYNERGY GAMING.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/362", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/True_Synergy_Gaming", "img": "css/img/Liquipedia.png" }
+        ]
+      }
+    ],
+        
     "Liquipedia": [
       {"text":"Stage 1","url":"https://liquipedia.net/rainbowsix/Asia_Pacific_League/2025/Stage_1/Oceania","img":"css/img/Liquipedia.png"},
       {"text":"Stage 2","url":"https://liquipedia.net/rainbowsix/Asia_Pacific_League/2025/Stage_2/Oceania","img":"css/img/Liquipedia.png"},
