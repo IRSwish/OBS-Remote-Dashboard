@@ -136,6 +136,89 @@
       {"text":"Stage 2 - Ops Stats","url":"https://talent-tools.vercel.app/competitions/482?tab=ops","img":"css/img/STP.png"},
       {"text":"Stage 2 - Matches","url":"https://talent-tools.vercel.app/competitions/482?tab=matches","img":"css/img/STP.png"}
     ],
+    "Teams": [
+       {
+        "text": "CLOUD9",
+        "img": "css/logos/CLOUD9.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/63", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/Cloud9", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+       {
+        "text": "DARKZERO",
+        "img": "css/logos/DARKZERO.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/39", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/DarkZero", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+       {
+        "text": "ENVY",
+        "img": "css/logos/ENVY.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/391", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/Team_Envy_(American_Organization)", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+       {
+        "text": "M80",
+        "img": "css/logos/M80.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/229", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/M80", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+       {
+        "text": "OXYGEN ESPORTS",
+        "img": "css/logos/OXYGEN ESPORTS.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/41", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/Oxygen_Esports", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+       {
+        "text": "SHOPIFY REBELLION",
+        "img": "css/logos/SHOPIFY REBELLION.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/43", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/Shopify_Rebellion", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+       {
+        "text": "SPACESTATION GAMING",
+        "img": "css/logos/SPACESTATION GAMING.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/42", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/Spacestation_Gaming", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+       {
+        "text": "STANDBY LFO",
+        "img": "css/logos/STANDBY LFO.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/390", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/STANDBY_LFO", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+       {
+        "text": "TEAM CRUELTY",
+        "img": "css/logos/TEAM CRUELTY.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/98", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/Team_Cruelty", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+       {
+        "text": "WILDCARD",
+        "img": "css/logos/WILDCARD.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/59", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/Wildcard", "img": "css/img/Liquipedia.png" }
+        ]
+      }
+      
+    ],
     "Liquipedia": [
       {"text":"Stage 1","url":"https://liquipedia.net/rainbowsix/North_America_League/2025/Stage_1","img":"css/img/Liquipedia.png"},
       {"text":"Stage 2","url":"https://liquipedia.net/rainbowsix/North_America_League/2025/Stage_2","img":"css/img/Liquipedia.png"},
