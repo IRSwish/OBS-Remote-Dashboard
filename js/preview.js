@@ -17,7 +17,7 @@ function createGuestModal(onSubmit) {
   modal.innerHTML = `
     <div class="guest-modal-overlay"></div>
     <div class="guest-modal">
-      <h2>Connexion invité</h2>
+      <h2>Connexion à l'interview</h2>
       <label>Pseudo :</label>
       <input type="text" id="guestPseudo" placeholder="Votre pseudo">
       <label>Twitter (sans le @):</label>
