@@ -30,6 +30,7 @@ function createGuestModal(onSubmit) {
   `;
   document.body.appendChild(modal);
 
+  // Overlay style
   Object.assign(modal.style, {
     position: "fixed",
     inset: "0",
@@ -40,19 +41,49 @@ function createGuestModal(onSubmit) {
     alignItems: "center",
   });
 
+  // Box style pour matcher le style de page
   const box = modal.querySelector(".guest-modal");
   Object.assign(box.style, {
-    background: "#1a1a1a",
-    color: "white",
+    background: "var(--panel)", // #0b1220
+    color: "#fff",
     padding: "24px",
-    borderRadius: "10px",
-    width: "300px",
-    boxShadow: "0 0 20px #f52584",
+    borderRadius: "var(--card-radius)",
+    width: "320px",
+    boxShadow: "0 0 20px var(--accent2)", // f52584
     display: "flex",
     flexDirection: "column",
-    gap: "10px",
+    gap: "12px",
+    fontFamily: "Inter,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial"
   });
 
+  // Inputs style
+  const inputs = box.querySelectorAll("input");
+  inputs.forEach(input => {
+    Object.assign(input.style, {
+      padding: "6px",
+      borderRadius: "6px",
+      border: "1px solid rgba(255,255,255,0.1)",
+      background: "transparent",
+      color: "#fff",
+      width: "100%",
+    });
+  });
+
+  // Buttons style
+  const btns = box.querySelectorAll("button");
+  btns.forEach(btn => {
+    Object.assign(btn.style, {
+      padding: "6px",
+      borderRadius: "6px",
+      border: "none",
+      background: "linear-gradient(90deg,var(--accent),var(--accent2))",
+      color: "#07101a",
+      cursor: "pointer",
+      fontWeight: "bold"
+    });
+  });
+
+  // Action boutons
   modal.querySelector("#guestCancel").onclick = () => modal.remove();
   modal.querySelector("#guestSubmit").onclick = () => {
     const pseudo = document.getElementById("guestPseudo").value.trim();
@@ -97,7 +128,6 @@ previews.forEach((p) => {
       createGuestModal(async (pseudo, twitter) => {
         const baseUrl = "https://script.google.com/macros/s/AKfycbygPQQrclL7rIB1FGkpPAwZujKK2d5kqlFjZnArIZFkOxrHqDz6Zt0-xzrIGgXBbZZowQ/exec";
         try {
-          // Envoi du pseudo et du Twitter avant l'ouverture du nouvel onglet
           await Promise.all([
             fetch(`${baseUrl}?row=4&col=3&value=${encodeURIComponent(pseudo)}`),
             fetch(`${baseUrl}?row=5&col=3&value=@${encodeURIComponent(twitter)}`)
