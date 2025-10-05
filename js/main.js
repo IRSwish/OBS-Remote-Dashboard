@@ -11,9 +11,8 @@ setPreview(0, "69CJFPh");
 setPreview(1, "GuestITWR6EMLS22025");
 setPreview(2, "rvFr2XN");
 
-// === Création d'une petite fenêtre modale ===
+// === Création d'une fenêtre modale stylée pour l'invité ===
 function createGuestModal(onSubmit) {
-  // Si la modale existe déjà, on la supprime
   const existing = document.getElementById("guestModal");
   if (existing) existing.remove();
 
@@ -35,30 +34,39 @@ function createGuestModal(onSubmit) {
   `;
   document.body.appendChild(modal);
 
-  // Style rapide intégré
+  // Style (z-index très haut pour passer au-dessus des iframes)
   const style = document.createElement("style");
   style.textContent = `
-    .guest-modal-overlay {
+    #guestModal {
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.6);
-      backdrop-filter: blur(4px);
+      z-index: 9999999;
+    }
+    .guest-modal-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.75);
+      backdrop-filter: blur(6px);
     }
     .guest-modal {
-      position: fixed;
+      position: absolute;
       top: 50%; left: 50%;
       transform: translate(-50%, -50%);
       background: #1a1a1a;
       color: white;
-      padding: 20px;
+      padding: 24px;
       border-radius: 12px;
-      box-shadow: 0 0 15px #f52584;
-      width: 300px;
+      box-shadow: 0 0 20px #f52584;
+      width: 320px;
       display: flex;
       flex-direction: column;
       gap: 10px;
-      z-index: 9999;
       font-family: 'Futura LT Book', sans-serif;
+      animation: fadeIn 0.25s ease-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translate(-50%, -45%) scale(0.9); }
+      to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
     }
     .guest-modal h2 {
       color: #f52584;
@@ -95,7 +103,12 @@ function createGuestModal(onSubmit) {
   `;
   document.head.appendChild(style);
 
-  // Gestion des boutons
+  // Ferme la modale en cliquant sur le fond
+  modal.addEventListener("click", e => {
+    if (e.target.classList.contains("guest-modal-overlay")) modal.remove();
+  });
+
+  // Boutons
   document.getElementById("guestCancel").onclick = () => modal.remove();
   document.getElementById("guestSubmit").onclick = () => {
     const pseudo = document.getElementById("guestPseudo").value.trim();
@@ -120,10 +133,40 @@ document.getElementById("connectBtn").addEventListener("click", async () => {
       try {
         const baseUrl = "https://script.google.com/macros/s/AKfycbygPQQrclL7rIB1FGkpPAwZujKK2d5kqlFjZnArIZFkOxrHqDz6Zt0-xzrIGgXBbZZowQ/exec";
 
+        // Envoi du pseudo (row 4, col 3)
         await fetch(`${baseUrl}?row=4&col=3&value=${encodeURIComponent(pseudo)}`);
+
+        // Envoi du twitter (row 5, col 3)
         await fetch(`${baseUrl}?row=5&col=3&value=${encodeURIComponent(twitter)}`);
 
-        alert("✅ Informations envoyées avec succès !");
+        // Notification douce
+        const notif = document.createElement("div");
+        notif.textContent = "✅ Informations envoyées avec succès !";
+        notif.style.cssText = `
+          position: fixed; bottom: 20px; left: 50%;
+          transform: translateX(-50%);
+          background: #1a1a1a; color: #00c9ff;
+          border: 1px solid #f52584;
+          border-radius: 8px; padding: 10px 20px;
+          font-family: 'Futura LT Book', sans-serif;
+          box-shadow: 0 0 10px #f52584;
+          z-index: 10000000;
+          animation: fadeNotif 2.5s ease-in-out forwards;
+        `;
+        document.body.appendChild(notif);
+        setTimeout(() => notif.remove(), 2500);
+
+        const notifStyle = document.createElement("style");
+        notifStyle.textContent = `
+          @keyframes fadeNotif {
+            0% { opacity: 0; transform: translate(-50%, 20px); }
+            10% { opacity: 1; transform: translate(-50%, 0); }
+            90% { opacity: 1; transform: translate(-50%, 0); }
+            100% { opacity: 0; transform: translate(-50%, -10px); }
+          }
+        `;
+        document.head.appendChild(notifStyle);
+
       } catch (err) {
         console.error(err);
         alert("❌ Erreur lors de l’envoi des données.");
