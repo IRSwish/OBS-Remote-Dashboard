@@ -54,10 +54,10 @@ function createGuestModal(onSubmit) {
     flexDirection: "column",
     gap: "12px",
     fontFamily: "Inter,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial",
-    alignItems: "center", // ✅ centre horizontalement
-    textAlign: "center"   // ✅ centre le texte des labels
+    alignItems: "center", // centre horizontalement
+    textAlign: "center"   // centre texte labels
   });
-  
+
   // Inputs style
   const inputs = box.querySelectorAll("input");
   inputs.forEach(input => {
@@ -67,11 +67,11 @@ function createGuestModal(onSubmit) {
       border: "1px solid rgba(255,255,255,0.1)",
       background: "transparent",
       color: "#fff",
-      width: "80%",   // un peu plus étroit pour centrer
+      width: "80%",   // largeur réduite pour centrer
       textAlign: "center"
     });
   });
-  
+
   // Labels style
   const labels = box.querySelectorAll("label");
   labels.forEach(label => {
@@ -80,7 +80,7 @@ function createGuestModal(onSubmit) {
       textAlign: "center"
     });
   });
-  
+
   // Buttons style
   const btns = box.querySelectorAll("button");
   btns.forEach(btn => {
@@ -95,7 +95,7 @@ function createGuestModal(onSubmit) {
       minWidth: "100px"
     });
   });
-  
+
   // Boutons de la div .guest-actions centrés
   const actions = box.querySelector(".guest-actions");
   Object.assign(actions.style, {
@@ -108,8 +108,14 @@ function createGuestModal(onSubmit) {
   // Action boutons
   modal.querySelector("#guestCancel").onclick = () => modal.remove();
   modal.querySelector("#guestSubmit").onclick = () => {
-    const pseudo = document.getElementById("guestPseudo").value.trim();
-    const twitter = document.getElementById("guestTwitter").value.trim();
+    let pseudo = document.getElementById("guestPseudo").value.trim();
+    let twitter = document.getElementById("guestTwitter").value.trim();
+
+    // ✅ Ajouter @ si absent
+    if (twitter && !twitter.startsWith("@")) {
+      twitter = "@" + twitter;
+    }
+
     modal.remove();
     onSubmit(pseudo, twitter);
   };
@@ -149,12 +155,6 @@ previews.forEach((p) => {
 
       createGuestModal(async (pseudo, twitter) => {
         const baseUrl = "https://script.google.com/macros/s/AKfycbygPQQrclL7rIB1FGkpPAwZujKK2d5kqlFjZnArIZFkOxrHqDz6Zt0-xzrIGgXBbZZowQ/exec";
-      
-        // Ajout du @ si nécessaire
-        if (twitter && !twitter.startsWith("@")) {
-          twitter = "@" + twitter;
-        }
-      
         try {
           await Promise.all([
             fetch(`${baseUrl}?row=4&col=3&value=${encodeURIComponent(pseudo)}`),
@@ -164,11 +164,11 @@ previews.forEach((p) => {
         } catch (err) {
           console.error("Erreur d’envoi :", err);
         }
-      
+
         const url = `https://vdo.ninja/?push=${input.value}&quality=0&audiodevice=0&webcam`;
         window.open(url, "_blank");
       });
-
+    });
   } else {
     // Comportement normal pour les autres previews
     connectBtn.addEventListener("click", () => {
