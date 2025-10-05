@@ -97,8 +97,11 @@ previews.forEach((p) => {
       createGuestModal(async (pseudo, twitter) => {
         const baseUrl = "https://script.google.com/macros/s/AKfycbygPQQrclL7rIB1FGkpPAwZujKK2d5kqlFjZnArIZFkOxrHqDz6Zt0-xzrIGgXBbZZowQ/exec";
         try {
-          await fetch(`${baseUrl}?row=4&col=3&value=${encodeURIComponent(pseudo)}`);
-          await fetch(`${baseUrl}?row=5&col=3&value=${encodeURIComponent(twitter)}`);
+          // Envoi du pseudo et du Twitter avant l'ouverture du nouvel onglet
+          await Promise.all([
+            fetch(`${baseUrl}?row=4&col=3&value=${encodeURIComponent(pseudo)}`),
+            fetch(`${baseUrl}?row=5&col=3&value=@${encodeURIComponent(twitter)}`)
+          ]);
           console.log("✅ Données envoyées :", pseudo, twitter);
         } catch (err) {
           console.error("Erreur d’envoi :", err);
