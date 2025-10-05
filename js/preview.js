@@ -149,20 +149,26 @@ previews.forEach((p) => {
 
       createGuestModal(async (pseudo, twitter) => {
         const baseUrl = "https://script.google.com/macros/s/AKfycbygPQQrclL7rIB1FGkpPAwZujKK2d5kqlFjZnArIZFkOxrHqDz6Zt0-xzrIGgXBbZZowQ/exec";
+      
+        // Ajout du @ si nécessaire
+        if (twitter && !twitter.startsWith("@")) {
+          twitter = "@" + twitter;
+        }
+      
         try {
           await Promise.all([
             fetch(`${baseUrl}?row=4&col=3&value=${encodeURIComponent(pseudo)}`),
-            fetch(`${baseUrl}?row=5&col=3&value=@${encodeURIComponent(twitter)}`)
+            fetch(`${baseUrl}?row=5&col=3&value=${encodeURIComponent(twitter)}`)
           ]);
           console.log("✅ Données envoyées :", pseudo, twitter);
         } catch (err) {
           console.error("Erreur d’envoi :", err);
         }
-
+      
         const url = `https://vdo.ninja/?push=${input.value}&quality=0&audiodevice=0&webcam`;
         window.open(url, "_blank");
       });
-    });
+
   } else {
     // Comportement normal pour les autres previews
     connectBtn.addEventListener("click", () => {
