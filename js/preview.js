@@ -77,7 +77,7 @@ function createGuestModal(onSubmit) {
       borderRadius: "6px",
       border: "none",
       background: "linear-gradient(90deg,var(--accent),var(--accent2))",
-      color: "#07101a",
+      color: "#fff",
       cursor: "pointer",
       fontWeight: "bold"
     });
