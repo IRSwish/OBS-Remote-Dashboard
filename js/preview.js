@@ -41,7 +41,7 @@ function createGuestModal(onSubmit) {
     alignItems: "center",
   });
 
-  // Box style pour matcher le style de page
+  // Box style pour matcher le style de page et centrer horizontalement
   const box = modal.querySelector(".guest-modal");
   Object.assign(box.style, {
     background: "var(--panel)", // #0b1220
@@ -53,9 +53,11 @@ function createGuestModal(onSubmit) {
     display: "flex",
     flexDirection: "column",
     gap: "12px",
-    fontFamily: "Inter,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial"
+    fontFamily: "Inter,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial",
+    alignItems: "center", // ✅ centre horizontalement
+    textAlign: "center"   // ✅ centre le texte des labels
   });
-
+  
   // Inputs style
   const inputs = box.querySelectorAll("input");
   inputs.forEach(input => {
@@ -65,22 +67,42 @@ function createGuestModal(onSubmit) {
       border: "1px solid rgba(255,255,255,0.1)",
       background: "transparent",
       color: "#fff",
-      width: "100%",
+      width: "80%",   // un peu plus étroit pour centrer
+      textAlign: "center"
     });
   });
-
+  
+  // Labels style
+  const labels = box.querySelectorAll("label");
+  labels.forEach(label => {
+    Object.assign(label.style, {
+      width: "100%",
+      textAlign: "center"
+    });
+  });
+  
   // Buttons style
   const btns = box.querySelectorAll("button");
   btns.forEach(btn => {
     Object.assign(btn.style, {
-      padding: "6px",
+      padding: "6px 12px",
       borderRadius: "6px",
       border: "none",
       background: "linear-gradient(90deg,var(--accent),var(--accent2))",
-      color: "#fff",
+      color: "#07101a",
       cursor: "pointer",
-      fontWeight: "bold"
+      fontWeight: "bold",
+      minWidth: "100px"
     });
+  });
+  
+  // Boutons de la div .guest-actions centrés
+  const actions = box.querySelector(".guest-actions");
+  Object.assign(actions.style, {
+    display: "flex",
+    justifyContent: "center",
+    gap: "12px",
+    width: "100%"
   });
 
   // Action boutons
