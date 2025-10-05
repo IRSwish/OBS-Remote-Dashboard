@@ -20,8 +20,8 @@ function createGuestModal(onSubmit) {
       <h2>Connexion invité</h2>
       <label>Pseudo :</label>
       <input type="text" id="guestPseudo" placeholder="Votre pseudo">
-      <label>Twitter :</label>
-      <input type="text" id="guestTwitter" placeholder="@exemple">
+      <label>Twitter (sans le @):</label>
+      <input type="text" id="guestTwitter" placeholder="Votre Twitter">
       <div class="guest-actions">
         <button id="guestCancel">Annuler</button>
         <button id="guestSubmit">Envoyer</button>
