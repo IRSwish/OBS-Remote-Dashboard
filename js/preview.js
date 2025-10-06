@@ -142,7 +142,7 @@ previews.forEach((p) => {
   const copyBtn = makeIconBtn("copy", "Copier le lien OBS");
   copyBtn.addEventListener("click", () => {
     if (!input.value.trim()) return;
-    const url = `https://vdo.ninja/?view=${input.value}`;
+    const url = `https://vdo.ninja/?view=${input.value}&bitrate=2500`;
     navigator.clipboard.writeText(url);
   });
 
@@ -181,7 +181,7 @@ previews.forEach((p) => {
   const refreshBtn = makeIconBtn("refresh-ccw", "Rafraîchir la preview");
   refreshBtn.addEventListener("click", () => {
     if (!input.value.trim()) return;
-    p.iframe.src = `https://vdo.ninja/?view=${input.value}&autoplay=1&muted=1`;
+    p.iframe.src = `https://vdo.ninja/?view=${input.value}&autoplay=1&muted=1&bitrate=2500`;
   });
 
   controls.appendChild(input);
@@ -193,7 +193,7 @@ previews.forEach((p) => {
 // API publique pour changer la preview par ID
 export function setPreview(index, id) {
   if (previews[index]) {
-    previews[index].iframe.src = `https://vdo.ninja/?view=${id}&autoplay=1&muted=1`;
+    previews[index].iframe.src = `https://vdo.ninja/?view=${id}&autoplay=1&muted=1&bitrate=2500`;
     const input = previews[index].wrapper.querySelector("input");
     if (input) input.value = id;
   }
