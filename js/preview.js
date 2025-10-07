@@ -232,4 +232,4 @@ export function setPreview(index, id) {
 }
 
 // Active les icônes Lucide si dispo
-if (
+if (window.lucide) window.lucide.createIcons();
