@@ -628,7 +628,7 @@
       {"text":"Swiss","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/476/14955","img":"css/img/R6esports.png"},
       {"text":"Finales","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/476/14956","img":"css/img/R6esports.png"}
     ],
-      "Teams": [
+    "Teams": [
       {
         "text": "TEAM FALCONS",
         "img": "css/logos/TEAM FALCONS.png",
@@ -637,7 +637,7 @@
           { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/Team_Falcons", "img": "css/img/Liquipedia.png" }
         ]
       }
-    ]
+    ],
     "Liquipedia": [
       {"text":"Informations","url":"https://liquipedia.net/rainbowsix/BLAST_Major/2025","img":"css/img/Liquipedia.png"}
     ]
