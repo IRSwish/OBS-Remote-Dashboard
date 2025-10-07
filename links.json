@@ -643,6 +643,14 @@
           { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/265", "img": "css/img/STP.png" },
           { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/Team_Falcons", "img": "css/img/Liquipedia.png" }
         ]
+      },
+             {
+        "text": "TEAM SECRET",
+        "img": "css/logos/TEAM SECRET.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/37", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/Team_Secret", "img": "css/img/Liquipedia.png" }
+        ]
       }
     ],
     "Liquipedia": [
