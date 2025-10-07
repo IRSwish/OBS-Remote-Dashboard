@@ -62,7 +62,7 @@ function createGuestModal(onSubmit) {
     textAlign: "center"
   });
 
-  // Loader circulaire (CSS)
+  // Loader circulaire
   const style = document.createElement("style");
   style.textContent = `
     .loader {
@@ -118,7 +118,7 @@ function createGuestModal(onSubmit) {
     });
   });
 
-  // Boutons centrés
+  // Actions centrées
   const actions = box.querySelector(".guest-actions");
   Object.assign(actions.style, {
     display: "flex",
@@ -127,31 +127,42 @@ function createGuestModal(onSubmit) {
     width: "100%"
   });
 
-  // Actions
+  // Action boutons
   modal.querySelector("#guestCancel").onclick = () => modal.remove();
+
   modal.querySelector("#guestSubmit").onclick = async () => {
     let pseudo = document.getElementById("guestPseudo").value.trim();
     let twitter = document.getElementById("guestTwitter").value.trim();
     if (twitter && !twitter.startsWith("@")) twitter = "@" + twitter;
 
-    // Masquer tout sauf le chargement
+    // Masquer tout sauf le loader
     box.querySelectorAll("h2, label, input, .guest-actions").forEach(el => el.style.display = "none");
     const loader = document.getElementById("guestLoading");
     loader.style.display = "flex";
-
     const percent = document.getElementById("guestPercent");
     percent.textContent = "0%";
 
-    // Animation de progression
-    await new Promise(r => setTimeout(r, 500));
-    percent.textContent = "50%";
+    const baseUrl = "https://script.google.com/macros/s/AKfycbygPQQrclL7rIB1FGkpPAwZujKK2d5kqlFjZnArIZFkOxrHqDz6Zt0-xzrIGgXBbZZowQ/exec";
 
-    await new Promise(r => setTimeout(r, 500));
-    percent.textContent = "100%";
+    try {
+      // Étape 1 → pseudo
+      await fetch(`${baseUrl}?row=4&col=3&value=${encodeURIComponent(pseudo)}`);
+      percent.textContent = "50%";
 
-    // Appel de la fonction finale
-    await onSubmit(pseudo, twitter);
-    modal.remove();
+      // Étape 2 → twitter
+      await fetch(`${baseUrl}?row=5&col=3&value=${encodeURIComponent(twitter)}`);
+      percent.textContent = "100%";
+
+      // Petite pause pour voir 100%
+      await new Promise(r => setTimeout(r, 300));
+
+      // Appel final
+      await onSubmit(pseudo, twitter);
+      modal.remove();
+    } catch (err) {
+      console.error("Erreur d’envoi :", err);
+      percent.textContent = "Erreur ⚠️";
+    }
   };
 }
 
@@ -182,7 +193,6 @@ previews.forEach((p) => {
 
   const connectBtn = makeIconBtn("cast", "Connecter la caméra (push)");
 
-  // ✅ Spécifique à la preview 2
   if (p.iframe.id === "preview2") {
     connectBtn.addEventListener("click", () => {
       if (!input.value.trim()) return;
