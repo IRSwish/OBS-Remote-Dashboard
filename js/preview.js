@@ -26,6 +26,10 @@ function createGuestModal(onSubmit) {
         <button id="guestCancel">Annuler</button>
         <button id="guestSubmit">Envoyer</button>
       </div>
+      <div id="guestLoading" style="display:none; flex-direction:column; align-items:center; gap:8px; margin-top:12px;">
+        <div class="loader"></div>
+        <div id="guestPercent" style="font-size:14px; color:var(--accent2); font-weight:bold;">0%</div>
+      </div>
     </div>
   `;
   document.body.appendChild(modal);
@@ -41,22 +45,40 @@ function createGuestModal(onSubmit) {
     alignItems: "center",
   });
 
-  // Box style pour matcher le style de page et centrer horizontalement
+  // Box style
   const box = modal.querySelector(".guest-modal");
   Object.assign(box.style, {
-    background: "var(--panel)", // #0b1220
+    background: "var(--panel)",
     color: "#fff",
     padding: "24px",
     borderRadius: "var(--card-radius)",
     width: "320px",
-    boxShadow: "0 0 20px var(--accent2)", // f52584
+    boxShadow: "0 0 20px var(--accent2)",
     display: "flex",
     flexDirection: "column",
     gap: "12px",
     fontFamily: "Inter,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial",
-    alignItems: "center", // centre horizontalement
-    textAlign: "center"   // centre texte labels
+    alignItems: "center",
+    textAlign: "center"
   });
+
+  // Loader circulaire (CSS)
+  const style = document.createElement("style");
+  style.textContent = `
+    .loader {
+      border: 4px solid rgba(255,255,255,0.15);
+      border-top: 4px solid var(--accent2);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  `;
+  document.head.appendChild(style);
 
   // Inputs style
   const inputs = box.querySelectorAll("input");
@@ -67,7 +89,7 @@ function createGuestModal(onSubmit) {
       border: "1px solid rgba(255,255,255,0.1)",
       background: "transparent",
       color: "#fff",
-      width: "80%",   // largeur réduite pour centrer
+      width: "80%",
       textAlign: "center"
     });
   });
@@ -96,7 +118,7 @@ function createGuestModal(onSubmit) {
     });
   });
 
-  // Boutons de la div .guest-actions centrés
+  // Boutons centrés
   const actions = box.querySelector(".guest-actions");
   Object.assign(actions.style, {
     display: "flex",
@@ -105,19 +127,31 @@ function createGuestModal(onSubmit) {
     width: "100%"
   });
 
-  // Action boutons
+  // Actions
   modal.querySelector("#guestCancel").onclick = () => modal.remove();
-  modal.querySelector("#guestSubmit").onclick = () => {
+  modal.querySelector("#guestSubmit").onclick = async () => {
     let pseudo = document.getElementById("guestPseudo").value.trim();
     let twitter = document.getElementById("guestTwitter").value.trim();
+    if (twitter && !twitter.startsWith("@")) twitter = "@" + twitter;
 
-    // ✅ Ajouter @ si absent
-    if (twitter && !twitter.startsWith("@")) {
-      twitter = "@" + twitter;
-    }
+    // Masquer tout sauf le chargement
+    box.querySelectorAll("h2, label, input, .guest-actions").forEach(el => el.style.display = "none");
+    const loader = document.getElementById("guestLoading");
+    loader.style.display = "flex";
 
+    const percent = document.getElementById("guestPercent");
+    percent.textContent = "0%";
+
+    // Animation de progression
+    await new Promise(r => setTimeout(r, 500));
+    percent.textContent = "50%";
+
+    await new Promise(r => setTimeout(r, 500));
+    percent.textContent = "100%";
+
+    // Appel de la fonction finale
+    await onSubmit(pseudo, twitter);
     modal.remove();
-    onSubmit(pseudo, twitter);
   };
 }
 
@@ -148,11 +182,10 @@ previews.forEach((p) => {
 
   const connectBtn = makeIconBtn("cast", "Connecter la caméra (push)");
 
-  // ✅ Modification pour la deuxième preview
+  // ✅ Spécifique à la preview 2
   if (p.iframe.id === "preview2") {
     connectBtn.addEventListener("click", () => {
       if (!input.value.trim()) return;
-
       createGuestModal(async (pseudo, twitter) => {
         const baseUrl = "https://script.google.com/macros/s/AKfycbygPQQrclL7rIB1FGkpPAwZujKK2d5kqlFjZnArIZFkOxrHqDz6Zt0-xzrIGgXBbZZowQ/exec";
         try {
@@ -170,7 +203,6 @@ previews.forEach((p) => {
       });
     });
   } else {
-    // Comportement normal pour les autres previews
     connectBtn.addEventListener("click", () => {
       if (!input.value.trim()) return;
       const url = `https://vdo.ninja/?push=${input.value}&quality=0&audiodevice=0&webcam`;
