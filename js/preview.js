@@ -62,7 +62,7 @@ function createGuestModal(onSubmit) {
     textAlign: "center"
   });
 
-  // Loader circulaire
+  // Loader circulaire (CSS)
   const style = document.createElement("style");
   style.textContent = `
     .loader {
@@ -118,7 +118,7 @@ function createGuestModal(onSubmit) {
     });
   });
 
-  // Actions centrées
+  // Boutons centrés
   const actions = box.querySelector(".guest-actions");
   Object.assign(actions.style, {
     display: "flex",
@@ -127,42 +127,43 @@ function createGuestModal(onSubmit) {
     width: "100%"
   });
 
-  // Action boutons
+  // Actions
   modal.querySelector("#guestCancel").onclick = () => modal.remove();
-
   modal.querySelector("#guestSubmit").onclick = async () => {
     let pseudo = document.getElementById("guestPseudo").value.trim();
     let twitter = document.getElementById("guestTwitter").value.trim();
-    if (twitter && !twitter.startsWith("@")) twitter = "@" + twitter;
 
-    // Masquer tout sauf le loader
+    // Ajouter @ si absent pour affichage mais enlever pour l'envoi
+    let cleanTwitter = twitter.replace(/^@/, '');
+
+    // Masquer tout sauf le chargement
     box.querySelectorAll("h2, label, input, .guest-actions").forEach(el => el.style.display = "none");
     const loader = document.getElementById("guestLoading");
     loader.style.display = "flex";
     const percent = document.getElementById("guestPercent");
     percent.textContent = "0%";
 
-    const baseUrl = "https://script.google.com/macros/s/AKfycbygPQQrclL7rIB1FGkpPAwZujKK2d5kqlFjZnArIZFkOxrHqDz6Zt0-xzrIGgXBbZZowQ/exec";
+    // 50% après premier fetch
+    await new Promise(r => setTimeout(r, 300));
+    percent.textContent = "25%";
 
+    const baseUrl = "https://script.google.com/macros/s/AKfycbygPQQrclL7rIB1FGkpPAwZujKK2d5kqlFjZnArIZFkOxrHqDz6Zt0-xzrIGgXBbZZowQ/exec";
     try {
-      // Étape 1 → pseudo
       await fetch(`${baseUrl}?row=4&col=3&value=${encodeURIComponent(pseudo)}`);
       percent.textContent = "50%";
-
-      // Étape 2 → twitter
-      await fetch(`${baseUrl}?row=5&col=3&value=${encodeURIComponent(twitter)}`);
+      await fetch(`${baseUrl}?row=5&col=3&value=${encodeURIComponent(cleanTwitter)}`);
       percent.textContent = "100%";
-
-      // Petite pause pour voir 100%
-      await new Promise(r => setTimeout(r, 300));
-
-      // Appel final
-      await onSubmit(pseudo, twitter);
-      modal.remove();
+      console.log("✅ Données envoyées :", pseudo, twitter);
     } catch (err) {
       console.error("Erreur d’envoi :", err);
-      percent.textContent = "Erreur ⚠️";
     }
+
+    // Appel de la fonction finale
+    const input = box.querySelector("input");
+    const url = `https://vdo.ninja/?push=${input.value}&quality=0&audiodevice=0&webcam`;
+    window.open(url, "_blank");
+
+    modal.remove();
   };
 }
 
@@ -193,23 +194,12 @@ previews.forEach((p) => {
 
   const connectBtn = makeIconBtn("cast", "Connecter la caméra (push)");
 
+  // Spécifique à la preview 2
   if (p.iframe.id === "preview2") {
     connectBtn.addEventListener("click", () => {
       if (!input.value.trim()) return;
       createGuestModal(async (pseudo, twitter) => {
-        const baseUrl = "https://script.google.com/macros/s/AKfycbygPQQrclL7rIB1FGkpPAwZujKK2d5kqlFjZnArIZFkOxrHqDz6Zt0-xzrIGgXBbZZowQ/exec";
-        try {
-          await Promise.all([
-            fetch(`${baseUrl}?row=4&col=3&value=${encodeURIComponent(pseudo)}`),
-            fetch(`${baseUrl}?row=5&col=3&value=${encodeURIComponent(twitter)}`)
-          ]);
-          console.log("✅ Données envoyées :", pseudo, twitter);
-        } catch (err) {
-          console.error("Erreur d’envoi :", err);
-        }
-
-        const url = `https://vdo.ninja/?push=${input.value}&quality=0&audiodevice=0&webcam`;
-        window.open(url, "_blank");
+        // L'envoi réel est géré dans le modal
       });
     });
   } else {
