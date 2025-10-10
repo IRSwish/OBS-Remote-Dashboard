@@ -651,6 +651,30 @@
           { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/37", "img": "css/img/STP.png" },
           { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/Team_Secret", "img": "css/img/Liquipedia.png" }
         ]
+      },
+       {
+        "text": "SPACESTATION GAMING",
+        "img": "css/logos/SPACESTATION GAMING.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/42", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/Spacestation_Gaming", "img": "css/img/Liquipedia.png" }
+        ]
+      },       
+      {
+        "text": "SHOPIFY REBELLION",
+        "img": "css/logos/SHOPIFY REBELLION.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/43", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/Shopify_Rebellion", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+       {
+        "text": "CAG OSAKA",
+        "img": "css/logos/CAG OSAKA.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/61", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/CAG_Osaka", "img": "css/img/Liquipedia.png" }
+        ]
       }
     ],
     "Liquipedia": [
