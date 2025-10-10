@@ -675,6 +675,22 @@
           { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/61", "img": "css/img/STP.png" },
           { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/CAG_Osaka", "img": "css/img/Liquipedia.png" }
         ]
+      },
+       {
+        "text": "DPLUS KIA",
+        "img": "css/logos/DPLUS KIA.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/116", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/Dplus", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+         {
+        "text": "ENTERPRISE ESPORTS",
+        "img": "css/logos/ENTERPRISE ESPORTS.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/389", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/ENTERPRISE_Esports", "img": "css/img/Liquipedia.png" }
+        ]
       }
     ],
     "Liquipedia": [
