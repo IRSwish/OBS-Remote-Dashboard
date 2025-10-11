@@ -669,6 +669,22 @@
         ]
       },
        {
+        "text": "M80",
+        "img": "css/logos/M80.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/229", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/M80", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+       {
+        "text": "WILDCARD",
+        "img": "css/logos/WILDCARD.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/59", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/Wildcard", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+       {
         "text": "CAG OSAKA",
         "img": "css/logos/CAG OSAKA.png",
         "links": [
