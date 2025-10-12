@@ -685,6 +685,22 @@
         ]
       },
        {
+        "text": "FAZE CLAN",
+        "img": "css/logos/FAZE CLAN.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/5", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/FaZe_Clan", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+       {
+        "text": "FURIA",
+        "img": "css/logos/FURIA.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/9", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/FURIA", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+       {
         "text": "CAG OSAKA",
         "img": "css/logos/CAG OSAKA.png",
         "links": [
