@@ -46,6 +46,14 @@
         ]
       },
        {
+        "text": "M80",
+        "img": "css/logos/M80.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/229", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/M80", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+       {
         "text": "SPACESTATION GAMING",
         "img": "css/logos/SPACESTATION GAMING.png",
         "links": [
@@ -62,27 +70,11 @@
         ]
       },
        {
-        "text": "M80",
-        "img": "css/logos/M80.png",
-        "links": [
-          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/229", "img": "css/img/STP.png" },
-          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/M80", "img": "css/img/Liquipedia.png" }
-        ]
-      },
-       {
         "text": "WILDCARD",
         "img": "css/logos/WILDCARD.png",
         "links": [
           { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/59", "img": "css/img/STP.png" },
           { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/Wildcard", "img": "css/img/Liquipedia.png" }
-        ]
-      },
-       {
-        "text": "FAZE CLAN",
-        "img": "css/logos/FAZE CLAN.png",
-        "links": [
-          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/5", "img": "css/img/STP.png" },
-          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/FaZe_Clan", "img": "css/img/Liquipedia.png" }
         ]
       },
        {
@@ -102,6 +94,14 @@
         ]
       },
        {
+        "text": "FAZE CLAN",
+        "img": "css/logos/FAZE CLAN.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/5", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/FaZe_Clan", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+       {
         "text": "NINJAS IN PYJAMAS",
         "img": "css/logos/NINJAS IN PYJAMAS.png",
         "links": [
@@ -115,6 +115,14 @@
         "links": [
           { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/61", "img": "css/img/STP.png" },
           { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/CAG_Osaka", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+      {
+        "text": "WEIBO GAMING",
+        "img": "css/logos/WEIBO GAMING.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/380", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/Weibo_Gaming", "img": "css/img/Liquipedia.png" }
         ]
       },
        {
@@ -131,14 +139,6 @@
         "links": [
           { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/389", "img": "css/img/STP.png" },
           { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/ENTERPRISE_Esports", "img": "css/img/Liquipedia.png" }
-        ]
-      },
-      {
-        "text": "WEIBO GAMING",
-        "img": "css/logos/WEIBO GAMING.png",
-        "links": [
-          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/380", "img": "css/img/STP.png" },
-          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/Weibo_Gaming", "img": "css/img/Liquipedia.png" }
         ]
       }
     ],
