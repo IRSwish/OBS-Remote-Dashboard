@@ -1,4 +1,157 @@
 {
+  "MUNICH MAJOR": {
+    "R6 Esports": [
+      {"text":"Infos","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/476/overview","img":"css/img/R6esports.png"},
+      {"text":"Swiss","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/476/14955","img":"css/img/R6esports.png"},
+      {"text":"Finales","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/476/14956","img":"css/img/R6esports.png"}
+    ],
+    "STP League": [
+      {"text":"Teams Stats","url":"https://talent-tools.vercel.app/competitions/476","img":"css/img/STP.png"},
+      {"text":"Players Stats","url":"https://talent-tools.vercel.app/competitions/476?tab=players","img":"css/img/STP.png"},
+      {"text":"Maps Stats","url":"https://talent-tools.vercel.app/competitions/476?tab=maps","img":"css/img/STP.png"},
+      {"text":"Ops Stats","url":"https://talent-tools.vercel.app/competitions/476?tab=ops","img":"css/img/STP.png"},
+      {"text":"Matches","url":"https://talent-tools.vercel.app/competitions/476?tab=matches","img":"css/img/STP.png"}
+    ],
+    "Teams": [
+      {
+        "text": "TEAM FALCONS",
+        "img": "css/logos/TEAM FALCONS.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/265", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/Team_Falcons", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+             {
+        "text": "TEAM SECRET",
+        "img": "css/logos/TEAM SECRET.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/37", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/Team_Secret", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+       {
+        "text": "G2 ESPORTS",
+        "img": "css/logos/G2 ESPORTS.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/29", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/G2_Esports", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+             {
+        "text": "TEAM BDS",
+        "img": "css/logos/TEAM BDS.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/28", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/Team_BDS", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+       {
+        "text": "SPACESTATION GAMING",
+        "img": "css/logos/SPACESTATION GAMING.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/42", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/Spacestation_Gaming", "img": "css/img/Liquipedia.png" }
+        ]
+      },       
+      {
+        "text": "SHOPIFY REBELLION",
+        "img": "css/logos/SHOPIFY REBELLION.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/43", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/Shopify_Rebellion", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+       {
+        "text": "M80",
+        "img": "css/logos/M80.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/229", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/M80", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+       {
+        "text": "WILDCARD",
+        "img": "css/logos/WILDCARD.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/59", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/Wildcard", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+       {
+        "text": "FAZE CLAN",
+        "img": "css/logos/FAZE CLAN.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/5", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/FaZe_Clan", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+       {
+        "text": "FURIA",
+        "img": "css/logos/FURIA.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/9", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/FURIA", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+       {
+        "text": "W7M ESPORTS",
+        "img": "css/logos/W7M ESPORTS.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/7", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/W7m_esports", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+       {
+        "text": "NINJAS IN PYJAMAS",
+        "img": "css/logos/NINJAS IN PYJAMAS.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/2", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/Ninjas_in_Pyjamas", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+       {
+        "text": "CAG OSAKA",
+        "img": "css/logos/CAG OSAKA.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/61", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/CAG_Osaka", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+       {
+        "text": "DPLUS KIA",
+        "img": "css/logos/DPLUS KIA.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/116", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/Dplus", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+         {
+        "text": "ENTERPRISE ESPORTS",
+        "img": "css/logos/ENTERPRISE ESPORTS.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/389", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/ENTERPRISE_Esports", "img": "css/img/Liquipedia.png" }
+        ]
+      },
+      {
+        "text": "WEIBO GAMING",
+        "img": "css/logos/WEIBO GAMING.png",
+        "links": [
+          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/380", "img": "css/img/STP.png" },
+          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/Weibo_Gaming", "img": "css/img/Liquipedia.png" }
+        ]
+      }
+    ],
+    "Liquipedia": [
+      {"text":"Informations","url":"https://liquipedia.net/rainbowsix/BLAST_Major/2025","img":"css/img/Liquipedia.png"}
+    ],
+    "SiegeGG": [
+      {"text":"Competition","url":"https://siege.gg/competitions/74-blast-major-munich-2025","img":"https://gdm-universal-media.b-cdn.net/siege/Frame-48097714.png"},
+      {"text":"Teams","url":"https://siege.gg/competitions/74-blast-major-munich-2025#teams","img":"https://gdm-universal-media.b-cdn.net/siege/Frame-48097714.png"},
+      {"text":"Matches","url":"https://siege.gg/competitions/74-blast-major-munich-2025#matches","img":"https://gdm-universal-media.b-cdn.net/siege/Frame-48097714.png"},
+      {"text":"Player Stats","url":"https://siege.gg/competitions/74-blast-major-munich-2025#player-stats","img":"https://gdm-universal-media.b-cdn.net/siege/Frame-48097714.png"}
+    ]
+  },
   "EUROPE-MENA": {
     "R6 Esports": [
       {"text":"Stage 1 - Infos","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/473/overview","img":"css/img/R6esports.png"},
@@ -626,115 +779,6 @@
       {"text":"Stage 1","url":"https://liquipedia.net/rainbowsix/Asia_Pacific_League/2025/Stage_1/Oceania","img":"css/img/Liquipedia.png"},
       {"text":"Stage 2","url":"https://liquipedia.net/rainbowsix/Asia_Pacific_League/2025/Stage_2/Oceania","img":"css/img/Liquipedia.png"},
       {"text":"Finales Régionales","url":"https://liquipedia.net/rainbowsix/Asia_Pacific_League/2025","img":"css/img/Liquipedia.png"}
-    ]
-  },
-  
-  "MUNICH MAJOR": {
-    "R6 Esports": [
-      {"text":"Infos","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/476/overview","img":"css/img/R6esports.png"},
-      {"text":"Swiss","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/476/14955","img":"css/img/R6esports.png"},
-      {"text":"Finales","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/476/14956","img":"css/img/R6esports.png"}
-    ],
-    "Teams": [
-      {
-        "text": "TEAM FALCONS",
-        "img": "css/logos/TEAM FALCONS.png",
-        "links": [
-          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/265", "img": "css/img/STP.png" },
-          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/Team_Falcons", "img": "css/img/Liquipedia.png" }
-        ]
-      },
-             {
-        "text": "TEAM SECRET",
-        "img": "css/logos/TEAM SECRET.png",
-        "links": [
-          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/37", "img": "css/img/STP.png" },
-          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/Team_Secret", "img": "css/img/Liquipedia.png" }
-        ]
-      },
-       {
-        "text": "SPACESTATION GAMING",
-        "img": "css/logos/SPACESTATION GAMING.png",
-        "links": [
-          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/42", "img": "css/img/STP.png" },
-          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/Spacestation_Gaming", "img": "css/img/Liquipedia.png" }
-        ]
-      },       
-      {
-        "text": "SHOPIFY REBELLION",
-        "img": "css/logos/SHOPIFY REBELLION.png",
-        "links": [
-          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/43", "img": "css/img/STP.png" },
-          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/Shopify_Rebellion", "img": "css/img/Liquipedia.png" }
-        ]
-      },
-       {
-        "text": "M80",
-        "img": "css/logos/M80.png",
-        "links": [
-          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/229", "img": "css/img/STP.png" },
-          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/M80", "img": "css/img/Liquipedia.png" }
-        ]
-      },
-       {
-        "text": "WILDCARD",
-        "img": "css/logos/WILDCARD.png",
-        "links": [
-          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/59", "img": "css/img/STP.png" },
-          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/Wildcard", "img": "css/img/Liquipedia.png" }
-        ]
-      },
-       {
-        "text": "FAZE CLAN",
-        "img": "css/logos/FAZE CLAN.png",
-        "links": [
-          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/5", "img": "css/img/STP.png" },
-          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/FaZe_Clan", "img": "css/img/Liquipedia.png" }
-        ]
-      },
-       {
-        "text": "FURIA",
-        "img": "css/logos/FURIA.png",
-        "links": [
-          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/9", "img": "css/img/STP.png" },
-          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/FURIA", "img": "css/img/Liquipedia.png" }
-        ]
-      },
-       {
-        "text": "CAG OSAKA",
-        "img": "css/logos/CAG OSAKA.png",
-        "links": [
-          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/61", "img": "css/img/STP.png" },
-          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/CAG_Osaka", "img": "css/img/Liquipedia.png" }
-        ]
-      },
-       {
-        "text": "DPLUS KIA",
-        "img": "css/logos/DPLUS KIA.png",
-        "links": [
-          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/116", "img": "css/img/STP.png" },
-          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/Dplus", "img": "css/img/Liquipedia.png" }
-        ]
-      },
-         {
-        "text": "ENTERPRISE ESPORTS",
-        "img": "css/logos/ENTERPRISE ESPORTS.png",
-        "links": [
-          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/389", "img": "css/img/STP.png" },
-          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/ENTERPRISE_Esports", "img": "css/img/Liquipedia.png" }
-        ]
-      },
-      {
-        "text": "WEIBO GAMING",
-        "img": "css/logos/WEIBO GAMING.png",
-        "links": [
-          { "text": "Siege Talent Plaform", "url": "https://talent-tools.vercel.app/teams/380", "img": "css/img/STP.png" },
-          { "text": "Liquipedia", "url": "https://liquipedia.net/rainbowsix/Weibo_Gaming", "img": "css/img/Liquipedia.png" }
-        ]
-      }
-    ],
-    "Liquipedia": [
-      {"text":"Informations","url":"https://liquipedia.net/rainbowsix/BLAST_Major/2025","img":"css/img/Liquipedia.png"}
     ]
   },
 
