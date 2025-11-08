@@ -230,7 +230,7 @@ function updatePanels(league){
       const teams = leagueData[league][cat] || [];
 
       // ✅ calcul colonnes équilibrées (2 lignes max)
-      let cols = Math.ceil(teams.length / 2);
+      let cols = Math.ceil(teams.length / 4);
       teamsContainer.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
 
       teams.forEach(team=>{
