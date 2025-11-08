@@ -142,8 +142,11 @@
         ]
       }
     ],
-    "Liquipedia": [
-      {"text":"Informations","url":"https://liquipedia.net/rainbowsix/BLAST_Major/2025","img":"css/img/Liquipedia.png"}
+    "Links": [
+      {"text":"Informations","url":"https://liquipedia.net/rainbowsix/BLAST_Major/2025","img":"css/img/Liquipedia.png"},
+      {"text":"Swiss Stage","url":"https://liquipedia.net/rainbowsix/BLAST_Major/2025/Phase_2","img":"css/img/Liquipedia.png"},
+      {"text":"Majors.im","url":"https://r6.majors.im/2025/munich","img":"https://r6.majors.im/favicon.ico"}
+
     ],
     "SiegeGG": [
       {"text":"Competition","url":"https://siege.gg/competitions/74-blast-major-munich-2025","img":"https://gdm-universal-media.b-cdn.net/siege/Frame-48097714.png"},
