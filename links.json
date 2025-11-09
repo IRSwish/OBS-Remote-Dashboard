@@ -1,9 +1,17 @@
 {
   "MUNICH MAJOR": {
-    "R6 Esports": [
-      {"text":"Infos","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/476/overview","img":"css/img/R6esports.png"},
-      {"text":"Swiss","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/476/14955","img":"css/img/R6esports.png"},
-      {"text":"Finales","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/476/14956","img":"css/img/R6esports.png"}
+        "Links": [
+      {"text":"Informations","url":"https://liquipedia.net/rainbowsix/BLAST_Major/2025","img":"css/img/Liquipedia.png"},
+      {"text":"Swiss Stage","url":"https://liquipedia.net/rainbowsix/BLAST_Major/2025/Phase_2","img":"css/img/Liquipedia.png"},
+      {"text":"Majors.im","url":"https://r6.majors.im/2025/munich","img":"https://r6.majors.im/favicon.ico"},
+      {"text":"Youtube Cleanfeed A","url":"https://s.blast.tv/br6-world-a-N6XV","img":"https://www.youtube.com/favicon.ico"},
+      {"text":"Youtube Cleanfeed B","url":"https://s.blast.tv/br6-world-b-qb8t","img":"https://www.youtube.com/favicon.ico"},
+      {"text":"Planning Cast FR","url":"https://docs.google.com/spreadsheets/d/1AXbqSZKI7FjfQx_Ym46KmmTTqZD_N3iJ1Cour2EwxEA/edit?gid=2088438219#gid=2088438219","img":"https://www.gstatic.com/images/branding/product/1x/sheets_2020q4_48dp.png"},
+      {"text":"Predictions","url":"https://docs.google.com/spreadsheets/d/15qqaXpyeJei6aUYyJcFgJUtAoVsVdqFbW7VOq9Jse_8/edit?gid=780280017#gid=780280017","img":"https://www.gstatic.com/images/branding/product/1x/sheets_2020q4_48dp.png"},
+      {"text":"Infos Casters","url":"https://docs.google.com/spreadsheets/d/1jBXVMygaxCy2rk7c5spEJc0boDpLoL9O9Y3CtOekpKU/edit?gid=0#gid=0","img":"https://www.gstatic.com/images/branding/product/1x/sheets_2020q4_48dp.png"},
+      {"text":"RoS (Stream Offi)","url":"https://s.blast.tv/r6-rundown-dWEe","img":"https://www.youtube.com/favicon.ico"},
+      {"text":"Schedule","url":"https://docs.google.com/spreadsheets/d/1CW17GaNOn5-wA4s4AqqKhMyQ5sgd-RL4xnfuREX-G1g/edit?gid=658537022#gid=658537022","img":"https://www.gstatic.com/images/branding/product/1x/sheets_2020q4_48dp.png"},
+      {"text":"Admin HQ","url":"https://docs.google.com/spreadsheets/d/1NofJ9LP82YtiTyiuRqh-wJXlEdInLcXmNoE8TMS4jmg/edit?gid=1181405122#gid=1181405122","img":"https://www.gstatic.com/images/branding/product/1x/sheets_2020q4_48dp.png"}
     ],
     "STP League": [
       {"text":"Teams Stats","url":"https://talent-tools.vercel.app/competitions/476","img":"css/img/STP.png"},
@@ -142,18 +150,10 @@
         ]
       }
     ],
-    "Links": [
-      {"text":"Informations","url":"https://liquipedia.net/rainbowsix/BLAST_Major/2025","img":"css/img/Liquipedia.png"},
-      {"text":"Swiss Stage","url":"https://liquipedia.net/rainbowsix/BLAST_Major/2025/Phase_2","img":"css/img/Liquipedia.png"},
-      {"text":"Majors.im","url":"https://r6.majors.im/2025/munich","img":"https://r6.majors.im/favicon.ico"},
-      {"text":"Youtube Cleanfeed A","url":"https://s.blast.tv/br6-world-a-N6XV","img":"https://www.youtube.com/favicon.ico"},
-      {"text":"Youtube Cleanfeed B","url":"https://s.blast.tv/br6-world-b-qb8t","img":"https://www.youtube.com/favicon.ico"},
-      {"text":"Planning Cast FR","url":"https://docs.google.com/spreadsheets/d/1AXbqSZKI7FjfQx_Ym46KmmTTqZD_N3iJ1Cour2EwxEA/edit?gid=2088438219#gid=2088438219","img":"https://www.gstatic.com/images/branding/product/1x/sheets_2020q4_48dp.png"},
-      {"text":"Predictions","url":"https://docs.google.com/spreadsheets/d/15qqaXpyeJei6aUYyJcFgJUtAoVsVdqFbW7VOq9Jse_8/edit?gid=780280017#gid=780280017","img":"https://www.gstatic.com/images/branding/product/1x/sheets_2020q4_48dp.png"},
-      {"text":"Infos Casters","url":"https://docs.google.com/spreadsheets/d/1jBXVMygaxCy2rk7c5spEJc0boDpLoL9O9Y3CtOekpKU/edit?gid=0#gid=0","img":"https://www.gstatic.com/images/branding/product/1x/sheets_2020q4_48dp.png"},
-      {"text":"RoS (Stream Offi)","url":"https://s.blast.tv/r6-rundown-dWEe","img":"https://www.youtube.com/favicon.ico"},
-      {"text":"Schedule","url":"https://docs.google.com/spreadsheets/d/1CW17GaNOn5-wA4s4AqqKhMyQ5sgd-RL4xnfuREX-G1g/edit?gid=658537022#gid=658537022","img":"https://www.gstatic.com/images/branding/product/1x/sheets_2020q4_48dp.png"},
-      {"text":"Admin HQ","url":"https://docs.google.com/spreadsheets/d/1NofJ9LP82YtiTyiuRqh-wJXlEdInLcXmNoE8TMS4jmg/edit?gid=1181405122#gid=1181405122","img":"https://www.gstatic.com/images/branding/product/1x/sheets_2020q4_48dp.png"}
+    "R6 Esports": [
+      {"text":"Infos","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/476/overview","img":"css/img/R6esports.png"},
+      {"text":"Swiss","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/476/14955","img":"css/img/R6esports.png"},
+      {"text":"Finales","url":"https://www.ubisoft.com/fr-fr/esports/rainbow-six/siege/competition/476/14956","img":"css/img/R6esports.png"}
     ],
     "SiegeGG": [
       {"text":"Competition","url":"https://siege.gg/competitions/74-blast-major-munich-2025","img":"https://gdm-universal-media.b-cdn.net/siege/Frame-48097714.png"},
