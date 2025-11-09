@@ -145,7 +145,9 @@
     "Links": [
       {"text":"Informations","url":"https://liquipedia.net/rainbowsix/BLAST_Major/2025","img":"css/img/Liquipedia.png"},
       {"text":"Swiss Stage","url":"https://liquipedia.net/rainbowsix/BLAST_Major/2025/Phase_2","img":"css/img/Liquipedia.png"},
-      {"text":"Majors.im","url":"https://r6.majors.im/2025/munich","img":"https://r6.majors.im/favicon.ico"}
+      {"text":"Majors.im","url":"https://r6.majors.im/2025/munich","img":"https://r6.majors.im/favicon.ico"},
+      {"text":"Youtube Cleanfeed A","url":"https://s.blast.tv/br6-world-a-N6XV","img":"https://www.youtube.com/favicon.ico"},
+      {"text":"Youtube Cleanfeed B","url":"https://s.blast.tv/br6-world-b-qb8t","img":"https://www.youtube.com/favicon.ico"}
 
     ],
     "SiegeGG": [
