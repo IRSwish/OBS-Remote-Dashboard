@@ -14,6 +14,8 @@
       {"text":"Admin HQ","url":"https://docs.google.com/spreadsheets/d/1NofJ9LP82YtiTyiuRqh-wJXlEdInLcXmNoE8TMS4jmg/edit?gid=1181405122#gid=1181405122","img":"https://www.gstatic.com/images/branding/product/1x/sheets_2020q4_48dp.png"}
     ],
     "STP League": [
+      {"text":"Matches","url":"https://talent-tools.vercel.app/matches","img":"css/img/STP.png"},
+      {"text":"Competition","url":"https://talent-tools.vercel.app/competitions/476","img":"css/img/STP.png"},
       {"text":"Teams Stats","url":"https://talent-tools.vercel.app/competitions/476","img":"css/img/STP.png"},
       {"text":"Players Stats","url":"https://talent-tools.vercel.app/competitions/476?tab=players","img":"css/img/STP.png"},
       {"text":"Maps Stats","url":"https://talent-tools.vercel.app/competitions/476?tab=maps","img":"css/img/STP.png"},
