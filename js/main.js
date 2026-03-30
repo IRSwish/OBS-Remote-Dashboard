@@ -8,7 +8,7 @@ let streamStartTime = null;
 
 // Exemple de preview par défaut (juste l’ID)
 setPreview(0, "69CJFPh");
-setPreview(1, "GuestITWR6EMLS22025");
+setPreview(1, "GuestITWR6EMLS22026");
 setPreview(2, "rvFr2XN");
 
 // Connexion OBS
