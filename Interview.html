@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Interview Console</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://unpkg.com/lucide-static/font/lucide.css">
@@ -96,6 +97,64 @@
       border-color: rgba(201,168,76,0.6);
       text-decoration: line-through;
       opacity: 0.5;
+    }
+
+    /* ---------- MOBILE / TABLETTE ----------
+       Le dashboard est pense pour un ecran large : une colonne de cams + le chat
+       a cote, le tout cale sur la hauteur de la fenetre. Sur telephone ca donne
+       des vignettes minuscules et des controles intouchables, donc en dessous de
+       1024px on repasse en colonne unique et on laisse la page defiler. */
+    @media (max-width: 1024px) {
+      body { height: auto; min-height: 100vh; }
+      /* !important : .main porte un style inline, reecrit en plus par le bouton
+         « Cacher le chat » — sans ca le chat garderait sa colonne de 360px */
+      .main {
+        grid-template-columns: 1fr !important;
+        grid-auto-rows: min-content;
+      }
+      #previewPanel { min-height: 0; }
+      #previewContainer {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        /* sans ca les lignes s'etirent sur la hauteur du panneau et les vignettes
+           ne tiennent plus leur 16/9 */
+        align-content: start;
+        flex: none;
+      }
+      /* un <input> a une largeur minimale intrinseque (~20 caracteres) : sans
+         min-width:0 il ne retrecit pas et pousse les boutons hors du cadre */
+      .preview-controls input,
+      .chat-header input { min-width: 0; }
+      #previewContainer .preview-wrapper {
+        flex: none;
+        aspect-ratio: 16 / 9;
+      }
+      /* en grille, le flex:0 de .cam-hidden ne masque plus rien */
+      .preview-wrapper.cam-hidden { display: none; }
+      #chatPanel.chat-hidden { display: none; }
+      #chatFrame { flex: none; height: 55vh; min-height: 300px; }
+      .panel-title-row { flex-wrap: wrap; }
+      .panel-title-row h3 { flex: 1 0 100%; }
+    }
+
+    @media (max-width: 640px) {
+      /* une cam par ligne : en dessous, les controles se chevauchent */
+      #previewContainer { grid-template-columns: 1fr; }
+      /* cibles tactiles + police a 16px (sinon iOS zoome au focus) */
+      .preview-controls {
+        background: rgba(0,0,0,0.55);
+        border-radius: 8px;
+        padding: 6px;
+        gap: 8px;
+      }
+      .preview-controls input,
+      .chat-header input,
+      .chat-header button { font-size: 16px; padding: 8px; }
+      .icon-btn { width: 38px; height: 38px; flex: none; }
+      .preview-controls .icon-btn svg { width: 20px; height: 20px; }
+      .header-btn { padding: 8px 12px; font-size: 13px; }
+      .main { padding: 8px; gap: 8px; }
+      .panel { padding: 10px; }
     }
   </style>
 </head>
