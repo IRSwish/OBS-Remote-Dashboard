@@ -10,6 +10,8 @@ let streamStartTime = null;
 setPreview(0, "69CJFPh");
 setPreview(1, "GuestITWR6EMLS22026");
 setPreview(2, "rvFr2XN");
+setPreview(3, "EMLLASTSHOW4R62026");
+setPreview(4, "EMLLASTSHOW5R62026");
 
 // Connexion OBS
 const connectBtn = document.getElementById("connectBtn");
