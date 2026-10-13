@@ -53,6 +53,16 @@
       opacity: 0;
       pointer-events: none;
     }
+    /* 5 cams : 3 en haut, 2 en bas (centrees) */
+    #previewContainer {
+      flex-wrap: wrap;
+      align-content: stretch;
+      justify-content: center;
+    }
+    #previewContainer .preview-wrapper {
+      flex: 0 1 calc(33.333% - 4px);
+      min-width: 0;
+    }
     .preview-wrapper {
       border: 1px solid rgba(201,168,76,0.12);
       overflow: hidden;
@@ -98,6 +108,8 @@
           <button class="header-btn cam-toggle-btn" data-index="0">Cam 1</button>
           <button class="header-btn cam-toggle-btn" data-index="1">Cam 2</button>
           <button class="header-btn cam-toggle-btn" data-index="2">Cam 3</button>
+          <button class="header-btn cam-toggle-btn" data-index="3">Cam 4</button>
+          <button class="header-btn cam-toggle-btn" data-index="4">Cam 5</button>
           <button class="header-btn" id="toggleChat">Cacher le chat</button>
         </div>
         <div id="previewContainer">
@@ -112,6 +124,14 @@
           <div class="preview-wrapper">
             <div class="preview-controls"></div>
             <iframe id="preview3" src=""></iframe>
+          </div>
+          <div class="preview-wrapper">
+            <div class="preview-controls"></div>
+            <iframe id="preview4" src=""></iframe>
+          </div>
+          <div class="preview-wrapper">
+            <div class="preview-controls"></div>
+            <iframe id="preview5" src=""></iframe>
           </div>
         </div>
       </div>

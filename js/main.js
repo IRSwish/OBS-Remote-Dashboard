@@ -12,19 +12,22 @@ setPreview(1, "GuestITWR6EMLS22026");
 setPreview(2, "rvFr2XN");
 
 // Connexion OBS
-document.getElementById("connectBtn").addEventListener("click", () => {
+const connectBtn = document.getElementById("connectBtn");
+if (connectBtn) connectBtn.addEventListener("click", () => {
   const ip = document.getElementById("obsIP").value.trim();
   const pass = document.getElementById("obsPass").value.trim();
   connectOBS(ip, pass);
 });
 
 // Ajouter séparateur
-document.getElementById("addSeparatorBtn").addEventListener("click", () => 
+const addSeparatorBtn = document.getElementById("addSeparatorBtn");
+if (addSeparatorBtn) addSeparatorBtn.addEventListener("click", () => 
   addSeparator("Nouveau séparateur")
 );
 
 // Chat
-document.getElementById("loadChat").addEventListener("click", () => {
+const loadChatBtn = document.getElementById("loadChat");
+if (loadChatBtn) loadChatBtn.addEventListener("click", () => {
   const ch = document.getElementById("chatChannel").value.trim();
   loadChat(ch);
 });

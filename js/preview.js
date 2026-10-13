@@ -155,11 +155,10 @@ function createGuestModal(onSubmit) {
   };
 }
 
-const previews = [
-  { wrapper: document.getElementById("preview1").parentElement, iframe: document.getElementById("preview1") },
-  { wrapper: document.getElementById("preview2").parentElement, iframe: document.getElementById("preview2") },
-  { wrapper: document.getElementById("preview3").parentElement, iframe: document.getElementById("preview3") }
-];
+// on lit les previews depuis le DOM : ajouter un .preview-wrapper dans la page
+// suffit a avoir ses controles, sans toucher a ce fichier
+const previews = Array.from(document.querySelectorAll("#previewContainer iframe"))
+  .map(iframe => ({ wrapper: iframe.parentElement, iframe }));
 
 previews.forEach((p) => {
   let controls = p.wrapper.querySelector(".preview-controls");
